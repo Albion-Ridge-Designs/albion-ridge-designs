@@ -8,6 +8,7 @@ import {
   } from "@chakra-ui/react"
   import Parallax from "../parallax";
   import Contact from "../contact";
+  import TwoColumnPhotoText from "../twocolumnphototext";
   import windowflowers from '../../assets/windowflowers.jpg';
   import albionhouse1 from '../../assets/albionhouse1.jpg';
   import albionhouse2 from '../../assets/albionhouse2.jpg';
@@ -29,6 +30,20 @@ import {
                     </Text>
                 </Box>
             </Flex>
+            <TwoColumnPhotoText 
+                image={windowflowers} 
+                text={"Alexandre Edgar was born and raised in France but moved to America as a teenager. He made his way to California in 2020 and has recently settled on the beautiful Mendocino Coast with his wife and two cats. Outside of photography Alex enjoys playing guitar and meditation."}
+                imageLeft={true} 
+                bgColor="brand.300"
+                spacing={0}
+            />
+            <TwoColumnPhotoText 
+                image={windowflowers} 
+                text={"Alexandre Edgar was born and raised in France but moved to America as a teenager. He made his way to California in 2020 and has recently settled on the beautiful Mendocino Coast with his wife and two cats. Outside of photography Alex enjoys playing guitar and meditation."}
+                imageLeft={false} 
+                bgColor="brand.400"
+                spacing={0}
+            />
             <Contact />
         </>
       )
