@@ -1,0 +1,36 @@
+{
+  "name": "basic-template",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Frontity project",
+  "keywords": [
+    "frontity"
+  ],
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
+  "scripts": {
+    "dev": "frontity dev",
+    "build": "frontity build",
+    "serve": "frontity serve"
+  },
+  "prettier": {},
+  "dependencies": {
+    "@chakra-ui/react": "^1.8.8",
+    "@frontity/core": "^1.16.0",
+    "@frontity/html2react": "^1.7.0",
+    "@frontity/tiny-router": "^1.4.4",
+    "@frontity/wp-source": "^1.11.7",
+    "@hookform/error-message": "^2.0.0",
+    "albion-ridge-designs": "file:packages/albion-ridge-designs",
+    "basic-template": "file:packages/basic-template",
+    "dayjs": "^1.11.5",
+    "emailjs-com": "^3.2.0",
+    "framer-motion": "^4.1.17",
+    "frontity": "^1.17.2",
+    "react-hook-form": "^7.37.0",
+    "react-icons": "^4.6.0",
+    "webfontloader": "^1.6.28"
+  }
+}
