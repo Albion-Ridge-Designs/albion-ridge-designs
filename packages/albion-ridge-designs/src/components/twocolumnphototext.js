@@ -10,7 +10,7 @@ import {
   } from "@chakra-ui/react"
   import { styled } from "frontity";
   
-  function TwoColumnPhotoText({ image, text, imageLeft, imageBackground, bgColor, spacing }) {
+  function TwoColumnPhotoText({ image, text, imageLeft, color, bgColor, spacing }) {
       return (
         <>
         {imageLeft === true &&
@@ -25,7 +25,7 @@ import {
                 </Box>
            
                     <Flex p={20} bg={bgColor} color="brand.100" alignItems="center" justifyContent="center">
-                        <Text pb={5}>
+                        <Text pb={5} color={color}>
                             {text}
                         </Text>
                     </Flex>
@@ -36,7 +36,7 @@ import {
         {imageLeft === false &&
             <SimpleGrid columns={{base: 1, sm: 2}} spacing={spacing} minHeight="600px">
                 <Flex p={20} bg={bgColor} color="brand.100" alignItems="center" justifyContent="center">
-                    <Text pb={5}>
+                    <Text pb={5} color={color}>
                         {text}
                     </Text>
                 </Flex>
