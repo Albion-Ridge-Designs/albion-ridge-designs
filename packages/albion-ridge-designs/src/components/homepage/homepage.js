@@ -20,7 +20,7 @@ import {
   function Homepage() {
       return (
         <>
-            <Parallax image={mendotrees} text="Welcome to Albion Ridge Designs" includeText={true} height="600px" position="bottom" />
+            <Parallax image={mendotrees} text="" includeText={true} height="600px" position="bottom" />
             <Flex direction="column" justifyContent="center" alignItems="center">
                 <Box m={20} color="brand.100">
                     <Text pb={5} textAlign="justify">
