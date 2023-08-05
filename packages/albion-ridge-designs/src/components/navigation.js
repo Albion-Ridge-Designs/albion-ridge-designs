@@ -12,21 +12,28 @@ import {
   Text,
   Flex,
   Icon,
+  Image,
   useDisclosure
 } from '@chakra-ui/react';
 import { FiMenu, FiMail, FiPhone } from "react-icons/fi";
 import { FaInstagram } from 'react-icons/fa';
 import Link from "@frontity/components/link";
+import amaltalogo from '../assets/branding/amaltalogo.png';
+import auroralogo from '../assets/branding/auroralogo.png';
+import eposmediumlogo from '../assets/branding/eposmediumlogo.png';
+import eposregularlogo from '../assets/branding/eposregularlogo.png';
+import healthgothlogo from '../assets/branding/healthgothlogo.png';
 
 function Navigation() {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const btnRef = React.useRef();
   
     return (
-        <Flex direction="row" bg="brand.600" padding={5} justify="space-between">
+        <Flex direction="row" bg="brand.300" padding={5} justify="space-between">
             <Flex>
                 <Link link="/">
-                    <Heading size="lg" color="brand.700">Albion Ridge Designs</Heading>
+                    <Heading size="lg" color="brand.800">Albion Ridge Designs</Heading>
+                    {/* <Image src={auroralogo} height="60px"/> */}
                 </Link>
             </Flex>
 

@@ -28,17 +28,86 @@ const Root = ({ state }) => {
 
     const theme = extendTheme({
       colors: {
-        brand: {
+        brand0: {
           100: "#1D1A05",  // smoky black
-          200: "#FAFAFF",  // ghost white
+          200: "#333333",  // blackAlpha.800
           300: "#F4D35E",  // chartreuse/aureolin
           400: "#9C6615",  // golden brown
           500: "#447604",  // avocado
           600: "#001427",  // oxford blue
-          700: "#FEFAF1",  // white
-          800: "#333333",  // blackAlpha.800
-          
+          700: "#FAFAFF",  // ghost white
+          800: "#FEFAF1",  // white
         },
+        brand: {
+          100: "#1D1A05",  // smoky black
+          200: "#333333",  // blackAlpha.800
+          300: "#2C685D",  // myrtle green
+          400: "#FCB07E",  // sandy brown
+          500: "#DEE2D6",  // alabaster
+          600: "#EBE9E9",  // platinum
+          700: "#F3F8F2",  // mint cream
+          800: "#FEFAF1",  // white
+        },
+        brand2: {
+          100: "#1D1A05",  // smoky black
+          200: "#333333",  // blackAlpha.800
+          300: "#2C685D",  // myrtle green
+          400: "#96A13A",  // moss green
+          500: "#BFDBF7",  // columbia blue
+          600: "#E1E5F2",  // lavender (web)
+          700: "#FFFFFF",  // white
+          800: "#FEFAF1",  // white
+        },
+        brand3: {
+          100: "#1D1A05",  // smoky black
+          200: "#333333",  // blackAlpha.800
+          300: "#2C685D",  // myrtle green
+          400: "#F08700",  // tangerine
+          500: "#F49F0A",  // gamboge
+          600: "#EFCA08",  // jonquil
+          700: "#BBDEF0",  // columbia blue
+          800: "#FEFAF1",  // white
+        },
+        brand4: {
+          100: "#1D1A05",  // smoky black
+          200: "#333333",  // blackAlpha.800
+          300: "#2C685D",  // myrtle green
+          400: "#001427",  // oxford blue
+          500: "#8D0801",  // dark red
+          600: "#BF0603",  // engineering orange
+          700: "#F4D58D",  // jasmine
+          800: "#FEFAF1",  // white
+        },
+        // brand5: {
+        //   100: "#1D1A05",  // smoky black
+        //   200: "#333333",  // blackAlpha.800
+        //   300: "#2C685D",  // myrtle green
+        //   400: "#2F3061",  // delft blue
+        //   500: "#0E34A0",  // egyptian blue
+        //   600: "#DBD56E",  // straw
+        //   700: "#DFDFDF",  // platinum
+        //   800: "#FEFAF1",  // white
+        // },
+        // brand6: {
+        //   100: "#1D1A05",  // smoky black
+        //   200: "#333333",  // blackAlpha.800
+        //   300: "#2C685D",  // myrtle green
+        //   400: "#826754",  // coyote
+        //   500: "#AD5D4E",  // redwood
+        //   600: "#EB6534",  // giants orange
+        //   700: "#ACBEA3",  // ash gray
+        //   800: "#FEFAF1",  // white
+        // },
+        // brand7: {
+        //   100: "#1D1A05",  // smoky black
+        //   200: "#333333",  // blackAlpha.800
+        //   300: "#2C685D",  // myrtle green
+        //   400: "#E76F51",  // burnt sienna
+        //   500: "#F4A261",  // sandy brown
+        //   600: "#E9C46A",  // saffron
+        //   700: "#A5D8FF",  // uranian blue
+        //   800: "#FEFAF1",  // white
+        // },
       },
       fonts: {
         heading: "Lora",
@@ -104,16 +173,16 @@ const Root = ({ state }) => {
           gridTemplateRows={'80px 1fr 70px'}
           gridTemplateColumns={'1fr'}
           minHeight='100vh'
-          gap='1'
+          gap='0'
           color='blackAlpha.400'
           fontWeight='bold'
-          bg="brand.800"
+          bg="brand.500"
         >
-          <GridItem bg='orange.300' area={'header'}>
+          <GridItem bg='brand.300' area={'header'}>
             <Navigation /> 
           </GridItem>
 
-          <GridItem bg='brand.200' area={'main'}>
+          <GridItem bg='brand.800' area={'main'}>
             {state.router.link === "/" &&
               <Homepage />
             }

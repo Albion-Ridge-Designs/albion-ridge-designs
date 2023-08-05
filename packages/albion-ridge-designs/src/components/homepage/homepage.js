@@ -35,8 +35,8 @@ import {
                 image={windowflowers} 
                 text={"Alexandre Edgar was born and raised in France but moved to America as a teenager. He made his way to California in 2020 and has recently settled on the beautiful Mendocino Coast with his wife and two cats. Outside of photography Alex enjoys playing guitar and meditation."}
                 imageLeft={true} 
-                bgColor="brand.300"
-                color="brand.800"
+                bgColor="brand.500"
+                color="brand.100"
                 spacing={0}
             />
             <TwoColumnPhotoText 

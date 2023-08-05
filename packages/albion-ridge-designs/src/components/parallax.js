@@ -16,7 +16,7 @@ import {
                 alignItems="center"
             >
                 {includeText &&
-                    <Heading color="brand.200">{text}</Heading>
+                    <Heading color="brand.800">{text}</Heading>
                 }
             </Flex>
         
@@ -36,7 +36,7 @@ import {
     z-index: 0;
 
     &:before {
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.4);
         content: "";
         height: 100%;
         left: 0;
