@@ -10,7 +10,7 @@ import Link from "@frontity/components/link";
 
 function Footer() {
     return (
-        <Flex direction="row" bg="brand.600" padding={5} justify="space-between">
+        <Flex direction="row" bg="brand.800" padding={5} justify="space-between">
             <Flex>
                 <Text size="lg" color="brand.200">Albion Ridge Designs © 2023</Text>
             </Flex>

@@ -173,16 +173,16 @@ const Root = ({ state }) => {
           gridTemplateRows={'80px 1fr 70px'}
           gridTemplateColumns={'1fr'}
           minHeight='100vh'
-          gap='0'
+          gap='1'
           color='blackAlpha.400'
           fontWeight='bold'
-          bg="brand.500"
+          bg="brand.800"
         >
           <GridItem bg='brand.300' area={'header'}>
             <Navigation /> 
           </GridItem>
 
-          <GridItem bg='brand.800' area={'main'}>
+          <GridItem bg='brand.600' area={'main'}>
             {state.router.link === "/" &&
               <Homepage />
             }
@@ -195,7 +195,7 @@ const Root = ({ state }) => {
             </Switch>
           </GridItem>
 
-          <GridItem bg='blue.300' area={'footer'}>
+          <GridItem area={'footer'}>
             <Footer />
           </GridItem>
         </Grid>

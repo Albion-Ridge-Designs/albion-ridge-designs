@@ -39,9 +39,9 @@ function Contact() {
     }
 
     return (
-        <Flex direction="column" align="center" bg="brand.300">
+        <Flex direction="column" align="center" bg="brand.600">
             <Flex id="introduction" direction="column" justify="center" minWidth="50%" ml="15%" mr="15%" mb={10} mt={10}>
-            <Heading size="xl" color="brand.700" fontWeight="500" mt={5} mb={5} width="100%" textAlign="center">Contact</Heading>
+            <Heading size="xl" color="brand.100" fontWeight="500" mt={5} mb={5} width="100%" textAlign="center">Contact</Heading>
             <Box
                 bg="bg-surface"
                 boxShadow="sm"
@@ -61,30 +61,30 @@ function Contact() {
                     }}>
                         <form onSubmit={handleSubmit(onFormSubmit)}> 
                         <FormControl id="fromName">
-                            <FormLabel htmlFor="fromName" color="brand.700" fontSize="lg">Name:</FormLabel>
-                            <Input name="fromName" color="brand.700" fontSize="lg" variant="outline" focusBorderColor='brand.400' {...register("fromName", { required: "This is required."})} />
+                            <FormLabel htmlFor="fromName" color="brand.100" fontSize="lg">Name:</FormLabel>
+                            <Input name="fromName" color="brand.100" fontSize="lg" variant="outline" focusBorderColor='brand.500' style={{ border: "2px solid black"}} {...register("fromName", { required: "This is required."})} />
                             <ErrorMessage errors={errors} name="fromName" render={({ message }) => <p className="error-message"><BiErrorCircle /> {message} </p>}/>
                         </FormControl>
                         <FormControl id="replyTo" mt={5}>
-                            <FormLabel htmlFor="replyTo" color="brand.700" fontSize="lg">Email:</FormLabel>
-                            <Input name="replyTo" color="brand.700" fontSize="lg" variant="outline" focusBorderColor='brand.400' {...register("replyTo", { required: "This is required."})} />
+                            <FormLabel htmlFor="replyTo" color="brand.100" fontSize="lg">Email:</FormLabel>
+                            <Input name="replyTo" color="brand.100" fontSize="lg" variant="outline" focusBorderColor='brand.500' style={{ border: "2px solid black"}} {...register("replyTo", { required: "This is required."})} />
                             <ErrorMessage errors={errors} name="replyTo" render={({ message }) => <p className="error-message"><BiErrorCircle /> {message} </p>}/>
                         </FormControl>
                         <FormControl id="message" mt={5}>
-                            <FormLabel htmlFor="message" color="brand.700" fontSize="lg">Message:</FormLabel>
-                            <Textarea name="message" color="brand.700" fontSize="lg" variant="outline" focusBorderColor='brand.400' {...register("message")} />
+                            <FormLabel htmlFor="message" color="brand.100" fontSize="lg">Message:</FormLabel>
+                            <Textarea name="message" color="brand.100" fontSize="lg" variant="outline" focusBorderColor='brand.500' style={{ border: "2px solid black"}} {...register("message")} />
                             <ErrorMessage errors={errors} name="message" render={({ message }) => <p className="error-message"><BiErrorCircle /> {message} </p>}/>
                         </FormControl>
                         <Button 
                             type="submit"
                             size="md"
-                            borderColor="brand.700"
+                            borderColor="brand.100"
                             borderWidth="2px"
                             background="transparent"
                             mt={8}
-                            _hover={{ borderColor: "brand.400", bg: "brand.400" }}
+                            _hover={{ bg: "brand.700" }}
                         >
-                            <Text color="brand.700">
+                            <Text color="brand.100">
                                 Submit
                             </Text>
                         </Button>
