@@ -38,7 +38,7 @@ const Root = ({ state }) => {
           700: "#FAFAFF",  // ghost white
           800: "#FEFAF1",  // white
         },
-        brand: {
+        brand1: {
           100: "#1D1A05",  // smoky black
           200: "#333333",  // blackAlpha.800
           300: "#2C685D",  // myrtle green
@@ -78,16 +78,16 @@ const Root = ({ state }) => {
           700: "#F4D58D",  // jasmine
           800: "#FEFAF1",  // white
         },
-        // brand5: {
-        //   100: "#1D1A05",  // smoky black
-        //   200: "#333333",  // blackAlpha.800
-        //   300: "#2C685D",  // myrtle green
-        //   400: "#2F3061",  // delft blue
-        //   500: "#0E34A0",  // egyptian blue
-        //   600: "#DBD56E",  // straw
-        //   700: "#DFDFDF",  // platinum
-        //   800: "#FEFAF1",  // white
-        // },
+        brand: {
+          100: "#1D1A05",  // smoky black
+          200: "#333333",  // blackAlpha.800
+          300: "#2C685D",  // myrtle green
+          400: "#2F3061",  // delft blue
+          500: "#0E34A0",  // egyptian blue
+          600: "#DBD56E",  // straw
+          700: "#DFDFDF",  // platinum
+          800: "#FEFAF1",  // white
+        },
         // brand6: {
         //   100: "#1D1A05",  // smoky black
         //   200: "#333333",  // blackAlpha.800

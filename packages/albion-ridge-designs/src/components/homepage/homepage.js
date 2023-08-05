@@ -13,11 +13,14 @@ import {
   import windowflowers from '../../assets/windowflowers.jpg';
   import albionhouse1 from '../../assets/albionhouse1.jpg';
   import albionhouse2 from '../../assets/albionhouse2.jpg';
+  import guitarcarpet1600 from '../../assets/guitarcarpet1600.jpg';
+  import mendotrees from '../../assets/mendotrees.jpg';
+  import mailbox from '../../assets/mailbox.jpg';
   
   function Homepage() {
       return (
         <>
-            <Parallax image={albionhouse1} text="Welcome to Albion Ridge Designs" includeText={true} height="600px" />
+            <Parallax image={mendotrees} text="Welcome to Albion Ridge Designs" includeText={true} height="600px" position="bottom" />
             <Flex direction="column" justifyContent="center" alignItems="center">
                 <Box m={20} color="brand.100">
                     <Text pb={5} textAlign="justify">
@@ -32,7 +35,7 @@ import {
                 </Box>
             </Flex>
             <TwoColumnPhotoText 
-                image={windowflowers} 
+                image={guitarcarpet1600} 
                 text={"Alexandre Edgar was born and raised in France but moved to America as a teenager. He made his way to California in 2020 and has recently settled on the beautiful Mendocino Coast with his wife and two cats. Outside of photography Alex enjoys playing guitar and meditation."}
                 imageLeft={true} 
                 bgColor="brand.500"
@@ -40,7 +43,7 @@ import {
                 spacing={0}
             />
             <TwoColumnPhotoText 
-                image={windowflowers} 
+                image={mailbox} 
                 text={"Alexandre Edgar was born and raised in France but moved to America as a teenager. He made his way to California in 2020 and has recently settled on the beautiful Mendocino Coast with his wife and two cats. Outside of photography Alex enjoys playing guitar and meditation."}
                 imageLeft={false} 
                 bgColor="brand.400"

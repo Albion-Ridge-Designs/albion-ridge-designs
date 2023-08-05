@@ -29,18 +29,19 @@ function Navigation() {
     const btnRef = React.useRef();
   
     return (
-        <Flex direction="row" bg="brand.300" padding={5} justify="space-between">
+        <Flex direction="row" bg="brand.800" padding={5} justify="space-between">
             <Flex>
                 <Link link="/">
-                    <Heading size="lg" color="brand.800">Albion Ridge Designs</Heading>
-                    {/* <Image src={auroralogo} height="60px"/> */}
+                    {/* <Heading size="lg" color="brand.800">Albion Ridge Designs</Heading> */}
+                    <Image src={amaltalogo} height="60px"/>
+                    {/* <Image src={eposregularlogo} height="60px"/> */}
                 </Link>
             </Flex>
 
             <Flex direction="row">
 
-                <Button ref={btnRef} ml={3} mr={3} bg="brand.700" onClick={onOpen}>
-                    <Icon as={FiMenu} color="brand.800" boxSize={7} />
+                <Button ref={btnRef} ml={3} mr={3} bg="brand.600" onClick={onOpen}>
+                    <Icon as={FiMenu} color="brand.300" boxSize={7} />
                 </Button>
 
                 <Drawer
