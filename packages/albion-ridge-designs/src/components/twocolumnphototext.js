@@ -14,7 +14,7 @@ import {
       return (
         <>
         {imageLeft === true &&
-            <SimpleGrid columns={{base: 1, sm: 2}} spacing={spacing} minHeight="600px">
+            <SimpleGrid columns={{base: 1, sm: 2}} spacing={spacing} minHeight="fit-content">
                 
                 <Box
                     backgroundImage={image}
