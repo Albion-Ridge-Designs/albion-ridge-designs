@@ -1,5 +1,6 @@
 
 import React from "react"
+import { styled } from "frontity";
 import {
     Flex,
     Box,
@@ -56,3 +57,31 @@ import {
   }
   
   export default Homepage;
+
+  const Storybook = styled.p`
+  &:first-letter {
+      /* initial-letter: 2; */
+    font-family: Amalta;
+
+    -webkit-initial-letter: 4 5;
+    initial-letter: 4 5;
+    background: lightyellow;
+    border: 10px solid #000;
+    color: orange;
+    font-weight: bold;
+    margin-right: 1em;
+    padding: 2em;
+
+    /* -webkit-initial-letter: 4;
+    initial-letter: 4;
+    color: orange;
+    font-weight: bold;
+    margin-right: .75em; */
+
+    /* -webkit-initial-letter: 4 1;
+    initial-letter: 4 1;
+    color: orange;
+    font-weight: bold;
+    margin-right: .75em; */
+  }
+`
