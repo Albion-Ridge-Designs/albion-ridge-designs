@@ -1,4 +1,5 @@
 import React from "react";
+import { styled } from "frontity";
 import {
   Button,
   Drawer,
@@ -29,18 +30,19 @@ function Navigation() {
     const btnRef = React.useRef();
   
     return (
-        <Flex direction="row" bg="brand.800" padding={5} justify="space-between">
+        <Flex direction="row" bg="brand.600" padding={5} justify="space-between">
             <Flex>
                 <Link link="/">
-                    {/* <Heading size="lg" color="brand.800">Albion Ridge Designs</Heading> */}
-                    <Image src={amaltalogo} height="60px"/>
+                    <Logo><Heading size="2xl" color="brand.300">Albion Ridge Designs</Heading></Logo>
+                    
+                    {/* <Image src={amaltalogo} height="60px"/> */}
                     {/* <Image src={eposregularlogo} height="60px"/> */}
                 </Link>
             </Flex>
 
             <Flex direction="row">
 
-                <Button ref={btnRef} ml={3} mr={3} bg="brand.600" onClick={onOpen}>
+                <Button ref={btnRef} ml={3} mr={3} bg="brand.800" onClick={onOpen}>
                     <Icon as={FiMenu} color="brand.300" boxSize={7} />
                 </Button>
 
@@ -51,7 +53,7 @@ function Navigation() {
                     finalFocusRef={btnRef}
                     >
                 <DrawerOverlay />
-                <DrawerContent bg="brand.300" color="blackAlpha.800">
+                <DrawerContent bg="brand.600" color="brand.300">
                     <DrawerCloseButton />
                     <DrawerHeader>
                         <Link link="/">
@@ -71,9 +73,9 @@ function Navigation() {
 
                     <DrawerFooter>
                         <Flex direction="row">
-                            <a href="mailto:alexandrewedgar@gmail.com"><Icon as={FiMail} color="blackAlpha.800" boxSize={7} mr={3}></Icon></a>
-                            <Link link="https://instagram.com/alexandrewedgar"><Icon as={FaInstagram} color="blackAlpha.800" boxSize={7} mr={3}></Icon></Link>
-                            <a href="tel:669-437-0406"><Icon as={FiPhone} color="blackAlpha.800" boxSize={7} mr={3}></Icon></a>
+                            <a href="mailto:alexandrewedgar@gmail.com"><Icon as={FiMail} color="brand.300" boxSize={7} mr={3}></Icon></a>
+                            <Link link="https://instagram.com/alexandrewedgar"><Icon as={FaInstagram} color="brand.300" boxSize={7} mr={3}></Icon></Link>
+                            <a href="tel:669-437-0406"><Icon as={FiPhone} color="brand.300" boxSize={7} mr={3}></Icon></a>
                         </Flex>
                     </DrawerFooter>
                 </DrawerContent>
@@ -85,3 +87,9 @@ function Navigation() {
 
   export default Navigation;
   
+  const Logo = styled.h1`
+    color: #2C685D;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    padding: .5em;
+`

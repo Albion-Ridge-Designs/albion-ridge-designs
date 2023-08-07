@@ -21,6 +21,8 @@ import Page from "./page";
 import Navigation from "./navigation";
 import Footer from "./footer";
 import Loading from "./loading";
+import Amalta from '../assets/fonts/Amalta-Amalta-Web.ttf';
+import Graphik from '../assets/fonts/Graphik-Regular-Web.ttf';
 
 const Root = ({ state }) => {
     const data = state.source.get(state.router.link);
@@ -48,7 +50,7 @@ const Root = ({ state }) => {
           700: "#F3F8F2",  // mint cream
           800: "#FEFAF1",  // white
         },
-        brand2: {
+        brand: {
           100: "#1D1A05",  // smoky black
           200: "#333333",  // blackAlpha.800
           300: "#2C685D",  // myrtle green
@@ -78,7 +80,7 @@ const Root = ({ state }) => {
           700: "#F4D58D",  // jasmine
           800: "#FEFAF1",  // white
         },
-        brand: {
+        brand5: {
           100: "#1D1A05",  // smoky black
           200: "#333333",  // blackAlpha.800
           300: "#2C685D",  // myrtle green
@@ -110,8 +112,8 @@ const Root = ({ state }) => {
         // },
       },
       fonts: {
-        heading: "Lora",
-        body: "Montserrat"
+        heading: "Amalta",
+        body: "Graphik"
       }
     });
   
@@ -131,9 +133,20 @@ const Root = ({ state }) => {
             padding: 0;
             box-sizing: border-box;
           }
-          html {
-            font-family: "Montserrat";
-          }
+          @font-face {
+          font-family: "Amalta";
+          font-style: normal;
+          font-weight: normal;
+          font-display: fallback;
+          src: url("${Amalta}") format("truetype");
+        }
+        @font-face {
+          font-family: "Graphik";
+          font-style: normal;
+          font-weight: normal;
+          font-display: fallback;
+          src: url("${Graphik}") format("truetype");
+        }
           li {
             line-height: 1.85em;
           }
@@ -182,7 +195,7 @@ const Root = ({ state }) => {
             <Navigation /> 
           </GridItem>
 
-          <GridItem bg='brand.600' area={'main'}>
+          <GridItem bg='brand.400' area={'main'}>
             {state.router.link === "/" &&
               <Homepage />
             }

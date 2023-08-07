@@ -19,7 +19,9 @@ export default {
                 "Oswald:300",
                 "Oswald:400",
                 "Oswald:600",
-                "Lora:400"
+                "Lora:400",
+                "Lato:400",
+                "Roboto:400"
 
               ],
             },

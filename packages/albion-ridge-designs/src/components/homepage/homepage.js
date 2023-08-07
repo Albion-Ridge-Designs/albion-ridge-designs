@@ -24,13 +24,13 @@ import {
             <Flex direction="column" justifyContent="center" alignItems="center">
                 <Box m={20} color="brand.100">
                     <Text pb={5} textAlign="justify">
-                        Alexandre Edgar was born and raised in France but moved to America as a teenager. He made his way to California in 2020 and has recently settled on the beautiful Mendocino Coast with his wife and two cats. Outside of photography Alex enjoys playing guitar and meditation.
+                        Inexpedient depths against love suicide burying. Revaluation free fearful sea passion evil inexpedient salvation society intentions disgust noble intentions.
                     </Text>
                     <Text pb={5} textAlign="justify">
-                        For him photography is a practice of being in the moment and cultivating greater attention. Photography and meditation work together in synergy to cultivate an attitude of playfulness and being open to what the moment itself is offering.
+                        Convictions abstract mountains joy victorious hatred abstract selfish derive deceptions evil fearful. Victorious ultimate mountains intentions war aversion evil eternal-return disgust contradict.
                     </Text>
                     <Text pb={5} textAlign="justify">
-                        Alexandre is available to shoot headshots, outdoor portraits, and photos for real estate listings. If you are interested in a portrait shoot in Mendocino he can suggest locations for stunning photos.
+                        Contradict deceptions moral free good war intentions derive zarathustra merciful ultimate. Virtues evil inexpedient law prejudice sexuality hope snare morality faith ocean intentions. Marvelous suicide value decrepit law deceptions. Battle mountains oneself salvation salvation insofar noble madness insofar superiority war. Noble contradict play justice abstract revaluation. War transvaluation horror enlightenment ascetic eternal-return grandeur convictions fearful strong derive.
                     </Text>
                 </Box>
             </Flex>
@@ -46,7 +46,7 @@ import {
                 image={mailbox} 
                 text={"Alexandre Edgar was born and raised in France but moved to America as a teenager. He made his way to California in 2020 and has recently settled on the beautiful Mendocino Coast with his wife and two cats. Outside of photography Alex enjoys playing guitar and meditation."}
                 imageLeft={false} 
-                bgColor="brand.400"
+                bgColor="brand.300"
                 color="brand.700"
                 spacing={0}
             />
