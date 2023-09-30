@@ -1,5 +1,5 @@
 {
-  "name": "basic-template",
+  "name": "albion-ridge-designs",
   "version": "1.0.0",
   "private": true,
   "description": "Frontity project",
@@ -12,7 +12,7 @@
   },
   "scripts": {
     "dev": "frontity dev",
-    "build": "frontity build",
+    "build": "node -v && frontity build && node -v",
     "serve": "frontity serve"
   },
   "prettier": {},
@@ -24,13 +24,19 @@
     "@frontity/wp-source": "^1.11.7",
     "@hookform/error-message": "^2.0.0",
     "albion-ridge-designs": "file:packages/albion-ridge-designs",
-    "basic-template": "file:packages/basic-template",
+    "axios": "^1.5.0",
     "dayjs": "^1.11.5",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^4.1.17",
     "frontity": "^1.17.2",
+    "keen-slider": "^6.8.6",
+    "node": "12.0.0",
+    "react-chrono": "^1.12.1",
     "react-hook-form": "^7.37.0",
     "react-icons": "^4.6.0",
+    "react-text-transition": "^1.3.0",
+    "react-type-animation": "^3.1.0",
+    "use-font-face-observer": "^1.2.1",
     "webfontloader": "^1.6.28"
   }
 }

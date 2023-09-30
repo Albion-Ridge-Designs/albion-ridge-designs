@@ -1,8 +1,8 @@
 const settings = {
-  "name": "basic-template",
+  "name": "albion-ridge-designs",
   "state": {
     "frontity": {
-      "url": "https://gph.fxx.mybluehost.me/",
+      "url": "https://wptemplates.albionridgedesigns.com/",
       "title": "Albion Ridge Designs -- Basic Template",
       "description": "Starter theme for projects"
     }
@@ -23,20 +23,35 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "api": "http://gph.fxx.mybluehost.me/.website_64054993/wp-json",
+          "api": "https://wptemplates.albionridgedesigns.com/wp-json",
           "params": {
             acf_format: "standard",
           },
-          "url": "http://gph.fxx.mybluehost.me/.website_64054993",
+          "url": "https://wptemplates.albionridgedesigns.com/",
           "postsPage": "/blog",
           "homepage": "/homepage", // seems like this fixed it
-          // "postTypes": [
-          //   {
-          //     type: "gallery",
-          //     endpoint: "gallery",
-          //     archive: "/gallery_category"
-          //   },
-          // ],
+          "postTypes": [
+            {
+              type: "menu",
+              endpoint: "menu",
+              archive: "/menu_category"
+            },
+            {
+              type: "review",
+              endpoint: "review",
+              archive: "/review_category"
+            },
+            {
+              type: "offering",
+              endpoint: "offering",
+              archive: "/offering_category"
+            },
+            {
+              type: "timeline",
+              endpoint: "timeline",
+              archive: "/timeline_category"
+            },
+          ],
         }
       },
     },
