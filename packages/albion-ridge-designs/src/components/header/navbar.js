@@ -9,11 +9,9 @@ import {
     DrawerContent,
     DrawerCloseButton,
     Heading,
-    Text,
     Flex,
     Icon,
-    useDisclosure,
-    useMediaQuery
+    useDisclosure
   } from "@chakra-ui/react";
 import { FiMenu } from "react-icons/fi";
 import Link from "@frontity/components/link";
@@ -52,11 +50,7 @@ function Navbar({ sticky, menuItems, menuData, siteDomain, siteName }) {
             <Flex>
                 {isFontLoaded &&
                 <Link link="/">
-                    <Logo>
-                        <Heading size="2xl" color="brand.500" fontFamily="Amalta">
-                            {siteName}
-                        </Heading>
-                    </Logo>
+                    <Logo><Heading size="2xl" color="brand.500" fontFamily="Amalta">{siteName}</Heading></Logo>
                 </Link>
                 }
             </Flex>
@@ -92,11 +86,7 @@ function Navbar({ sticky, menuItems, menuData, siteDomain, siteName }) {
         <NavigationSticky>
             <Flex direction="column">
                 <Link link="/">
-                    <Logo>
-                        <Heading size="2xl" color="brand.500" fontFamily="Amalta">
-                            {siteName}
-                        </Heading>
-                    </Logo>
+                    <Logo><Heading size="2xl" color="brand.500" fontFamily="Amalta">{siteName}</Heading></Logo>
                 </Link>
                 {/* <Flex direction="row" width="100%" justifyContent="center">
                     <Flex direction="row" width="65%" justifyContent="space-around">
@@ -176,7 +166,7 @@ const NavigationSticky = styled.div`
 }
 `
 
-const Logo = styled.span`
+const Logo = styled.h1`
     color: #2C685D;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
@@ -184,3 +174,14 @@ const Logo = styled.span`
     padding-left: .5em;
     padding-right: .5em;
 `
+
+
+         {/* <Flex direction="row" width="100%" justifyContent="center">
+                    <Flex direction="row" width="65%" justifyContent="space-around">
+                        <Text fontSize="lg" fontWeight="600" letterSpacing="1px" textAlign="center" color="brand.200">Websites</Text>
+                        <Text fontSize="lg" fontWeight="600" letterSpacing="1px" textAlign="center" color="brand.200">for</Text>
+                        <Text fontSize="lg" fontWeight="600" letterSpacing="1px" textAlign="center" color="brand.200">Humans,</Text>
+                        <Text fontSize="lg" fontWeight="600" letterSpacing="1px" textAlign="center" color="brand.200">by</Text>
+                        <Text fontSize="lg" fontWeight="600" letterSpacing="1px" textAlign="center" color="brand.200">Humans</Text>
+                    </Flex>
+                </Flex> */}
