@@ -211,7 +211,7 @@ function ApplicationForm({ packageSelection }) {
     flex-direction: row;
     color: red;
 `
-const AnimatedText = styled.span`
+const AnimatedText = styled.div`
   -webkit-animation: colorchange 10s infinite alternate;
   -moz-animation: colorchange 10s infinite alternate;
   animation: colorchange 10s infinite alternate;
