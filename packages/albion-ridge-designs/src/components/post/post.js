@@ -7,13 +7,13 @@ import {
   Flex,
   Box,
 } from '@chakra-ui/react';
-import useSticky from "../hooks/useSticky";
+import useSticky from "../../hooks/useSticky";
 import BlogHero from "./bloghero";
-import Quote from "./sections/quote";
-import Instagram from "./instagram/instagram";
-import Cta from "./sections/cta";
-import Gallery from "./gallery/gallery";
-import Loading from "./loading";
+import Quote from "../sections/quote";
+import Instagram from "../instagram/instagram";
+import Cta from "../sections/cta";
+import Gallery from "../gallery/gallery";
+import Loading from "../loading";
 
 const Post = ({ state, libraries }) => {
   const data = state.source.get(state.router.link)

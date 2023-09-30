@@ -8,7 +8,7 @@ import {
   Text
 } from '@chakra-ui/react';
 import useSticky from "../hooks/useSticky";
-import BlogHero from "./bloghero";
+import BlogHero from "./post/bloghero";
 import Loading from "./loading";
 import Instagram from "./instagram/instagram";
 import Cta from "./sections/cta";

@@ -1,5 +1,5 @@
-import React, { useState, useRef } from "react"
-import { connect, styled } from "frontity"
+import React, { useState, useRef } from "react";
+import { connect, styled } from "frontity";
 import {
     Box,
     Heading,
@@ -16,10 +16,10 @@ import {
     Icon
   } from '@chakra-ui/react';
   import { FaCheck, FaArrowLeft } from "react-icons/fa";
-import ApplicationForm from "./application/applicationform";
-import ardgradient20 from "../assets/ardgradient20.jpeg";
-import ardgradient14 from "../assets/ardgradient14.jpeg";
-import ardgradient19 from "../assets/ardgradient19.jpeg";
+import ApplicationForm from "../application/applicationform";
+import ardgradient20 from "../../assets/ardgradient20.jpeg";
+import ardgradient14 from "../../assets/ardgradient14.jpeg";
+import ardgradient19 from "../../assets/ardgradient19.jpeg";
 
 const Offerings = ({ state, libraries }) => {
   const [offerChoice, setOfferChoice] = useState(false)

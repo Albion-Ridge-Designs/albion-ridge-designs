@@ -1,5 +1,5 @@
 import React from "react";
-import { styled, connect, libraries } from "frontity";
+import { styled, connect } from "frontity";
 import {
     Heading,
     Text,

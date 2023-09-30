@@ -6,8 +6,8 @@ import {
     Text,
     Flex
   } from "@chakra-ui/react";
-import useSticky from "../hooks/useSticky";
-import Loading from "./loading";
+import useSticky from "../../hooks/useSticky";
+import Loading from "../loading";
 
 function PageHero({ state, image, heading, subheading, headingTextColor, subheadingTextColor }) {
   const data = state.source.get(state.router.link)

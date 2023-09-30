@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { 
   connect, 
   Global, 
@@ -11,11 +11,10 @@ import {
 import { ChakraProvider } from '@chakra-ui/react';
 import Switch from "@frontity/components/switch";
 import Navbar from "./header/navbar";
-import useSticky from "../hooks/useSticky";
 import Footer from "./footer";
 import List from "./list";
-import Post from "./post";
-import Page from "./page";
+import Post from "./post/post";
+import Page from "./page/page";
 import Amalta from '../assets/fonts/Amalta-Amalta-Web.ttf';
 import Graphik from '../assets/fonts/Graphik-Regular-Web.ttf';
 import GraphikSemibold from '../assets/fonts/Graphik-Semibold-Web.ttf';
@@ -32,7 +31,6 @@ const Root = ({ state }) => {
     const siteName = options.acf.brand_name;
     const siteDomain = options.acf.site_domain;
     const data = state.source.get(state.router.link);
-    console.log("data", data);
     const isBlog = state.router.link.startsWith("/blog");
     const menuItems = state.source.get("/menu/main");
     const menuData = state.source[menuItems.type][menuItems.id];

@@ -3,22 +3,22 @@ import { connect } from "frontity"
 import {
   Flex
 } from '@chakra-ui/react';
-import Homepage from "./homepage/homepage";
-import Hero from "./header/hero";
+import Homepage from "../homepage/homepage";
+import Hero from "../header/hero";
 import PageHero from "./pagehero";
-import Parallax from "./sections/parallax";
-import HeadingBanner from "./sections/headingbanner";
-import FullWidthText from "./sections/fullwidthtext";
-import TwoColumnPhotoTextWrapper from "./sections/twocolumnphototextwrapper";
-import TwoColumnPhotoTextSmallWrapper from "./sections/twocolumnphototextsmallwrapper";
-import Quote from "./sections/quote";
-import PhotoSquares from "./sections/photosquares/photosquares";
-import BulletPointsCta from "./sections/bulletpointscta";
-import Cta from "./sections/cta";
-import Instagram from "./instagram/instagram";
-import Contact from "./contact"
-import Loading from "./loading";
-import ardgradient14 from "../assets/ardgradient14.jpeg";
+import Parallax from "../sections/parallax";
+import HeadingBanner from "../sections/headingbanner";
+import FullWidthText from "../sections/fullwidthtext";
+import TwoColumnPhotoTextWrapper from "../sections/twocolumnphototextwrapper";
+import TwoColumnPhotoTextSmallWrapper from "../sections/twocolumnphototextsmallwrapper";
+import Quote from "../sections/quote";
+import PhotoSquares from "../sections/photosquares/photosquares";
+import BulletPointsCta from "../sections/bulletpointscta";
+import Cta from "../sections/cta";
+import Instagram from "../instagram/instagram";
+import Contact from "../contact/contact"
+import Loading from "../loading";
+import ardgradient14 from "../../assets/ardgradient14.jpeg";
 
 const Page = ({ state, libraries }) => {
   const data = state.source.get(state.router.link);

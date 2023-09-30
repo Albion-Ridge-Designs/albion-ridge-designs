@@ -19,7 +19,7 @@ import {
 import emailjs from "emailjs-com";
 import { ErrorMessage } from "@hookform/error-message";
 import { BiErrorCircle } from "react-icons/bi";
-import unicorngif from "../assets/unicorngif.gif";
+import unicorngif from "../../assets/unicorngif.gif";
 
 function Contact() {
     const contactSection = useRef();

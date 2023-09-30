@@ -13,7 +13,7 @@ import {
     Button
   } from '@chakra-ui/react';
 import dayjs from "dayjs"
-import Loading from "./loading";
+import Loading from "../loading";
 
 const BlogCards = ({ state, libraries }) => {
   const blogItems = state.source.get("/blog");
