@@ -1,35 +1,82 @@
-import React from "react"
-import { connect } from "frontity"
+import React, { useState, useEffect } from "react"
+import { connect, styled } from "frontity"
 import dayjs from "dayjs"
 import {
   Heading,
   Text,
   Flex,
-  HStack
+  Box,
 } from '@chakra-ui/react';
+import useSticky from "../hooks/useSticky";
+import BlogHero from "./bloghero";
+import Quote from "./sections/quote";
+import Instagram from "./instagram/instagram";
+import Cta from "./sections/cta";
+import Gallery from "./gallery/gallery";
 import Loading from "./loading";
 
 const Post = ({ state, libraries }) => {
   const data = state.source.get(state.router.link)
-  const post = state.source[data.type][data.id]
-  const author = state.source.author[post.author]
+  const post = state.source[data.type][data.id];
+  const postSections = post.acf.post_sections;
   const Html2React = libraries.html2react.Component
-
   const formattedDate = dayjs(post.date).format("MMMM DD, YYYY")
-  const renderedPost = post.content.rendered;
+  const { element } = useSticky();
 
-  function getAttrFromString(str, node, attr) {
-    var regex = new RegExp('<' + node + ' .*?' + attr + '="(.*?)"', "gi"), result, res = [];
-    let currentId = 0;
-    while ((result = regex.exec(str))) {
-        res.push({id: `${currentId}`, src: result[1], aspectRatio: 4 / 3, objectFit: "contain !important", alt: "Alexandre Edgar Photography"});
-        currentId += 1;
+  const [quote, setQuote] = useState([]);
+  const [gallery, setGallery] = useState([]);
+  const [squares, setSquares] = useState([]);
+  const [partOne, setPartOne] = useState("");
+  const [partTwo, setPartTwo] = useState("");
+
+  useEffect(() => {
+    const doc = new DOMParser().parseFromString(post.content.rendered, 'text/html');
+    const arr = [...doc.body.childNodes]
+      .map(child => child.outerHTML || child.textContent);
+    let arrLength = arr.length;
+    let halfLength = Math.round((arrLength - 1) / 2);
+
+    let firstPart = [];
+    let secondPart = [];
+    arr.map((paragraph, idx) => {
+      if (idx < halfLength) {
+        firstPart.push(paragraph);
+      }
+      else {
+        secondPart.push(paragraph)
+      }
+    })
+    setPartOne(firstPart);
+    setPartTwo(secondPart);
+  }, [])
+
+
+  useEffect(() => {
+    if (postSections) {
+      postSections.map((section) => {
+        if (section.acf_fc_layout === "quote") {
+          setQuote(section);
+        }
+        if (section.acf_fc_layout === "gallery") {
+          let galleryArr = [];
+          section.gallery.map((data, idx) => {
+            let obj = {
+              id: idx,
+              src: data.url,
+              alt: data.alt,
+              aspectRatio: 4 / 3,
+              objectFit: "contain !important"
+            };
+            galleryArr.push(obj);
+          })
+          setGallery(galleryArr);
+        }
+        if (section.acf_fc_layout === "photo_squares") {
+          setSquares(section.photo_square);
+        }
+      })
     }
-    return res;
-}
-
-const imageArr = getAttrFromString(renderedPost, 'img', 'src');
-console.log(imageArr);
+  }, [])
 
   if (data.isFetching) {
     return <Loading />
@@ -37,73 +84,140 @@ console.log(imageArr);
 
   if (!data.isFetching) {
     return (
-      <Flex direction="column" bg="brand.200">
-        <Flex 
-          direction="column"
-          width="100%" 
-          height="100%"
-          minHeight="85vh"
-          padding={{base: 5, lg: 20}}
-          bg="brand.200"
-        >
-        <Heading size="xl" mt={5} mb={5} color="brand.100">
-          <Html2React html={post.title.rendered} />
-        </Heading>
-          <HStack mb={2}>
-            <Text size="lg" fontWeight="600" color="blackAlpha.800">
-              Posted: 
-            </Text>
-            <Text size="lg" color="blackAlpha.800">
-              {formattedDate}
-            </Text>
-          </HStack>
-          <HStack mb={5}>
-            <Text size="lg" fontWeight="600" color="blackAlpha.800">
-              Author:
-            </Text>
-            <Text size="lg" color="blackAlpha.800">
-              {author.name}
-            </Text>
-          </HStack>
-          <Flex direction="column">
-            {state.source.attachment[post.featured_media] &&
-              <Image src={state.source.attachment[post.featured_media].source_url} />
+      <>
+        <style>
+          {
+            `#dropcap {
+              &:first-letter {
+                font-family: Amalta;
+                -webkit-initial-letter: 2 3;
+                initial-letter:  2 3;
+                border: 5px solid #000;
+                background: #FEFAF1;
+                color: #EC9F05; 
+                font-weight: 500;
+                margin-right: .75em;
+                padding: .75em;
+              }
             }
-            <Text fontWeight={500} mb={8} fontSize="lg" color="blackAlpha.800" className="blogPost">
-              <Html2React html={post.content.rendered} />
-            </Text>
-          </Flex>
+              `
+          }
+        </style>
+        <BlogHero element={element} image={state.source.attachment[post.featured_media].source_url} title={post.title.rendered} date={formattedDate} />
+        
+        <Flex direction="column" bg="brand.800" minHeight="85vh">
+
+          {/* {quote.length !== 0 &&
+                <Quote 
+                backgroundColor={quote.background_color}
+                text={quote.text}
+                author={quote.author}
+                showAuthor={quote.show_author}
+                textColor={quote.text_color}
+                useDropCap={quote.use_drop_cap}
+                dropCapBackgroundColor={quote.drop_cap_background_color}
+                dropCapTextColor={quote.drop_cap_text_color}
+              />
+            } */}
+          
+            {partOne.length > 0 &&
+              <Flex 
+              direction="column"
+              width="100%" 
+              height="100%"
+              paddingLeft={{base: 5, lg: 20}}
+              paddingRight={{base: 5, lg: 20}}
+              paddingTop={{base: 5, lg: 20}}
+              bg="brand.800"
+            >
+              <Flex direction="column">
+                {partOne.map((item, idx) => {
+                  return (
+                    <Box fontWeight={500} fontSize="lg" color="blackAlpha.800" className="page-text" key={idx}>
+                      {idx === 0 &&
+                        <Storybook>
+                          <Html2React html={item} />
+                        </Storybook>
+                      }
+                      {idx !== 0 &&
+                        <Html2React html={item} />
+                      }
+                    </Box>
+                  )
+                })}
+              </Flex>
+            </Flex>
+            }
+
+            {quote.length !== 0 &&
+            <Box
+              paddingTop={{base: 5, lg: 10}}
+              paddingBottom={{base: 5, lg: 10}}
+            >
+              <Quote 
+              backgroundColor={quote.background_color}
+              text={quote.text}
+              author={quote.author}
+              showAuthor={quote.show_author}
+              textColor={quote.text_color}
+              useDropCap={quote.use_drop_cap}
+              dropCapBackgroundColor={quote.drop_cap_background_color}
+              dropCapTextColor={quote.drop_cap_text_color}
+                />
+            </Box>
+            }
+
+              
+            {partTwo.length > 0 &&
+              <Flex 
+              direction="column"
+              width="100%" 
+              height="100%"
+              paddingLeft={{base: 5, lg: 20}}
+              paddingRight={{base: 5, lg: 20}}
+              paddingBottom={{base: 5, lg: 20}}
+              bg="brand.800"
+            >
+              <Flex direction="column">
+                {partTwo.map((item, idx) => {
+                  return (
+                    <Text fontWeight={500} fontSize="lg" color="blackAlpha.800" className="page-text" key={idx}>
+                      <Html2React html={item} />
+                    </Text>
+                  )
+                })}
+              </Flex>
+            </Flex>
+            }
+
         </Flex>
-      </Flex>
+        
+        {gallery.length > 0 &&
+        <Flex direction="column" bg="brand.100" minHeight="85vh">
+          <Heading color="brand.800" size="2xl" fontFamily="Amalta" fontWeight="500" width="100%" textAlign="center" mt={16}>Post Gallery</Heading>
+          <Gallery images={gallery} />
+        </Flex>
+        }
+
+        <Cta />
+        <Instagram limit={12} />
+      </>
     )
   }
 }
 
-export default connect(Post)
+export default connect(Post);
 
-{/* <Flex 
-direction="column"
-padding={{base: 5, lg: 20}}
-bg="brand.200"
->
-<Heading size="2xl" mt={10} mb={5} color="brand.100">
-<Html2React html={post.title.rendered} />
-</Heading>
-<HStack mb={2}>
-  <Text size="lg" fontWeight="600" color="blackAlpha.800">
-    Posted: 
-  </Text>
-  <Text size="lg" color="blackAlpha.800">
-    {formattedDate}
-  </Text>
-</HStack>
-<HStack mb={5}>
-  <Text size="lg" fontWeight="600" color="blackAlpha.800">
-    Author:
-  </Text>
-  <Text size="lg" color="blackAlpha.800">
-    {author.name}
-  </Text>
-</HStack>
-</Flex>
-<BlogCarousel images={imageArr} /> */}
+const Storybook = styled.p`
+&:first-letter {
+  font-family: Amalta;
+  -webkit-initial-letter: 2 3;
+  initial-letter:  2 3;
+  background: #FEFAF1;
+  color: #EC9F05;     
+  border: 5px solid #000;
+  font-weight: 500;
+  margin-right: .75em;
+  padding: .75em;
+}
+`
