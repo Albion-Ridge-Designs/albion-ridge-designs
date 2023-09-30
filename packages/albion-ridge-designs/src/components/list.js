@@ -28,7 +28,7 @@ const List = ({ state, libraries, actions }) => {
       <>
       <style>
         {
-          `#dropcap {
+          `#listdropcap {
             &:first-letter {
               font-family: Amalta;
               -webkit-initial-letter: 2 3;
@@ -65,7 +65,7 @@ const List = ({ state, libraries, actions }) => {
                   </Heading>
                 </Link>
                 <Flex direction="column">
-                  <Box id="dropcap" fontWeight={500} mb={4} fontSize="lg" color="blackAlpha.800" className="page-text">
+                  <Box id="listdropcap" fontWeight={500} mb={4} fontSize="lg" color="blackAlpha.800" className="page-text">
                     <Html2React html={post.excerpt.rendered} />
                   </Box>
                   <Link key={item.id} link={post.link}>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { connect, styled } from "frontity"
+import { connect } from "frontity"
 import dayjs from "dayjs"
 import {
   Heading,
@@ -87,7 +87,7 @@ const Post = ({ state, libraries }) => {
       <>
         <style>
           {
-            `#dropcap {
+            `#storybook {
               &:first-letter {
                 font-family: Amalta;
                 -webkit-initial-letter: 2 3;
@@ -135,9 +135,9 @@ const Post = ({ state, libraries }) => {
                   return (
                     <Box fontWeight={500} fontSize="lg" color="blackAlpha.800" className="page-text" key={idx}>
                       {idx === 0 &&
-                        <Storybook>
+                        <Box id="storybook">
                           <Html2React html={item} />
-                        </Storybook>
+                        </Box>
                       }
                       {idx !== 0 &&
                         <Html2React html={item} />
@@ -155,15 +155,15 @@ const Post = ({ state, libraries }) => {
               paddingBottom={{base: 5, lg: 10}}
             >
               <Quote 
-              backgroundColor={quote.background_color}
-              text={quote.text}
-              author={quote.author}
-              showAuthor={quote.show_author}
-              textColor={quote.text_color}
-              useDropCap={quote.use_drop_cap}
-              dropCapBackgroundColor={quote.drop_cap_background_color}
-              dropCapTextColor={quote.drop_cap_text_color}
-                />
+                backgroundColor={quote.background_color}
+                text={quote.text}
+                author={quote.author}
+                showAuthor={quote.show_author}
+                textColor={quote.text_color}
+                useDropCap={quote.use_drop_cap}
+                dropCapBackgroundColor={quote.drop_cap_background_color}
+                dropCapTextColor={quote.drop_cap_text_color}
+              />
             </Box>
             }
 
@@ -207,17 +207,3 @@ const Post = ({ state, libraries }) => {
 }
 
 export default connect(Post);
-
-const Storybook = styled.p`
-&:first-letter {
-  font-family: Amalta;
-  -webkit-initial-letter: 2 3;
-  initial-letter:  2 3;
-  background: #FEFAF1;
-  color: #EC9F05;     
-  border: 5px solid #000;
-  font-weight: 500;
-  margin-right: .75em;
-  padding: .75em;
-}
-`
