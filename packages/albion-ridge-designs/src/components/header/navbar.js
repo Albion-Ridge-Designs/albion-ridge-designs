@@ -9,11 +9,9 @@ import {
     DrawerContent,
     DrawerCloseButton,
     Heading,
-    Text,
     Flex,
     Icon,
-    useDisclosure,
-    useMediaQuery
+    useDisclosure
   } from "@chakra-ui/react";
 import { FiMenu } from "react-icons/fi";
 import Link from "@frontity/components/link";
@@ -52,11 +50,7 @@ function Navbar({ sticky, menuItems, menuData, siteDomain, siteName }) {
             <Flex>
                 {isFontLoaded &&
                 <Link link="/">
-                    <Logo>
-                        <Heading size="2xl" color="brand.500" fontFamily="Amalta">
-                            {siteName}
-                        </Heading>
-                    </Logo>
+                    <Logo><Heading size="2xl" color="brand.500" fontFamily="Amalta">{siteName}</Heading></Logo>
                 </Link>
                 }
             </Flex>
@@ -93,9 +87,7 @@ function Navbar({ sticky, menuItems, menuData, siteDomain, siteName }) {
             <Flex direction="column">
                 <Link link="/">
                     <Logo>
-                        <Heading size="2xl" color="brand.500" fontFamily="Amalta">
-                            {siteName}
-                        </Heading>
+                        <Heading size="2xl" color="brand.500" fontFamily="Amalta">{siteName}</Heading>
                     </Logo>
                 </Link>
                 {/* <Flex direction="row" width="100%" justifyContent="center">
@@ -176,7 +168,7 @@ const NavigationSticky = styled.div`
 }
 `
 
-const Logo = styled.span`
+const Logo = styled.div`
     color: #2C685D;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;

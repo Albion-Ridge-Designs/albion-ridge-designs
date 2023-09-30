@@ -75,13 +75,13 @@ const Welcome = styled.section`
     text-align: center;
 }
 `
-const HeroHeading = styled.span`
+const HeroHeading = styled.div`
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     padding: .5em;
 `
 
-const HeroSubheading = styled.span`
+const HeroSubheading = styled.div`
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     padding: .5em;

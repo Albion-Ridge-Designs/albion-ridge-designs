@@ -29,7 +29,7 @@ function Logo() {
 
 export default Logo;
 
-const LogoContainer = styled.span`
+const LogoContainer = styled.div`
     color: #2C685D;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
