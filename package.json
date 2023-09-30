@@ -25,7 +25,6 @@
     "@hookform/error-message": "^2.0.0",
     "albion-ridge-designs": "file:packages/albion-ridge-designs",
     "axios": "^1.5.0",
-    "basic-template": "file:packages/basic-template",
     "dayjs": "^1.11.5",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^4.1.17",
