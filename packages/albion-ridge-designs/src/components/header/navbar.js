@@ -53,17 +53,21 @@ function Navbar({ sticky, menuItems, menuData, siteDomain, siteName }) {
             <Flex>
                 {isFontLoaded &&
                 <Link link="/">
-                    <Logo>
-                        {!isSmallerThan480 && !isSmallerThan375 &&
+                    {!isSmallerThan480 && !isSmallerThan375 &&
+                        <Logo>
                             <Heading size="2xl" color="brand.500" fontFamily="Amalta">{siteName}</Heading>
-                        }
-                        {isSmallerThan480 && !isSmallerThan375 &&
+                        </Logo>
+                    }
+                    {isSmallerThan480 && !isSmallerThan375 &&
+                        <LogoMobile>
                             <Heading color="brand.500" fontFamily="Amalta" style={{fontSize: "24px"}}>{siteName}</Heading>
-                        }
-                        {isSmallerThan480 && isSmallerThan375 &&
+                        </LogoMobile>
+                    }
+                    {isSmallerThan480 && isSmallerThan375 &&
+                        <LogoMobile>
                             <Heading color="brand.500" fontFamily="Amalta" style={{fontSize: "20px"}}>{siteName}</Heading>
-                        }
-                    </Logo>
+                        </LogoMobile>
+                    }
                 </Link>
                 }
             </Flex>
