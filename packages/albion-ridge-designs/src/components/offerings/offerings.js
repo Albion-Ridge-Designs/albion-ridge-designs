@@ -65,17 +65,14 @@ const Offerings = ({ state, libraries }) => {
             
             {!offerChoice &&
                 <>
-                    <Heading size="2xl" color="brand.200" mb={16} fontFamily="GraphikSemibold" fontWeight="600" width="100%" textAlign="center">Choose Your Transformation</Heading>
                     
                     <Stack
-                    spacing={{
-                        base: '16',
-                        md: '24',
-                    }}
+                    spacing={14}
                     pl={10}
                     pr={10}
                     maxWidth={{ base: "inherit", md: "80%", lg: "inherit"}}
                     >
+                        <Heading size="2xl" color="brand.200" fontFamily="GraphikSemibold" fontWeight="600" width="100%" textAlign="center">Choose Your Transformation</Heading>
                         <SimpleGrid
                             columns={{
                             base: 1,

@@ -53,20 +53,21 @@ function ApplicationSectionForm() {
     }
 
     return (
-        <Box
+        <Stack
             role="group"
             maxWidth="800px"
-            mt={{base: 10, md: "0px"}} 
-            mb={{base: 10, md: "0px"}} 
+            spacing={14}
+            pl={10}
+            pr={10} 
         >
-            <Flex direction="column" height="100%">
+            {/* <Flex direction="column" height="100%"> */}
 
-                <Flex direction="column" alignItems="center" justifyContent="center" mb={10}>
-                    <Heading size="2xl" color="brand.800" width="fit=content" fontFamily="Amalta" fontWeight="500" textAlign="center">Work With Us</Heading>
-                </Flex>
+                {/* <Flex direction="column" alignItems="center" justifyContent="center"> */}
+                    <Heading size="2xl" color="brand.800" width="100%" fontFamily="Amalta" fontWeight="500" textAlign="center">Work With Us</Heading>
+                {/* </Flex> */}
             
-                <Box borderRadius="lg" flex="1">
-                    <Stack>
+                {/* <Box borderRadius="lg" flex="1"> */}
+                    {/* <Stack> */}
                         
                         {!isSubmitSuccessful &&
                         <form onSubmit={handleSubmit(onFormSubmit)}> 
@@ -174,10 +175,10 @@ function ApplicationSectionForm() {
                             </Flex>
                         }
 
-                    </Stack>
-                </Box>
-            </Flex>
-        </Box>
+                    {/* </Stack> */}
+                {/* </Box> */}
+            {/* </Flex> */}
+        </Stack>
     )
   }
 
