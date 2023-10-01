@@ -67,9 +67,10 @@ function Timeline({ state }) {
             `
         }
       </style>
-    <Box id="timeline-section" ref={timelineSection} bg="brand.900" backgroundImage={{base: "none", sm: `url("${ardgradient19}")`}} backgroundAttachment="fixed" backgroundSize="cover" backgroundPosition="bottom">
+    <Box id="timeline-section" ref={timelineSection} bgGradient='linear(to-t, brand.400, brand.600, brand.900)' borderBottom="2px solid #333333">
+    {/* <Box id="timeline-section" ref={timelineSection} bg="brand.900" backgroundImage={{base: "none", sm: `url("${ardgradient19}")`}} backgroundAttachment="fixed" backgroundSize="cover" backgroundPosition="bottom"> */}
       <Flex direction="column" alignItems="center" width="100%" pt={20} pb={20}>
-        <Heading size="2xl" color={{base: "brand.800", sm: "brand.200"}} fontWeight="400" fontFamily="Amalta" className="test" mb={10}>Our Story</Heading>
+        <Heading size="2xl" color="brand.800" fontWeight="400" fontFamily="Amalta" className="test" mb={10}>Our Story</Heading>
       <Box width={{ base: "100%", md: "800px" }}> 
         {isSmallerThan768 && timelineEvents.length > 0 &&
           <Chrono
@@ -101,7 +102,7 @@ function Timeline({ state }) {
               useReadMore={false}
               hideControls
               theme={{
-                primary: "#EC9F05",
+                primary: "#D76A03",
                 secondary: "#ABC4A1",
                 cardBgColor: "#FEFAF1",
                 titleColor: "#FEFAF1",

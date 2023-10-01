@@ -46,7 +46,7 @@ function Contact() {
         <Flex id="contact-section" ref={contactSection} direction="column" align="center" bg="brand.600" pt={20} pb={20}>
             {!isSubmitSuccessful &&
                 <Stack
-                    spacing={14}
+                    spacing={10}
                     pl={10}
                     pr={10}
                     minWidth={{base: "80%", md: "700px"}} 

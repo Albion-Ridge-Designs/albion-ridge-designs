@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { connect, styled } from "frontity";
 import {
     Box,
@@ -31,36 +31,10 @@ const Offerings = ({ state, libraries }) => {
   const offeringsArr = offeringData.acf.offerings;
   const displayMarquee = offeringData.acf.display_marquee_promo;
   const marqueeArr = offeringData.acf.promo_marquee_text;
-  const offersSection = useRef();
-  
-  const offersData = {
-    0: { 
-        image: ardgradient20, 
-        backgroundColor: "brand.500", 
-        title: "The Simple", 
-        price: "$1,600", 
-        buttonText: "Get It Done",
-        bullets: ["About, Testimonials, Contact, Offers, Promotion, Blog sections on homepage and separate pages", ""]
-    },
-    1: { image: 
-        ardgradient19, 
-        backgroundColor: "brand.600", 
-        title: "The Makeover", 
-        price: "$2,000", 
-        buttonText: "Upgrade Me"
-    },
-    2: { 
-        image: ardgradient14, 
-        backgroundColor: "brand.900", 
-        title: "The Fairy Godmother", 
-        price: "$4,000", 
-        buttonText: "Bippity, boppity, boop!"
-    },
-  }
-  const offersArr = Object.values(offersData);
 
     return (
-        <Box id="offers-section" ref={offersSection} bg="brand.300" backgroundImage={{base: "none", sm: `url("${ardgradient14}")`}} backgroundAttachment="fixed" backgroundSize="cover" backgroundPosition="bottom">
+        <Box id="offers-section" bgGradient='linear(to-tr, brand.800, brand.300, brand.900)'>  
+        {/* <Box id="offers-section" backgroundImage={{base: "none", sm: `url("${ardgradient14}")`}} backgroundAttachment="fixed" backgroundSize="cover" backgroundPosition="bottom"> */}
         <Flex direction="column" alignItems="center" pt={20} pb={20}>
             
             {!offerChoice &&
