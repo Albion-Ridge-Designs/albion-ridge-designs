@@ -313,10 +313,13 @@ const Root = ({ state }) => {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            max-width: 100vw;
           }
           html {
             scroll-behavior: smooth;
+            
           }
+
          @font-face {
           font-family: "Amalta";
           font-style: normal;
