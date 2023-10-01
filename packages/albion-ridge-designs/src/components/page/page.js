@@ -19,6 +19,8 @@ import Instagram from "../instagram/instagram";
 import Contact from "../contact/contact"
 import Loading from "../loading";
 import ardgradient14 from "../../assets/ardgradient14.jpeg";
+import ardgradient19 from "../../assets/ardgradient19.jpeg";
+import ardgradient20 from "../../assets/ardgradient20.jpeg";
 
 const Page = ({ state, libraries }) => {
   const data = state.source.get(state.router.link);
@@ -80,7 +82,7 @@ const Page = ({ state, libraries }) => {
       <>
       {data.route === "/" &&
         <Hero 
-          image={ardgradient14}
+          image={ardgradient19}
           video={post.acf.video}
           headingAnimationList={post.acf.heading_animation_list}
           headingTop={post.acf.heading_top_line}
