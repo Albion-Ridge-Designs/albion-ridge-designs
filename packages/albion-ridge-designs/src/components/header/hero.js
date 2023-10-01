@@ -18,6 +18,7 @@ function Hero({ image, video, headingAnimationList, headingTop, headingBottom, c
   const [textsArr, setTextsArr] = useState([]);
   const [isSmallerThan420] = useMediaQuery('(max-width: 420px)');
   const [isSmallerThan768] = useMediaQuery('(max-width: 768px)');
+  const [isSmallerThan825] = useMediaQuery('(max-width: 825px)');
   const isFontLoaded = useFontFaceObserver([
     { family: 'Amalta' }, // Same name you have in your CSS
   ]);
@@ -117,11 +118,21 @@ function Hero({ image, video, headingAnimationList, headingTop, headingBottom, c
                     {isFontLoaded &&
                         <Flex direction="column" height="100vh" justifyContent="center" alignItems="center">
                                 <HeroHeading>
-                                    <Heading color="brand.500" size="4xl" p={4} fontFamily="Amalta">Websites <Box as="span" color="brand.400">for</Box> <Box as="span" color="brand.900">Humans</Box>, <Box as="span" color="brand.300">by</Box>  <Box as="span" color="brand.900">Humans</Box></Heading>
+                                    {!isSmallerThan825 &&
+                                      <Box p={4}>
+                                        <Heading color="brand.500" size="4xl" fontFamily="Amalta">Websites <Box as="span" color="brand.400">for</Box> <Box as="span" color="brand.900">Humans</Box>,</Heading>
+                                        <Heading color="brand.500" size="4xl" fontFamily="Amalta"><Box as="span" color="brand.300">by</Box>  <Box as="span" color="brand.900">Humans</Box></Heading>
+                                      </Box>
+                                    }
+                                    {isSmallerThan825 &&
+                                      <Box p={4}>
+                                        <Heading color="brand.500" size="4xl" fontFamily="Amalta">Websites <Box as="span" color="brand.400">for</Box> <Box as="span" color="brand.900">Humans</Box>, <Box as="span" color="brand.300">by</Box>  <Box as="span" color="brand.900">Humans</Box></Heading>
+                                      </Box>
+                                    }
                                 </HeroHeading>
-                                {/* <HeroHeading>
+                                {/* <HeroSubheading>
                                     <Heading color="brand.500" size="4xl" p={4} fontFamily="Amalta"><Box as="span" color="brand.300">by</Box>  <Box as="span" color="brand.900">Humans</Box></Heading>
-                                </HeroHeading> */}
+                                </HeroSubheading> */}
                                 <a href={ctaButtonLink}>
                                   <Button variant="cta" size="lg" fontWeight="600" letterSpacing="1px" mt={5}>{ctaButtonText}</Button>
                                 </a>
