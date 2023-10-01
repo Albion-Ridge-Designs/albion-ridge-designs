@@ -12,7 +12,7 @@ import InstagramNav from "../../instagram/instagramnav";
 function SocLinks({ menuData, socialLinks }) {
 
     return (
-        <Flex direction="column" justifyContent="center" height="100%" width={{base: "100%", md: "35%"}} pl={5}>
+        <Flex direction="column" justifyContent="center" height="100%" width={{base: "100%", md: "35%"}} pl={5} mt={{base: 6, sm: 2, md: 0}}>
 
             <Flex width="100%" justifyContent="flex-end" mb={1}>
                 <Text fontWeight="600" size="sm" color="brand.800">

@@ -10,7 +10,7 @@ function SecLinks({ sectionLinks }) {
             {sectionLinks.map((link, idx) => {
                 return (
                     <a href={`#${link.section_id}`} key={idx}>
-                        <Text fontSize={{base: "md", md: "lg"}} fontWeight="600" color="brand.800" _hover={{color: "brand.500"}} mb={2}>
+                        <Text fontSize={{base: "sm", sm: "md", md: "lg"}} fontWeight="600" color="brand.800" _hover={{color: "brand.500"}} mb={2}>
                             {link.section_title}
                         </Text>
                     </a>
