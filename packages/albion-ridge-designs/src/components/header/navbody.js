@@ -27,10 +27,6 @@ function NavBody({ menuData, sectionLinks, navigationLinks, socialLinks }) {
                 </Flex>
      
             </Flex>
- 
-            {isSmallerThan480 &&
-                <Box width="100%" mb={5} mt={5} />
-            }
           
             <SocLinks menuData={menuData} socialLinks={socialLinks} />
         </Flex>
@@ -39,3 +35,4 @@ function NavBody({ menuData, sectionLinks, navigationLinks, socialLinks }) {
   }
 
 export default NavBody;
+

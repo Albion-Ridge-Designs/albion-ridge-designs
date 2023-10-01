@@ -126,7 +126,7 @@ function Hero({ image, video, headingAnimationList, headingTop, headingBottom, c
                                     }
                                     {isSmallerThan825 &&
                                       <Box p={4}>
-                                        <Heading color="brand.500" size="4xl" fontFamily="Amalta">Websites <Box as="span" color="brand.400">for</Box> <Box as="span" color="brand.900">Humans</Box>, <Box as="span" color="brand.300">by</Box>  <Box as="span" color="brand.900">Humans</Box></Heading>
+                                        <Heading color="brand.500" size="3xl" fontFamily="Amalta">Websites <Box as="span" color="brand.400">for</Box> <Box as="span" color="brand.900">Humans</Box>, <Box as="span" color="brand.300">by</Box>  <Box as="span" color="brand.900">Humans</Box></Heading>
                                       </Box>
                                     }
                                 </HeroHeading>
