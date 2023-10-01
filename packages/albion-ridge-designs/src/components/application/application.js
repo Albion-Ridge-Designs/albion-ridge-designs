@@ -8,7 +8,7 @@ function Application({ packageSelection }) {
   const applicationSection = useRef();
 
     return (
-        <Flex id="application-section" ref={applicationSection} direction="column" alignItems="center" bg="brand.500" color="brand.200" pt={20} pb={20}>
+        <Flex id="application-section" ref={applicationSection} direction="column" alignItems="center" bg="brand.600" color="brand.200" pt={20} pb={20}>
             <ApplicationSectionForm />
         </Flex>
 

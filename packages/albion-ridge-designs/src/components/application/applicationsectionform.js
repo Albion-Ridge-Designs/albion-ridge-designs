@@ -60,7 +60,7 @@ function ApplicationSectionForm() {
             pl={10}
             pr={10} 
         >
-            <Heading size="2xl" color="brand.300" width="100%" fontFamily="Amalta" fontWeight="500" textAlign="center">Work With Us</Heading>
+            <Heading size="2xl" color="brand.200" width="100%" fontFamily="Amalta" fontWeight="500" textAlign="center">Work With Us</Heading>
                 {!isSubmitSuccessful &&
                 <form onSubmit={handleSubmit(onFormSubmit)}> 
                 <Stack fontFamily={{base: "Graphik", md: "Produkt"}}>
