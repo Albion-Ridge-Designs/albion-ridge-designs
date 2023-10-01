@@ -26,7 +26,10 @@ const Offerings = ({ state, libraries }) => {
   const Html2React = libraries.html2react.Component;
   const offeringItems = state.source.get("/offering/main");
   const offeringData = state.source[offeringItems.type][offeringItems.id];
+  console.log("offeringData", offeringData);
   const offeringsArr = offeringData.acf.offerings;
+  const displayMarquee = offeringData.acf.display_marquee_promo;
+  const marqueeArr = offeringData.acf.promo_marquee_text;
   const offersSection = useRef();
   
   const offersData = {
@@ -163,21 +166,22 @@ const Offerings = ({ state, libraries }) => {
             </Flex>
         }
     </Flex>
-    <Flex direction="row" bg="brand.200" height="50px" width="100%" alignItems="center">
-        <marquee>
-            <HStack>
-            <Text size="lg" color="brand.800" fontFamily="Amalta" fontWeight="500" pr={5}>Hear ye, hear ye!</Text>
-            <Text size="lg" color="brand.300" fontFamily="GraphikBlack" pr={5}> | </Text>
-            <Text size="lg" color="brand.800" fontFamily="GraphikBlack" pr={5}>LOCAL SPECIAL!</Text>
-            <Text size="lg" color="brand.300" fontFamily="GraphikBlack" pr={5}> | </Text>
-            <Text size="lg" color="brand.800" fontFamily="GraphikBlack" pr={5}>Live in Albion?</Text>
-            <Text size="lg" color="brand.300" fontFamily="GraphikBlack" pr={5}> | </Text>
-            <Text size="lg" color="brand.800" fontFamily="GraphikBlack" pr={5}>Get 50% off any of our services through the end of 2023.</Text>
-            <Text size="lg" color="brand.300" fontFamily="GraphikBlack" pr={5}> | </Text>
-            <Text size="lg" color="brand.800" fontFamily="GraphikBlack" pr={5}>We'd love to meet you, neighbor!</Text>
-            </HStack>
-        </marquee>
-    </Flex>
+    {displayMarquee &&
+        <Flex direction="row" bg="brand.200" height="50px" width="100%" alignItems="center">
+            <marquee>
+                <HStack>
+                    {marqueeArr.map((item, idx) => {
+                        return (
+                            <HStack key={idx}>
+                                <Text size="lg" color="brand.800" fontFamily={item.marquee_item_font} fontWeight="500" pr={5}>{item.marquee_item}</Text>
+                                <Text size="lg" color="brand.300" fontFamily="GraphikBlack" pr={5}> | </Text>
+                            </HStack>
+                        )
+                    })}
+                </HStack>
+            </marquee>
+        </Flex>
+    }   
     </OffersContainer>
     )
 }
