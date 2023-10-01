@@ -133,7 +133,7 @@ const HeroHeading = styled.div`
 `
 
 const HeroHeadingMobile = styled.div`
-    -webkit-text-stroke-width: .5px;
+    -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     padding: .25em;
 `
