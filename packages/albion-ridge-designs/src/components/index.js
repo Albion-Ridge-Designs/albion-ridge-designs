@@ -7,6 +7,7 @@ import {
 } from "frontity";
 import {
   extendTheme,
+  Box
 } from '@chakra-ui/react';
 import { ChakraProvider } from '@chakra-ui/react';
 import Switch from "@frontity/components/switch";
@@ -316,6 +317,8 @@ const Root = ({ state }) => {
           }
           html {
             scroll-behavior: smooth;
+            /* max-width: 100%;
+            width: 100%; */
           }
          @font-face {
           font-family: "Amalta";
@@ -383,7 +386,7 @@ const Root = ({ state }) => {
           }
         `}
         />
-
+    <Box width="100vw">
     <stickyContext.Provider value={{isSticky, setSticky}}>
       <Navbar sticky={isSticky} menuItems={menuItems} menuData={menuData} siteDomain={siteDomain} siteName={siteName} />
 
@@ -395,6 +398,7 @@ const Root = ({ state }) => {
       
       <Footer footerItems={footerItems} footerData={footerData}/>
     </stickyContext.Provider>
+      </Box>
       </ChakraProvider>
     )
   }

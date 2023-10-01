@@ -21,14 +21,16 @@ import useFontFaceObserver from 'use-font-face-observer';
 import NavBody from "./navbody";
 import ardhorizontallogotransparent from "../../assets/ardhorizontallogotransparent.png";
 
-function Navbar({ sticky, menuItems, menuData, siteDomain, siteName }) {
+function NavbarLarge({ sticky, menuItems, menuData, siteDomain, siteName }) {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const btnRef = React.useRef();
     const [navigationLinks, setNavigationLinks] = useState([]);
     const [sectionLinks, setSectionLinks] = useState([]);
     const [socialLinks, setSocialLinks] = useState([]);
     const [isSmallerThan480] = useMediaQuery('(max-width:480px)')
+    const [isSmallerThan420] = useMediaQuery('(max-width:420px)')
     const [isSmallerThan375] = useMediaQuery('(max-width:375px)')
+    const [ws, setWs] = useState(false)
 
     useEffect(() => {
         const navLinks = menuData.acf.navigation_links;
@@ -49,7 +51,7 @@ function Navbar({ sticky, menuItems, menuData, siteDomain, siteName }) {
       useEffect(() => {
       }, [isFontLoaded]);
 
-    if (!sticky) {
+    if (!sticky || isSmallerThan420) {
     return (
         <Navigation>
             <Flex>
@@ -100,8 +102,10 @@ function Navbar({ sticky, menuItems, menuData, siteDomain, siteName }) {
     )
   }
 
-  if (sticky) {
+  if (sticky && !isSmallerThan420) {
     return (
+        <>
+        {!isSmallerThan375 &&
         <NavigationSticky>
             <Flex direction="column">
                 <Link link="/">
@@ -110,11 +114,14 @@ function Navbar({ sticky, menuItems, menuData, siteDomain, siteName }) {
                                 <Heading size="2xl" color="brand.500" fontFamily="Amalta">{siteName}</Heading>
                             </Logo>
                         }
-                        {isSmallerThan480 &&
+                        {isSmallerThan480 && !isSmallerThan375 &&
                             // <LogoMobile>
                             //     <Heading color="brand.500" fontFamily="Amalta" style={{fontSize: "24px"}}>{siteName}</Heading>
                             // </LogoMobile>
-                            <Image src={ardhorizontallogotransparent} />
+                            <Image src={ardhorizontallogotransparent} maxWidth="200px" />
+                        }
+                        {isSmallerThan480 && isSmallerThan375 &&
+                        <></>
                         }
                 </Link>
                 {/* <Flex direction="row" width="100%" justifyContent="center">
@@ -128,7 +135,7 @@ function Navbar({ sticky, menuItems, menuData, siteDomain, siteName }) {
                 </Flex> */}
             </Flex>
             <Flex direction="row">
-            <Button ref={btnRef} ml={3} mr={3} bg="transparent" _hover={{border: "0px", borderColor: "brand.500", backgroundColor: "brand.500"}} onClick={onOpen}>
+                <Button ref={btnRef} ml={3} mr={3} bg="transparent" _hover={{border: "0px", borderColor: "brand.500", backgroundColor: "brand.500"}} onClick={onOpen}>
                     <Icon as={FiMenu} color="brand.500" _hover={{color: "brand.900"}} boxSize={7} />
                 </Button>
 
@@ -151,10 +158,66 @@ function Navbar({ sticky, menuItems, menuData, siteDomain, siteName }) {
                 </Drawer>
             </Flex>
         </NavigationSticky>
+        }
+    {isSmallerThan375 &&
+        <NavigationStickyXs>
+            <Flex direction="column">
+                <Link link="/">
+                        {!isSmallerThan480 &&
+                            <Logo>
+                                <Heading size="2xl" color="brand.500" fontFamily="Amalta">{siteName}</Heading>
+                            </Logo>
+                        }
+                        {isSmallerThan480 && !isSmallerThan375 &&
+                            // <LogoMobile>
+                            //     <Heading color="brand.500" fontFamily="Amalta" style={{fontSize: "24px"}}>{siteName}</Heading>
+                            // </LogoMobile>
+                            <Image src={ardhorizontallogotransparent} maxWidth="200px" />
+                        }
+                        {isSmallerThan480 && isSmallerThan375 &&
+                        <></>
+                        }
+                </Link>
+                {/* <Flex direction="row" width="100%" justifyContent="center">
+                    <Flex direction="row" width="65%" justifyContent="space-around">
+                        <Text fontSize="lg" fontWeight="600" letterSpacing="1px" textAlign="center" color="brand.200">Websites</Text>
+                        <Text fontSize="lg" fontWeight="600" letterSpacing="1px" textAlign="center" color="brand.200">for</Text>
+                        <Text fontSize="lg" fontWeight="600" letterSpacing="1px" textAlign="center" color="brand.200">Humans,</Text>
+                        <Text fontSize="lg" fontWeight="600" letterSpacing="1px" textAlign="center" color="brand.200">by</Text>
+                        <Text fontSize="lg" fontWeight="600" letterSpacing="1px" textAlign="center" color="brand.200">Humans</Text>
+                    </Flex>
+                </Flex> */}
+            </Flex>
+            <Flex direction="row">
+                <Button ref={btnRef} ml={3} mr={3} bg="transparent" _hover={{border: "0px", borderColor: "brand.500", backgroundColor: "brand.500"}} onClick={onOpen}>
+                    <Icon as={FiMenu} color="brand.500" _hover={{color: "brand.900"}} boxSize={7} />
+                </Button>
+
+                <Drawer
+                    isOpen={isOpen}
+                    placement='top'
+                    onClose={onClose}
+                    finalFocusRef={btnRef}
+                    >
+                <DrawerOverlay />
+                <DrawerContent bg="brand.400" color="brand.800">
+                    <DrawerHeader>
+                    <DrawerCloseButton />
+                    </DrawerHeader>
+
+                    <DrawerBody style={{overflowY: "scroll"}}>
+                        <NavBody menuData={menuData} sectionLinks={sectionLinks} navigationLinks={navigationLinks} socialLinks={socialLinks} />
+                    </DrawerBody>
+                </DrawerContent>
+                </Drawer>
+            </Flex>
+        </NavigationStickyXs>
+        }
+        </>
     )
   }
 }
-export default connect(Navbar);
+export default connect(NavbarLarge);
 
 const Navigation = styled.div`
     display: flex;
@@ -174,6 +237,34 @@ const NavigationSticky = styled.div`
     justify-content: space-between;
     padding: 1rem;
     position: absolute;
+    z-index: 1;
+    width: 100%;
+    background: #91B7C7;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-bottom: 2px solid #333333;
+    box-shadow: 1px 1px 1px #222;
+    animation: moveDown 0.5s ease-in-out;
+
+    @keyframes moveDown {
+    from {
+      transform: translateY(-5rem);
+    }
+    to {
+      transform: translateY(0rem);
+    }
+  }
+}
+`
+
+const NavigationStickyXs = styled.div`
+    /* display: flex;
+    direction: row;
+    align-items: center;
+    justify-content: flex-end; */
+    padding: 1rem;
+    /* position: absolute; */
     z-index: 1;
     width: 100%;
     background: #91B7C7;
