@@ -117,8 +117,7 @@ function Hero({ image, video, headingAnimationList, headingTop, headingBottom, c
                 <div ref={element}>
                     {isFontLoaded &&
                         <Flex direction="column" height="100vh" justifyContent="center" alignItems="center">
-                                {/* <HeroHeading> */}
-                                    {!isSmallerThan825 &&
+                                    {!isSmallerThan420 &&
                                       <Box p={4}>
                                         <HeroHeading>
                                           <Heading color="brand.500" size="4xl" fontFamily="Amalta">Websites <Box as="span" color="brand.400">for</Box> <Box as="span" color="brand.900">Humans</Box>,</Heading>
@@ -126,17 +125,22 @@ function Hero({ image, video, headingAnimationList, headingTop, headingBottom, c
                                         </HeroHeading>
                                       </Box>
                                     }
-                                    {isSmallerThan825 &&
+                                    {isSmallerThan420 &&
                                       <Box p={4}>
-                                        <HeroHeadingMobile>
+                                        {/* <HeroHeadingMobile>
                                           <Heading color="brand.500" size="3xl" fontFamily="Amalta">Websites <Box as="span" color="brand.400">for</Box> <Box as="span" color="brand.900">Humans</Box>, <Box as="span" color="brand.300">by</Box>  <Box as="span" color="brand.900">Humans</Box></Heading>
-                                        </HeroHeadingMobile>
+                                        </HeroHeadingMobile> */}
+                                        <Heading color="brand.800" fontFamily="Amalta" fontWeight="500" size="3xl">Websites <Box as="span" color="brand.400">for</Box> Humans, <Box as="span" color="brand.400">by</Box> Humans</Heading>
                                       </Box>
                                     }
-                                {/* </HeroHeading> */}
-
+                                
                                 <a href={ctaButtonLink}>
-                                  <Button variant="cta" size="lg" fontWeight="600" letterSpacing="1px" mt={5}>{ctaButtonText}</Button>
+                                  {!isSmallerThan420 &&
+                                    <Button variant="cta" size="lg" fontWeight="600" letterSpacing="1px" mt={5}>{ctaButtonText}</Button>
+                                  }
+                                  {isSmallerThan420 &&
+                                    <Button variant="cta" size="md" fontWeight="600" fontFamily="Graphik" letterSpacing="1px" mt={1}>{ctaButtonText}</Button>
+                                  }
                                 </a>
                         </Flex>
                     }

@@ -75,7 +75,7 @@ function Navbar({ sticky, menuItems, menuData, siteDomain, siteName }) {
             </Flex>
             <Flex direction="row">
                 <Button ref={btnRef} ml={3} mr={3} bg="transparent" color="brand.500" _hover={{border: "0px", borderColor: "brand.500", backgroundColor: "brand.500"}} onClick={onOpen}>
-                    <Icon as={FiMenu} color="brand.500" _hover={{color: "brand.900"}} boxSize={7} />
+                    <Icon as={FiMenu} color="brand.400" _hover={{color: "brand.900"}} boxSize={7} />
                 </Button>
 
                 <Drawer
