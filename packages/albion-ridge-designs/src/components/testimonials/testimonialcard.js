@@ -42,7 +42,7 @@ function TestimonialCard(props) {
           >
             <ImQuotesLeft />
           </Box>
-          <Text fontSize="lg">{children}</Text>
+          <Text fontSize={{base: "md", md: "lg"}}>{children}</Text>
           <Box
             position="absolute"
             bottom="-2"

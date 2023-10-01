@@ -202,7 +202,7 @@ const Logo = styled.div`
 `
 const LogoMobile = styled.div`
     color: #2C685D;
-    -webkit-text-stroke-width: .5px;
+    -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     padding-top: .5em;
     padding-left: .5em;

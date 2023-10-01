@@ -133,7 +133,7 @@ const Offerings = ({ state, libraries }) => {
                                                                     <List spacing={5}>
                                                                     {offer.bullet_points.map((item, idx) => {
                                                                         return (
-                                                                            <ListItem key={idx}>
+                                                                            <ListItem key={idx} fontSize={{base: "md", md: "lg"}}>
                                                                                 <ListIcon as={FaCheck} color='brand.200' />
                                                                                 <Html2React html={item.bullet_point} />
                                                                             </ListItem>

@@ -352,9 +352,9 @@ const Root = ({ state }) => {
           font-display: fallback;
           src: url("${Produkt}") format("truetype");
         }
-          li {
+          /* li {
             line-height: 1.85em;
-          }
+          } */
           iframe {
             width: 100% !important;
           }
@@ -367,11 +367,11 @@ const Root = ({ state }) => {
               margin-bottom: 40px;
             }
           }
-          li {
+          /* li {
             margin-bottom: 10px;
             line-height: 1.55em;
             font-size: 17px;
-          }
+          } */
           .page-text p {
             margin-top: 1em;
           }
