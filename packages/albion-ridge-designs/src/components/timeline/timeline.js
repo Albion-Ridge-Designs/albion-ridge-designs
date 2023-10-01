@@ -12,6 +12,7 @@ import ardgradient19 from "../../assets/ardgradient19.jpeg";
 function Timeline({ state, libraries }) {
   const timelineItems = state.source.get("/timeline/main");
   const timelineData = state.source[timelineItems.type][timelineItems.id];
+  const displaySection = timelineData.acf.display_section;
   const timelineArr = timelineData.acf.timeline;
   const [timelineEvents, setTimelineEvents] = useState([]);
   const timelineSection = useRef();
@@ -47,6 +48,7 @@ function Timeline({ state, libraries }) {
     setTimelineEvents(eventsArr);
   }, [])
 
+  if (displaySection === true) {
   return (
     <>
       <style>
@@ -120,6 +122,12 @@ function Timeline({ state, libraries }) {
     </TimelineContainer>
     </>
   );
+  }
+  if (displaySection === false) {
+    return (
+        <></>
+    )
+}
 }
 
 export default connect(Timeline);

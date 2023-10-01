@@ -14,6 +14,7 @@ function Testimonials({ state }) {
   const testimonialsSection = useRef();
   const testimonialItems = state.source.get("/review/main");
   const testimonialData = state.source[testimonialItems.type][testimonialItems.id];
+  const displaySection = testimonialData.acf.display_section;
   const testimonialArr = testimonialData.acf.testimonial;
   const numberOfSteps = testimonialArr.length;
   const [currentStep, { setStep }] = useStep({
@@ -21,6 +22,7 @@ function Testimonials({ state }) {
     initialStep: 0,
   })
 
+  if (displaySection === true) {
     return (
         <Flex id= "testimonials-section" ref={testimonialsSection} direction="column" align="center" bg="brand.800" borderTop="2px solid black" borderBottom="2px solid black">
           <Flex direction="column" justify="center" minWidth="50%" ml="15%" mr="15%" mt={20} mb={3}>
@@ -63,6 +65,12 @@ function Testimonials({ state }) {
           </Flex>
         </Flex>
     )
+    }
+    if (displaySection === false) {
+      return (
+          <></>
+      )
+  }
   }
 
   export default connect(Testimonials);
