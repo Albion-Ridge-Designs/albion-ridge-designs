@@ -112,27 +112,35 @@ function Hero({ image, video, headingAnimationList, headingTop, headingBottom, c
      </Welcome>
     }
     {isSmallerThan768 && */}
-          <Flex direction="column" justifyContent="center" alignItems="center" textAlign="center" height="100vh" backgroundImage={image} backgroundAttachment="fixed" backgroundSize="cover" backgroundPosition="bottom">
+          <Flex direction="column" justifyContent="center" alignItems="center" textAlign="center" height="100vh" bgGradient='linear(to-l, brand.500, brand.900)'>
             <HeroContent>
                 <div ref={element}>
                     {isFontLoaded &&
                         <Flex direction="column" height="100vh" justifyContent="center" alignItems="center">
-                                <HeroHeading>
-                                    {!isSmallerThan825 &&
+                                    {!isSmallerThan420 &&
                                       <Box p={4}>
-                                        <Heading color="brand.500" size="4xl" fontFamily="Amalta">Websites <Box as="span" color="brand.400">for</Box> <Box as="span" color="brand.900">Humans</Box>,</Heading>
-                                        <Heading color="brand.500" size="4xl" fontFamily="Amalta"><Box as="span" color="brand.300">by</Box>  <Box as="span" color="brand.900">Humans</Box></Heading>
+                                        <HeroHeading>
+                                          <Heading color="brand.500" size="4xl" fontFamily="Amalta">Websites <Box as="span" color="brand.400">for</Box> <Box as="span" color="brand.900">Humans</Box>,</Heading>
+                                          <Heading color="brand.500" size="4xl" fontFamily="Amalta"><Box as="span" color="brand.300">by</Box>  <Box as="span" color="brand.900">Humans</Box></Heading>
+                                        </HeroHeading>
                                       </Box>
                                     }
-                                    {isSmallerThan825 &&
+                                    {isSmallerThan420 &&
                                       <Box p={4}>
-                                        <Heading color="brand.500" size="3xl" fontFamily="Amalta">Websites <Box as="span" color="brand.400">for</Box> <Box as="span" color="brand.900">Humans</Box>, <Box as="span" color="brand.300">by</Box>  <Box as="span" color="brand.900">Humans</Box></Heading>
+                                        {/* <HeroHeadingMobile>
+                                          <Heading color="brand.500" size="3xl" fontFamily="Amalta">Websites <Box as="span" color="brand.400">for</Box> <Box as="span" color="brand.900">Humans</Box>, <Box as="span" color="brand.300">by</Box>  <Box as="span" color="brand.900">Humans</Box></Heading>
+                                        </HeroHeadingMobile> */}
+                                        <Heading color="brand.800" fontFamily="Amalta" fontWeight="500" size="3xl">Websites <Box as="span" color="brand.400">for</Box> Humans, <Box as="span" color="brand.400">by</Box> Humans</Heading>
                                       </Box>
                                     }
-                                </HeroHeading>
-
+                                
                                 <a href={ctaButtonLink}>
-                                  <Button variant="cta" size="lg" fontWeight="600" letterSpacing="1px" mt={5}>{ctaButtonText}</Button>
+                                  {!isSmallerThan420 &&
+                                    <Button variant="cta" size="lg" fontWeight="600" letterSpacing="1px" mt={5}>{ctaButtonText}</Button>
+                                  }
+                                  {isSmallerThan420 &&
+                                    <Button variant="cta" size="md" fontWeight="600" fontFamily="Graphik" letterSpacing="1px" mt={1}>{ctaButtonText}</Button>
+                                  }
                                 </a>
                         </Flex>
                     }
@@ -164,6 +172,13 @@ const HeroHeading = styled.div`
     -webkit-text-stroke-color: black;
     padding: .5em;
 `
+
+const HeroHeadingMobile = styled.div`
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: black;
+    padding: .5em;
+`
+
 const HeroContent = styled.div`
     /* z-index: 1; */
     position: absolute;

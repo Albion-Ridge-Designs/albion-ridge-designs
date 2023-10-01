@@ -55,27 +55,23 @@ function Navbar({ sticky, menuItems, menuData, siteDomain, siteName }) {
             <Flex>
                 {isFontLoaded &&
                 <Link link="/">
-                    {!isSmallerThan480 && !isSmallerThan375 &&
+                    {!isSmallerThan480 &&
                         <Logo>
                             <Heading size="2xl" color="brand.500" fontFamily="Amalta">{siteName}</Heading>
                         </Logo>
                     }
-                    {isSmallerThan480 && !isSmallerThan375 &&
-                        <LogoMobile>
-                            <Heading color="brand.500" fontFamily="Amalta" style={{fontSize: "24px"}}>{siteName}</Heading>
-                        </LogoMobile>
-                    }
-                    {isSmallerThan480 && isSmallerThan375 &&
-                        <LogoMobile>
-                            <Heading color="brand.500" fontFamily="Amalta" style={{fontSize: "20px"}}>{siteName}</Heading>
-                        </LogoMobile>
+                    {isSmallerThan480 &&
+                        // <LogoMobile>
+                        //     <Heading color="brand.500" fontFamily="Amalta" style={{fontSize: "24px"}}>{siteName}</Heading>
+                        // </LogoMobile>
+                        <Image src={ardhorizontallogotransparent} />
                     }
                 </Link>
                 }
             </Flex>
             <Flex direction="row">
                 <Button ref={btnRef} ml={3} mr={3} bg="transparent" color="brand.500" _hover={{border: "0px", borderColor: "brand.500", backgroundColor: "brand.500"}} onClick={onOpen}>
-                    <Icon as={FiMenu} color="brand.500" _hover={{color: "brand.900"}} boxSize={7} />
+                    <Icon as={FiMenu} color="brand.400" _hover={{color: "brand.900"}} boxSize={7} />
                 </Button>
 
                 <Drawer
