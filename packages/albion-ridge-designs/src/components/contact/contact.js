@@ -43,45 +43,44 @@ function Contact() {
     }
 
     return (
-        <Flex id="contact-section" ref={contactSection} direction="column" align="center" bg="brand.600" p={{base: 5, md: 20}}>
+        <Flex id="contact-section" ref={contactSection} direction="column" align="center" bg="brand.600" pt={20} pb={20}>
             {!isSubmitSuccessful &&
-                <Flex direction="column" justify="center" minWidth={{base: "80%", md: "700px"}} maxWidth="800px" mb={10} mt={10}>
-                    <Heading size="2xl" color="brand.800" fontFamily="Amalta" fontWeight="500" mb={10} width="100%" textAlign="center">Contact</Heading>
-                    <Box
-                        borderRadius="lg"
-                        flex="1"
-                    >
-                        <Stack>
-                            <form onSubmit={handleSubmit(onFormSubmit)}> 
-                                <FormControl id="from_name">
-                                    <FormLabel htmlFor="from_name" color="brand.800" fontWeight="600" fontSize="lg">Name:</FormLabel>
-                                    <Input name="from_name" backgroundColor="brand.500" color="brand.200" size="lg" fontSize="lg" focusBorderColor='brand.500' style={{ border: "2px solid #FEFAF1"}} {...register("from_name", { required: "This is required."})} />
-                                    <ErrorMessage errors={errors} name="from_name" render={({ message }) => <div style={{color: "#D76A03", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle /> {message} </div>}/>
-                                </FormControl>
-                                <FormControl id="reply_to" mt={5}>
-                                    <FormLabel htmlFor="reply_to" color="brand.800" fontWeight="600" fontSize="lg">Email:</FormLabel>
-                                    <Input name="reply_to" backgroundColor="brand.500" color="brand.200" size="lg" fontSize="lg" focusBorderColor='brand.500' style={{ border: "2px solid #FEFAF1"}} {...register("reply_to", { required: "This is required."})} />
-                                    <ErrorMessage errors={errors} name="reply_to" render={({ message }) => <div style={{color: "#D76A03", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle /> {message} </div>}/>
-                                </FormControl>
-                                <FormControl id="message" mt={5}>
-                                    <FormLabel htmlFor="message" color="brand.800" fontWeight="600" fontSize="lg">Message:</FormLabel>
-                                    <Textarea name="message" backgroundColor="brand.500" color="brand.200" size="lg" fontSize="lg" focusBorderColor='brand.500' style={{ border: "2px solid #FEFAF1"}} {...register("message")} />
-                                    <ErrorMessage errors={errors} name="message" render={({ message }) => <div style={{color: "#D76A03", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle /> {message} </div>}/>
-                                </FormControl>
-                                <Button 
-                                    type="submit"
-                                    variant="brand.700"
-                                    mt={8}
-                                    size="lg"
-                                >
-                                    <Text>
-                                        Submit
-                                    </Text>
-                                </Button>
-                            </form> 
-                        </Stack>
-                    </Box>
-                </Flex>
+                <Stack
+                    spacing={14}
+                    pl={10}
+                    pr={10}
+                    minWidth={{base: "80%", md: "700px"}} 
+                    maxWidth="800px"
+                >
+                    <Heading size="2xl" color="brand.800" fontFamily="Amalta" fontWeight="500" width="100%" textAlign="center">Contact</Heading>
+                    <form onSubmit={handleSubmit(onFormSubmit)}> 
+                        <FormControl id="from_name">
+                            <FormLabel htmlFor="from_name" color="brand.800" fontWeight="600" fontSize="lg">Name:</FormLabel>
+                            <Input name="from_name" backgroundColor="brand.500" color="brand.200" size="lg" fontSize="lg" focusBorderColor='brand.500' style={{ border: "2px solid #FEFAF1"}} {...register("from_name", { required: "This is required."})} />
+                            <ErrorMessage errors={errors} name="from_name" render={({ message }) => <div style={{color: "#D76A03", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle /> {message} </div>}/>
+                        </FormControl>
+                        <FormControl id="reply_to" mt={5}>
+                            <FormLabel htmlFor="reply_to" color="brand.800" fontWeight="600" fontSize="lg">Email:</FormLabel>
+                            <Input name="reply_to" backgroundColor="brand.500" color="brand.200" size="lg" fontSize="lg" focusBorderColor='brand.500' style={{ border: "2px solid #FEFAF1"}} {...register("reply_to", { required: "This is required."})} />
+                            <ErrorMessage errors={errors} name="reply_to" render={({ message }) => <div style={{color: "#D76A03", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle /> {message} </div>}/>
+                        </FormControl>
+                        <FormControl id="message" mt={5}>
+                            <FormLabel htmlFor="message" color="brand.800" fontWeight="600" fontSize="lg">Message:</FormLabel>
+                            <Textarea name="message" backgroundColor="brand.500" color="brand.200" size="lg" fontSize="lg" focusBorderColor='brand.500' style={{ border: "2px solid #FEFAF1"}} {...register("message")} />
+                            <ErrorMessage errors={errors} name="message" render={({ message }) => <div style={{color: "#D76A03", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle /> {message} </div>}/>
+                        </FormControl>
+                        <Button 
+                            type="submit"
+                            variant="brand.700"
+                            mt={8}
+                            size="lg"
+                        >
+                            <Text>
+                                Submit
+                            </Text>
+                        </Button>
+                    </form> 
+                </Stack>
             }
             {isSubmitSuccessful &&
                 <Flex direction="column" justify="center" alignItems="center" minWidth="50%" ml="15%" mr="15%" mb={20} mt={20} height="450px">
