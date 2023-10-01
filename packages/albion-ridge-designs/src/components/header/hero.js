@@ -121,7 +121,7 @@ function Hero({ image, video, headingAnimationList, headingTop, headingBottom, c
                                       <Box p={4}>
                                         <HeroHeading>
                                           <Heading color="brand.500" size="4xl" fontFamily="Amalta">Websites <Box as="span" color="brand.400">for</Box> <Box as="span" color="brand.900">Humans</Box>,</Heading>
-                                          <Heading color="brand.500" size="4xl" fontFamily="Amalta"><Box as="span" color="brand.300">by</Box>  <Box as="span" color="brand.900">Humans</Box></Heading>
+                                          <Heading color="brand.500" size="4xl" fontFamily="Amalta"><Box as="span" color="brand.400">by</Box>  <Box as="span" color="brand.900">Humans</Box></Heading>
                                         </HeroHeading>
                                       </Box>
                                     }
