@@ -67,7 +67,7 @@ function Timeline({ state }) {
             `
         }
       </style>
-    <Box id="timeline-section" ref={timelineSection} bg="brand.900" backgroundImage={{base: "none", sm: `url("${ardgradient19}")`}} backgroundAttachment="fixed" backgroundSize="cover" backgroundPosition="bottom">
+    <Box id="timeline-section" ref={timelineSection} bg="brand.200" backgroundImage={{base: "none", sm: `url("${ardgradient19}")`}} backgroundAttachment="fixed" backgroundSize="cover" backgroundPosition="bottom">
       <Flex direction="column" alignItems="center" width="100%" pt={20} pb={20}>
         <Heading size="2xl" color={{base: "brand.800", sm: "brand.200"}} fontWeight="400" fontFamily="Amalta" className="test" mb={10}>Our Story</Heading>
       <Box width={{ base: "100%", md: "800px" }}> 

@@ -88,83 +88,82 @@ function ApplicationForm({ packageSelection }) {
                         height="100%"
                     >
                             
-                        <Stack spacing="3" height="100%">
-                            
                             {!isSubmitSuccessful &&
                             <form onSubmit={handleSubmit(onFormSubmit)}> 
+                                <Stack fontFamily={{base: "Graphik", md: "Produkt"}}>
+                                    <SimpleGrid columns={{base: 1, md: 3}} spacing={5}>
+                                        <FormControl id="from_name">
+                                            <FormLabel htmlFor="from_name" color="brand.200" fontSize="md">Name:</FormLabel>
+                                            <Input name="from_name" color="brand.200" fontSize="md" size="sm" borderRadius="md" focusBorderColor='brand.500' style={{ border: "2px solid #333333"}} {...register("from_name", { required: "This is required."})} />
+                                            <ErrorMessage errors={errors} name="from_name" render={({ message }) => <div style={{color: "red", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle style={{marginRight: "5px"}} /> {message} </div>}/>
+                                        </FormControl>
 
-                                <SimpleGrid columns={{base: 1, md: 3}} spacing={5}>
-                                    <FormControl id="from_name" mt={3}>
-                                        <FormLabel htmlFor="from_name" color="brand.200" fontSize="md">Name:</FormLabel>
-                                        <Input name="from_name" color="brand.200" fontSize="md" size="sm" borderRadius="md" focusBorderColor='brand.500' style={{ border: "2px solid #333333"}} {...register("from_name", { required: "This is required."})} />
-                                        <ErrorMessage errors={errors} name="from_name" render={({ message }) => <div style={{color: "red", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle style={{marginRight: "5px"}} /> {message} </div>}/>
+                                        <FormControl id="reply_to">
+                                            <FormLabel htmlFor="reply_to" color="brand.200" fontSize="md">Email:</FormLabel>
+                                            <Input name="reply_to" color="brand.200" fontSize="md" size="sm" borderRadius="md" focusBorderColor='brand.500' style={{ border: "2px solid #333333"}} {...register("reply_to", { required: "This is required."})} />
+                                            <ErrorMessage errors={errors} name="reply_to" render={({ message }) => <div style={{color: "red", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle style={{marginRight: "5px"}} /> {message} </div>}/>
+                                        </FormControl>
+
+                                        <FormControl id="instagram_handle">
+                                            <FormLabel htmlFor="instagram_handle" color="brand.200" fontSize="md">Instagram Handle:</FormLabel>
+                                            <Input name="instagram_handle" color="brand.200" fontSize="md" size="sm" borderRadius="md" focusBorderColor='brand.500' style={{ border: "2px solid #333333"}} {...register("instagram_handle", { required: "This is required."})} />
+                                            <ErrorMessage errors={errors} name="instagram_handle" render={({ message }) => <div style={{color: "red", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle style={{marginRight: "5px"}} /> {message} </div>}/>
+                                        </FormControl>
+                                    </SimpleGrid>
+
+                                    <FormControl id="have_website">
+                                        <Checkbox size='md' mt={4} colorScheme='blue' borderColor="brand.200" {...register("have_website")} onChange={e => {
+                                            if (e.target.checked) {
+                                                setHasWebsite(true);
+                                            }
+                                            else {
+                                                setHasWebsite(false);
+                                            }
+                                        }} >
+                                            <FormLabel htmlFor="have_website" color="brand.200" fontSize="md" mt="2">Do you currently have a website? (Check for yes 🤠) </FormLabel>
+                                        </Checkbox>
+
+                                        <ErrorMessage errors={errors} name="have_website" render={({ message }) => <div style={{color: "red", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle style={{marginRight: "5px"}} /> {message} </div>}/>
                                     </FormControl>
 
-                                    <FormControl id="reply_to" mt={3}>
-                                        <FormLabel htmlFor="reply_to" color="brand.200" fontSize="md">Email:</FormLabel>
-                                        <Input name="reply_to" color="brand.200" fontSize="md" size="sm" borderRadius="md" focusBorderColor='brand.500' style={{ border: "2px solid #333333"}} {...register("reply_to", { required: "This is required."})} />
-                                        <ErrorMessage errors={errors} name="reply_to" render={({ message }) => <div style={{color: "red", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle style={{marginRight: "5px"}} /> {message} </div>}/>
+                                    {hasWebsite === true &&
+                                        <>
+                                        <FormControl id="website_url">
+                                            <FormLabel htmlFor="website_url" mt={4} color="brand.200" fontSize="md">Current website URL:</FormLabel>
+                                            <Input name="website_url" color="brand.200" fontSize="md" size="sm" borderRadius="md" focusBorderColor='brand.500' style={{ border: "2px solid #333333"}} {...register("website_url")} />
+                                            <ErrorMessage errors={errors} name="website_url" render={({ message }) => <div style={{color: "red", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle style={{marginRight: "5px"}} /> {message} </div>}/>
+                                        </FormControl>
+
+                                        <FormControl id="paint_points">
+                                            <FormLabel htmlFor="pain_points" mt={4} color="brand.200" fontSize="md">What has been your biggest pain point with managing your website?</FormLabel>
+                                            <Textarea name="pain_points" color="brand.200" fontSize="md" size="sm" borderRadius="md" focusBorderColor='brand.500' style={{ border: "2px solid #333333"}} {...register("pain_points")} />
+                                            <ErrorMessage errors={errors} name="pain_points" render={({ message }) => <div style={{color: "red", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle style={{marginRight: "5px"}} /> {message} </div>}/>
+                                        </FormControl>
+                                        </>
+                                    }
+
+                                    <FormControl id="about_business">
+                                        <FormLabel htmlFor="about_business" mt={4} color="brand.200" fontSize="md">Tell me a little bit about your business. What you do, what you offer, and where you are falling short and hope to improve.</FormLabel>
+                                        <Textarea name="about_business" color="brand.200" fontSize="md" size="sm" borderRadius="md" focusBorderColor='brand.500' style={{ border: "2px solid #333333"}} {...register("about_business", { required: "This is required."})} />
+                                        <ErrorMessage errors={errors} name="about_business" render={({ message }) => <div style={{color: "red", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle style={{marginRight: "5px"}} /> {message} </div>}/>
                                     </FormControl>
 
-                                    <FormControl id="instagram_handle" mt={3}>
-                                        <FormLabel htmlFor="instagram_handle" color="brand.200" fontSize="md">Instagram Handle:</FormLabel>
-                                        <Input name="instagram_handle" color="brand.200" fontSize="md" size="sm" borderRadius="md" focusBorderColor='brand.500' style={{ border: "2px solid #333333"}} {...register("instagram_handle", { required: "This is required."})} />
-                                        <ErrorMessage errors={errors} name="instagram_handle" render={({ message }) => <div style={{color: "red", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle style={{marginRight: "5px"}} /> {message} </div>}/>
-                                    </FormControl>
-                                </SimpleGrid>
-
-                                <FormControl id="have_website">
-                                    <Checkbox size='md' mt={3} colorScheme='blue' borderColor="brand.200" {...register("have_website")} onChange={e => {
-                                        if (e.target.checked) {
-                                            setHasWebsite(true);
-                                        }
-                                        else {
-                                            setHasWebsite(false);
-                                        }
-                                    }} >
-                                        <FormLabel htmlFor="have_website" color="brand.200" fontSize="md" mt="2">Do you currently have a website? (Check for yes 🤠) </FormLabel>
-                                    </Checkbox>
-
-                                    <ErrorMessage errors={errors} name="have_website" render={({ message }) => <div style={{color: "red", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle style={{marginRight: "5px"}} /> {message} </div>}/>
-                                </FormControl>
-
-                                {hasWebsite === true &&
-                                    <>
-                                    <FormControl id="website_url" mt={3}>
-                                        <FormLabel htmlFor="website_url" color="brand.200" fontSize="md">Current website URL:</FormLabel>
-                                        <Input name="website_url" color="brand.200" fontSize="md" size="sm" borderRadius="md" focusBorderColor='brand.500' style={{ border: "2px solid #333333"}} {...register("website_url")} />
-                                        <ErrorMessage errors={errors} name="website_url" render={({ message }) => <div style={{color: "red", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle style={{marginRight: "5px"}} /> {message} </div>}/>
+                                    <FormControl id="website_vision">
+                                        <FormLabel htmlFor="website_vision" mt={4} color="brand.200" fontSize="md">What is your vision for your dream website? What does it feel and look like? What do you hope this dream website motivates people to do? (example: buy a service or product, sign up for your email list, etc.)</FormLabel>
+                                        <Textarea name="website_vision" color="brand.200" fontSize="md" size="sm" borderRadius="md" focusBorderColor='brand.500' style={{ border: "2px solid #333333"}} {...register("website_vision", { required: "This is required."})} />
+                                        <ErrorMessage errors={errors} name="website_vision" render={({ message }) => <div style={{color: "red", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle style={{marginRight: "5px"}} /> {message} </div>}/>
                                     </FormControl>
 
-                                    <FormControl id="paint_points" mt={3}>
-                                        <FormLabel htmlFor="pain_points" color="brand.200" fontSize="md">What has been your biggest pain point with managing your website?</FormLabel>
-                                        <Textarea name="pain_points" color="brand.200" fontSize="md" size="sm" borderRadius="md" focusBorderColor='brand.500' style={{ border: "2px solid #333333"}} {...register("pain_points")} />
-                                        <ErrorMessage errors={errors} name="pain_points" render={({ message }) => <div style={{color: "red", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle style={{marginRight: "5px"}} /> {message} </div>}/>
+                                    <FormControl id="package">
+                                        <FormLabel htmlFor="package" mt={4} color="brand.200" fontSize="md">What package do you feel is best for you at this time?</FormLabel>
+                                        <Select name="package" defaultValue={packageSelection} size="sm" fontSize="md" borderRadius="md" style={{ border: "2px solid #333333"}} {...register("package", { required: "This is required."})}>
+                                            <option value='The Simple'>The Simple</option>
+                                            <option value='The Makeover'>The Makeover</option>
+                                            <option value='The Fairy Godmother'>The Fairy Godmother</option>
+                                        </Select>
+                                        <ErrorMessage errors={errors} name="package" render={({ message }) => <div style={{color: "red", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle style={{marginRight: "5px"}} /> {message} </div>}/>
                                     </FormControl>
-                                    </>
-                                }
-
-                                <FormControl id="about_business" mt={3}>
-                                    <FormLabel htmlFor="about_business" color="brand.200" fontSize="md">Tell me a little bit about your business. What you do, what you offer, and where you are falling short and hope to improve.</FormLabel>
-                                    <Textarea name="about_business" color="brand.200" fontSize="md" size="sm" borderRadius="md" focusBorderColor='brand.500' style={{ border: "2px solid #333333"}} {...register("about_business", { required: "This is required."})} />
-                                    <ErrorMessage errors={errors} name="about_business" render={({ message }) => <div style={{color: "red", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle style={{marginRight: "5px"}} /> {message} </div>}/>
-                                </FormControl>
-
-                                <FormControl id="website_vision" mt={3}>
-                                    <FormLabel htmlFor="website_vision" color="brand.200" fontSize="md">What is your vision for your dream website? What does it feel and look like? What do you hope this dream website motivates people to do? (example: buy a service or product, sign up for your email list, etc.)</FormLabel>
-                                    <Textarea name="website_vision" color="brand.200" fontSize="md" size="sm" borderRadius="md" focusBorderColor='brand.500' style={{ border: "2px solid #333333"}} {...register("website_vision", { required: "This is required."})} />
-                                    <ErrorMessage errors={errors} name="website_vision" render={({ message }) => <div style={{color: "red", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle style={{marginRight: "5px"}} /> {message} </div>}/>
-                                </FormControl>
-
-                                <FormControl id="package" mt={3}>
-                                    <FormLabel htmlFor="package" color="brand.200" fontSize="md">What package do you feel is best for you at this time?</FormLabel>
-                                    <Select name="package" defaultValue={packageSelection} size="sm" fontSize="md" borderRadius="md" style={{ border: "2px solid #333333"}} {...register("package", { required: "This is required."})}>
-                                        <option value='The Simple'>The Simple</option>
-                                        <option value='The Makeover'>The Makeover</option>
-                                        <option value='The Fairy Godmother'>The Fairy Godmother</option>
-                                    </Select>
-                                    <ErrorMessage errors={errors} name="package" render={({ message }) => <div style={{color: "red", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle style={{marginRight: "5px"}} /> {message} </div>}/>
-                                </FormControl>
+                                </Stack>
                                 
                                 <Flex width="100%" justifyContent="flex-start">
                                     <Button 
@@ -194,9 +193,6 @@ function ApplicationForm({ packageSelection }) {
                                     <Image src={unicorngif} borderRadius="110px" border="2px solid #333333" m={10} />
                                 </Flex>
                             }
-
-                        </Stack>
-                    
                     </Stack>
                 </Box>
             </Flex>

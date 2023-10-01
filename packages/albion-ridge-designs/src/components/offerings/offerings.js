@@ -65,17 +65,14 @@ const Offerings = ({ state, libraries }) => {
             
             {!offerChoice &&
                 <>
-                    <Heading size="2xl" color="brand.200" mb={16} fontFamily="GraphikSemibold" fontWeight="600" width="100%" textAlign="center">Choose Your Transformation</Heading>
                     
                     <Stack
-                    spacing={{
-                        base: '16',
-                        md: '24',
-                    }}
+                    spacing={14}
                     pl={10}
                     pr={10}
                     maxWidth={{ base: "inherit", md: "80%", lg: "inherit"}}
                     >
+                        <Heading size="2xl" color="brand.200" fontFamily="GraphikSemibold" fontWeight="600" width="100%" textAlign="center">Choose Your Transformation</Heading>
                         <SimpleGrid
                             columns={{
                             base: 1,
@@ -127,7 +124,7 @@ const Offerings = ({ state, libraries }) => {
                                                         <Stack spacing="3" height="100%">
                                                             <Flex direction="column" justifyContent="space-between" height="100%">
                                                                 <Stack>
-                                                                    <Text fontSize="5xl" fontWeight="semibold" textAlign="center">
+                                                                    <Text fontSize="5xl" fontWeight={{base: "500", md: "600"}} fontFamily={{base: "GraphikSemibold", md: "Produkt"}} textAlign="center">
                                                                         {offer.price}
                                                                     </Text>
                                                                     <List spacing={5}>
@@ -142,7 +139,7 @@ const Offerings = ({ state, libraries }) => {
                                                                     </List>
                                                                 </Stack>
                                                         
-                                                                <Button onClick={(e) => setOfferChoice(offer.title)} variant={offer.offering_color} border="2px solid" borderColor="brand.200" size="lg" fontWeight="600" letterSpacing="1px" mt={5}>{offer.button_text}</Button>  
+                                                                <Button onClick={(e) => setOfferChoice(offer.title)} variant={offer.offering_color} border="2px solid" borderColor="brand.200" size="lg" fontWeight={{base: "500", md: "600"}} fontFamily={{base: "GraphikSemibold", md: "Produkt"}} letterSpacing="1px" mt={5}>{offer.button_text}</Button>  
                                                             </Flex>
                                                         </Stack>
                                     
