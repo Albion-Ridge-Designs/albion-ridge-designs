@@ -52,8 +52,7 @@ const Offerings = ({ state, libraries }) => {
                         }
                         {isSmallerThan420 &&
                         <Box>
-                            <Heading size="xl" color="brand.200" fontFamily="GraphikSemibold" fontWeight="600" width="100%" textAlign="center">Choose Your</Heading>
-                            <Text fontSize="3xl" color="brand.200" fontFamily="GraphikSemibold" fontWeight="600" width="100%" textAlign="center">Transformation</Text>
+                            <Text fontSize="3xl" color="brand.200" fontFamily="GraphikSemibold" fontWeight="600" width="100%" textAlign="center">Choose Your Transformation</Text>
                         </Box>
                         }
                         <SimpleGrid
