@@ -11,6 +11,7 @@ import {
     Heading,
     Flex,
     Icon,
+    Image,
     useDisclosure,
     useMediaQuery
   } from "@chakra-ui/react";
@@ -18,6 +19,7 @@ import { FiMenu } from "react-icons/fi";
 import Link from "@frontity/components/link";
 import useFontFaceObserver from 'use-font-face-observer';
 import NavBody from "./navbody";
+import ardhorizontallogotransparent from "../../assets/ardhorizontallogotransparent.png";
 
 function Navbar({ sticky, menuItems, menuData, siteDomain, siteName }) {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -109,9 +111,10 @@ function Navbar({ sticky, menuItems, menuData, siteDomain, siteName }) {
                             </Logo>
                         }
                         {isSmallerThan480 &&
-                            <LogoMobile>
-                                <Heading color="brand.500" fontFamily="Amalta" style={{fontSize: "24px"}}>{siteName}</Heading>
-                            </LogoMobile>
+                            // <LogoMobile>
+                            //     <Heading color="brand.500" fontFamily="Amalta" style={{fontSize: "24px"}}>{siteName}</Heading>
+                            // </LogoMobile>
+                            <Image src={ardhorizontallogotransparent} />
                         }
                 </Link>
                 {/* <Flex direction="row" width="100%" justifyContent="center">
