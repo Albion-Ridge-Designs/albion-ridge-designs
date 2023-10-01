@@ -11,7 +11,8 @@ import {
     Heading,
     Flex,
     Icon,
-    useDisclosure
+    useDisclosure,
+    useMediaQuery
   } from "@chakra-ui/react";
 import { FiMenu } from "react-icons/fi";
 import Link from "@frontity/components/link";
@@ -24,6 +25,7 @@ function Navbar({ sticky, menuItems, menuData, siteDomain, siteName }) {
     const [navigationLinks, setNavigationLinks] = useState([]);
     const [sectionLinks, setSectionLinks] = useState([]);
     const [socialLinks, setSocialLinks] = useState([]);
+    const [isSmallerThan480] = useMediaQuery('(max-width:480px)')
 
     useEffect(() => {
         const navLinks = menuData.acf.navigation_links;
@@ -50,7 +52,14 @@ function Navbar({ sticky, menuItems, menuData, siteDomain, siteName }) {
             <Flex>
                 {isFontLoaded &&
                 <Link link="/">
-                    <Logo><Heading size="2xl" color="brand.500" fontFamily="Amalta">{siteName}</Heading></Logo>
+                    <Logo>
+                        {!isSmallerThan480 &&
+                            <Heading size="2xl" color="brand.500" fontFamily="Amalta">{siteName}</Heading>
+                        }
+                        {isSmallerThan480 &&
+                            <Heading color="brand.500" fontFamily="Amalta" style={{fontSize: "24px"}}>{siteName}</Heading>
+                        }
+                    </Logo>
                 </Link>
                 }
             </Flex>
@@ -86,9 +95,16 @@ function Navbar({ sticky, menuItems, menuData, siteDomain, siteName }) {
         <NavigationSticky>
             <Flex direction="column">
                 <Link link="/">
-                    <Logo>
-                        <Heading size="2xl" color="brand.500" fontFamily="Amalta">{siteName}</Heading>
-                    </Logo>
+                        {!isSmallerThan480 &&
+                            <Logo>
+                                <Heading size="2xl" color="brand.500" fontFamily="Amalta">{siteName}</Heading>
+                            </Logo>
+                        }
+                        {isSmallerThan480 &&
+                            <LogoMobile>
+                                <Heading color="brand.500" fontFamily="Amalta" style={{fontSize: "24px"}}>{siteName}</Heading>
+                            </LogoMobile>
+                        }
                 </Link>
                 {/* <Flex direction="row" width="100%" justifyContent="center">
                     <Flex direction="row" width="65%" justifyContent="space-around">
@@ -171,6 +187,14 @@ const NavigationSticky = styled.div`
 const Logo = styled.div`
     color: #2C685D;
     -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    padding-top: .5em;
+    padding-left: .5em;
+    padding-right: .5em;
+`
+const LogoMobile = styled.div`
+    color: #2C685D;
+    -webkit-text-stroke-width: .5px;
     -webkit-text-stroke-color: black;
     padding-top: .5em;
     padding-left: .5em;
