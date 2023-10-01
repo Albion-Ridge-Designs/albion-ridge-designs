@@ -14,6 +14,7 @@ import {
     ListItem,
     ListIcon,
     Icon
+    ,useMediaQuery
   } from '@chakra-ui/react';
   import { FaCheck, FaArrowLeft } from "react-icons/fa";
 import ApplicationForm from "../application/applicationform";
@@ -31,6 +32,7 @@ const Offerings = ({ state, libraries }) => {
   const offeringsArr = offeringData.acf.offerings;
   const displayMarquee = offeringData.acf.display_marquee_promo;
   const marqueeArr = offeringData.acf.promo_marquee_text;
+  const [isSmallerThan420] = useMediaQuery('(max-width: 420px)');
 
     return (
         <Box id="offers-section" bgGradient='linear(to-tr, brand.800, brand.300, brand.900)'>  
@@ -39,14 +41,21 @@ const Offerings = ({ state, libraries }) => {
             
             {!offerChoice &&
                 <>
-                    
+                    {isSmallerThan420 &&
+                        <Box pb={10}>
+                            <Heading size="2xl" color="brand.200" fontFamily="GraphikSemibold" fontWeight="600" width="100%" textAlign="center">Choose Your</Heading>
+                            <Heading size="2xl" color="brand.200" fontFamily="GraphikSemibold" fontWeight="600" width="100%" textAlign="center">Transformation</Heading>
+                        </Box>
+                    }
                     <Stack
                     spacing={14}
                     pl={10}
                     pr={10}
                     maxWidth={{ base: "inherit", md: "80%", lg: "inherit"}}
                     >
+                        {!isSmallerThan420 &&
                         <Heading size="2xl" color="brand.200" fontFamily="GraphikSemibold" fontWeight="600" width="100%" textAlign="center">Choose Your Transformation</Heading>
+                        }
                         <SimpleGrid
                             columns={{
                             base: 1,
