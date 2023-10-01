@@ -5,17 +5,20 @@ import {
     Heading,
     HStack,
     Flex,
+    Box,
     Button,
     useMediaQuery
   } from "@chakra-ui/react";
 import TextTransition, { presets } from 'react-text-transition';
 import useSticky from "../../hooks/useSticky";
 
-function Hero({ image, video, headingAnimationList, headingTop, headingBottom, ctaButtonText, ctaButtonLink }) {
+function Hero({ image, video, headingAnimationList, headingTop, headingBottom, ctaButtonText, ctaButtonLink, highlight }) {
   const [index, setIndex] = useState(0);
   const { element } = useSticky();
   const [textsArr, setTextsArr] = useState([]);
-  const [isSmallerThan420] = useMediaQuery('(max-width: 420px)')
+  const [isSmallerThan420] = useMediaQuery('(max-width: 420px)');
+  const [isSmallerThan768] = useMediaQuery('(max-width: 768px)');
+  const [isSmallerThan825] = useMediaQuery('(max-width: 825px)');
   const isFontLoaded = useFontFaceObserver([
     { family: 'Amalta' }, // Same name you have in your CSS
   ]);
@@ -41,7 +44,7 @@ function Hero({ image, video, headingAnimationList, headingTop, headingBottom, c
 
   return (
     <>
-      <style>
+    <style>
         {
           `#video {
             // position: fixed;
@@ -54,64 +57,94 @@ function Hero({ image, video, headingAnimationList, headingTop, headingBottom, c
             `
         }
       </style>
+    {/* {!isSmallerThan768 && 
+       <Welcome>
+       <video autoPlay loop muted id="video">
+         <source src={video} type="video/mp4" />
+       </video>
+       
+       <HeroContent>
+       <div ref={element}>
+         {isFontLoaded && textsArr.length > 0 &&
+           <Flex direction="column" height="100vh" justifyContent="center" alignItems="center">
 
-      <Welcome>
-        <video autoPlay loop muted id="video">
-          <source src={video} type="video/mp4" />
-        </video>
-        
-        <HeroContent>
-        <div ref={element}>
-          {isFontLoaded && textsArr.length > 0 &&
-            <Flex direction="column" height="100vh" justifyContent="center" alignItems="center">
+               <Flex direction="column" justifyContent="center" alignItems="center" border="5px solid black" borderRadius="30px" bg="brand.900" opacity="80%" pt={5} pb={5} minWidth={{base: "275px", sm: "475px", md: "500px"}}>
+         
+                   <HStack>
+                     {!isSmallerThan420 &&
+                     <HeroHeading>
+                       <Heading color="brand.800" size="3xl" fontFamily="Amalta">{headingTop} </Heading>
+                       <Heading color="brand.500" size="3xl" fontFamily="Amalta" p={5} textAlign="center">
+                         <TextTransition
+                           text={ textsArr[index % textsArr.length] }
+                           springConfig={presets.wobbly} // default, gentle, wobbly, stiff, slow, molasses
+                           style={{width: "100%", textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center"}}
+                         />
+                       </Heading>
+                       <Heading color="brand.800" size="3xl" fontFamily="Amalta"> {headingBottom} </Heading>
+                     </HeroHeading>
+                     }
+                     {isSmallerThan420 &&
+                     <HeroHeadingMobile>
+                       <Heading color="brand.800" size="2xl" fontFamily="Amalta">{headingTop} </Heading>
+                       <Heading color="brand.500" size="2xl" fontFamily="Amalta" p={2} textAlign="center">
+                         <TextTransition
+                           text={ textsArr[index % textsArr.length] }
+                           springConfig={presets.wobbly} // default, gentle, wobbly, stiff, slow, molasses
+                           style={{width: "100%", textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center"}}
+                         />
+                       </Heading>
+                       <Heading color="brand.800" size="2xl" fontFamily="Amalta"> {headingBottom} </Heading>
+                     </HeroHeadingMobile>
+                     }
+                   </HStack>
+         
+               </Flex>
 
-                <Flex direction="column" justifyContent="center" alignItems="center" border="5px solid black" borderRadius="30px" bg="brand.900" opacity="80%" pt={5} pb={5} minWidth={{base: "275px", sm: "475px", md: "500px"}}>
-          
-                    <HStack>
-                      {!isSmallerThan420 &&
-                      <HeroHeading>
-                        <Heading color="brand.800" size="3xl" fontFamily="Amalta">{headingTop} </Heading>
-                        <Heading color="brand.500" size="3xl" fontFamily="Amalta" p={5} textAlign="center">
-                          <TextTransition
-                            text={ textsArr[index % textsArr.length] }
-                            springConfig={presets.wobbly} // default, gentle, wobbly, stiff, slow, molasses
-                            style={{width: "100%", textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center"}}
-                          />
-                        </Heading>
-                        <Heading color="brand.800" size="3xl" fontFamily="Amalta"> {headingBottom} </Heading>
-                      </HeroHeading>
-                      }
-                      {isSmallerThan420 &&
-                      <HeroHeadingMobile>
-                        <Heading color="brand.800" size="2xl" fontFamily="Amalta">{headingTop} </Heading>
-                        <Heading color="brand.500" size="2xl" fontFamily="Amalta" p={2} textAlign="center">
-                          <TextTransition
-                            text={ textsArr[index % textsArr.length] }
-                            springConfig={presets.wobbly} // default, gentle, wobbly, stiff, slow, molasses
-                            style={{width: "100%", textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center"}}
-                          />
-                        </Heading>
-                        <Heading color="brand.800" size="2xl" fontFamily="Amalta"> {headingBottom} </Heading>
-                      </HeroHeadingMobile>
-                      }
-                    </HStack>
-          
-                </Flex>
+               <a href={ctaButtonLink}>
+                 <Button variant="cta" size="lg" fontWeight="600" letterSpacing="1px" mt={5}>{ctaButtonText}</Button>
+               </a>
 
-                <a href={ctaButtonLink}>
-                  <Button variant="cta" size="lg" fontWeight="600" letterSpacing="1px" mt={5}>{ctaButtonText}</Button>
-                </a>
+           </Flex>
+         }
+         </div>
+       </HeroContent>
+     </Welcome>
+    }
+    {isSmallerThan768 && */}
+          <Flex direction="column" justifyContent="center" alignItems="center" textAlign="center" height="100vh" backgroundImage={image} backgroundAttachment="fixed" backgroundSize="cover" backgroundPosition="bottom">
+            <HeroContent>
+                <div ref={element}>
+                    {isFontLoaded &&
+                        <Flex direction="column" height="100vh" justifyContent="center" alignItems="center">
+                                <HeroHeading>
+                                    {!isSmallerThan825 &&
+                                      <Box p={4}>
+                                        <Heading color="brand.500" size="4xl" fontFamily="Amalta">Websites <Box as="span" color="brand.400">for</Box> <Box as="span" color="brand.900">Humans</Box>,</Heading>
+                                        <Heading color="brand.500" size="4xl" fontFamily="Amalta"><Box as="span" color="brand.300">by</Box>  <Box as="span" color="brand.900">Humans</Box></Heading>
+                                      </Box>
+                                    }
+                                    {isSmallerThan825 &&
+                                      <Box p={4}>
+                                        <Heading color="brand.500" size="3xl" fontFamily="Amalta">Websites <Box as="span" color="brand.400">for</Box> <Box as="span" color="brand.900">Humans</Box>, <Box as="span" color="brand.300">by</Box>  <Box as="span" color="brand.900">Humans</Box></Heading>
+                                      </Box>
+                                    }
+                                </HeroHeading>
 
-            </Flex>
-          }
-          </div>
-        </HeroContent>
-      </Welcome>
+                                <a href={ctaButtonLink}>
+                                  <Button variant="cta" size="lg" fontWeight="600" letterSpacing="1px" mt={5}>{ctaButtonText}</Button>
+                                </a>
+                        </Flex>
+                    }
+                </div>
+            </HeroContent>
+        </Flex>
+     {/* } */}
     </>
   );
 }
 
-export default Hero
+export default Hero;
 
 const Welcome = styled.section`
     background-color: #1f1f1f;
@@ -127,18 +160,6 @@ const Welcome = styled.section`
 }
 `
 const HeroHeading = styled.div`
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-    padding: .5em;
-`
-
-const HeroHeadingMobile = styled.div`
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-    padding: .25em;
-`
-
-const HeroSubheading = styled.span`
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     padding: .5em;

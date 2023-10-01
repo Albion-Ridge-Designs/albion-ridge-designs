@@ -87,6 +87,7 @@ const Page = ({ state, libraries }) => {
           headingBottom={post.acf.heading_bottom_line}
           ctaButtonText={post.acf.cta_button_text}
           ctaButtonLink={post.acf.cta_button_link}
+          highlight="brand.300"
         />
       }
 

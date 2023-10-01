@@ -12,7 +12,7 @@ function NavLinks({ navigationLinks }) {
             {navigationLinks.map((link, key) => {
                 return (
                     <Link link={link.navigation_link.url} key={key}>
-                        <Text fontSize={{base: "md", md: "lg"}} fontWeight="600" color="brand.800" _hover={{color: "brand.500"}} mb={2}>
+                        <Text fontSize={{base: "sm", sm: "md", md: "lg"}} fontWeight="600" color="brand.800" _hover={{color: "brand.500"}} mb={2}>
                             {link.navigation_link.title}
                         </Text>
                     </Link>
