@@ -58,9 +58,9 @@ const Offerings = ({ state, libraries }) => {
     },
   }
   const offersArr = Object.values(offersData);
-  if (displaySection === true) {
+
     return (
-        <OffersContainer id="offers-section" ref={offersSection} style={{ backgroundImage: `url("${ardgradient14}")` }}>
+        <Box id="offers-section" ref={offersSection} bg="brand.300" backgroundImage={{base: "none", sm: `url("${ardgradient14}")`}} backgroundAttachment="fixed" backgroundSize="cover" backgroundPosition="bottom">
         <Flex direction="column" alignItems="center" pt={20} pb={20}>
             
             {!offerChoice &&
@@ -184,21 +184,14 @@ const Offerings = ({ state, libraries }) => {
                 </marquee>
             </Flex>
         }   
-        </OffersContainer>
+    </Box>
     )
-    }
-    
-    if (displaySection === false) {
-        return (
-            <></>
-        )
-    }
 }
 
 export default connect(Offerings);
 
 const OffersContainer = styled.section`
-    background-color: #1f1f1f;
+    /* background-color: #1f1f1f; */
     background-attachment: fixed;
     background-size: cover;
     background-position: bottom;
