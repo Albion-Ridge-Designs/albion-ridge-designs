@@ -10,21 +10,17 @@ import {
     Stack,
     Text,
     Flex,
-    Button,
-    useMediaQuery
+    Button
   } from '@chakra-ui/react';
 import dayjs from "dayjs"
 import Loading from "../loading";
-import designgazette2transparent from "../../assets/designgazette2transparent.png"
 
 const BlogCards = ({ state, libraries }) => {
   const blogItems = state.source.get("/blog");
   const blogData = state.source[blogItems.type];
   const blogValues = Object.values(blogData);
   const Html2React = libraries.html2react.Component;
-  const blogCardsSection = useRef();  
-  const [isSmallerThan480] = useMediaQuery('(max-width: 480px)')
-  const [isSmallerThan550] = useMediaQuery('(max-width: 550px)')
+  const blogCardsSection = useRef();
 
   const [lastThreePosts, setLastThreePosts] = useState([]);
 
@@ -39,28 +35,15 @@ const BlogCards = ({ state, libraries }) => {
 
   if (!blogItems.isFetching) {
     return (
-    <Flex id="blogcards-section" ref={blogCardsSection} direction="column" alignItems="center" bg="brand.700" pt={10} pb={20}>
-        {!isSmallerThan480 &&
-            <BlogHeading>
-                <Heading size="2xl" p={10} color="brand.800" fontFamily="Amalta" with="100%" textAlign="center">The Albion Design Gazette</Heading>
-            </BlogHeading>
-         }
-        {isSmallerThan480 &&
-           <Image src={designgazette2transparent} p={10}/>
-        }
+    <Flex id="blogcards-section" ref={blogCardsSection} direction="column" alignItems="center" bg="brand.700" pt={20} pb={20}>
         <Stack
-        spacing={14}
+        spacing={10}
         pl={10}
         pr={10}
         >
-        {/* {!isSmallerThan480 &&
-            <BlogHeading>
-                <Heading size="2xl" color="brand.800" fontFamily="Amalta" with="100%" textAlign="center">The Albion Design Gazette</Heading>
-            </BlogHeading>
-         }
-        {isSmallerThan480 &&
-           <Image src={designgazette2transparent} />
-        } */}
+        <BlogHeading>
+            <Heading size="xl" color="brand.800" fontFamily="Amalta" with="100%" textAlign="center">The Albion Design Gazette</Heading>
+        </BlogHeading>
             <SimpleGrid
                 columns={{
                 base: 1,
@@ -121,7 +104,7 @@ const BlogCards = ({ state, libraries }) => {
                                             {formattedDate}
                                             </Text>
                                             <Heading size="md"><Html2React html={post.title.rendered} /></Heading>
-                                            <Text color="fg.muted"><Html2React html={post.excerpt.rendered} /></Text>
+                                            <Text color="fg.muted" fontWeight="500"><Html2React html={post.excerpt.rendered} /></Text>
                                         </Stack>
                                     </Stack>
                                 </Stack>
@@ -144,8 +127,9 @@ const BlogCards = ({ state, libraries }) => {
 
 export default connect(BlogCards);
 
-const BlogHeading = styled.div`
-    -webkit-text-stroke-width: 1px;
+const BlogHeading = styled.span`
+    color: #2C685D;
+    -webkit-text-stroke-width: .5px;
     -webkit-text-stroke-color: black;
     padding: .5em;
 `
