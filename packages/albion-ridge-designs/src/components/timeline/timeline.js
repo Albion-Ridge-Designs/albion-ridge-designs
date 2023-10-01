@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { connect, styled } from "frontity"
+import { connect } from "frontity"
 import {
     Box,
     Heading,
@@ -9,7 +9,7 @@ import {
 import { Chrono } from "react-chrono";
 import ardgradient19 from "../../assets/ardgradient19.jpeg";
 
-function Timeline({ state, libraries }) {
+function Timeline({ state }) {
   const timelineItems = state.source.get("/timeline/main");
   const timelineData = state.source[timelineItems.type][timelineItems.id];
   const displaySection = timelineData.acf.display_section;
@@ -67,9 +67,9 @@ function Timeline({ state, libraries }) {
             `
         }
       </style>
-    <TimelineContainer id="timeline-section" ref={timelineSection} style={{ backgroundImage: `url("${ardgradient19}")` }}>
+    <Box id="timeline-section" ref={timelineSection} bg="brand.900" backgroundImage={{base: "none", sm: `url("${ardgradient19}")`}} backgroundAttachment="fixed" backgroundSize="cover" backgroundPosition="bottom">
       <Flex direction="column" alignItems="center" width="100%" pt={20} pb={20}>
-        <Heading size="2xl" fontWeight="400" fontFamily="Amalta" className="test" mb={10}>Our Story</Heading>
+        <Heading size="2xl" color={{base: "brand.800", sm: "brand.200"}} fontWeight="400" fontFamily="Amalta" className="test" mb={10}>Our Story</Heading>
       <Box width={{ base: "100%", md: "800px" }}> 
         {isSmallerThan768 && timelineEvents.length > 0 &&
           <Chrono
@@ -119,7 +119,7 @@ function Timeline({ state, libraries }) {
           }
       </Box>
       </Flex>
-    </TimelineContainer>
+    </Box>
     </>
   );
   }
@@ -131,11 +131,3 @@ function Timeline({ state, libraries }) {
 }
 
 export default connect(Timeline);
-
-const TimelineContainer = styled.section`
-    background-color: #1f1f1f;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: bottom;
-}
-`

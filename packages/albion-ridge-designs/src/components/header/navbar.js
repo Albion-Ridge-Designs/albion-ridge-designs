@@ -26,6 +26,7 @@ function Navbar({ sticky, menuItems, menuData, siteDomain, siteName }) {
     const [sectionLinks, setSectionLinks] = useState([]);
     const [socialLinks, setSocialLinks] = useState([]);
     const [isSmallerThan480] = useMediaQuery('(max-width:480px)')
+    const [isSmallerThan375] = useMediaQuery('(max-width:375px)')
 
     useEffect(() => {
         const navLinks = menuData.acf.navigation_links;
@@ -52,14 +53,21 @@ function Navbar({ sticky, menuItems, menuData, siteDomain, siteName }) {
             <Flex>
                 {isFontLoaded &&
                 <Link link="/">
-                    <Logo>
-                        {!isSmallerThan480 &&
+                    {!isSmallerThan480 && !isSmallerThan375 &&
+                        <Logo>
                             <Heading size="2xl" color="brand.500" fontFamily="Amalta">{siteName}</Heading>
-                        }
-                        {isSmallerThan480 &&
+                        </Logo>
+                    }
+                    {isSmallerThan480 && !isSmallerThan375 &&
+                        <LogoMobile>
                             <Heading color="brand.500" fontFamily="Amalta" style={{fontSize: "24px"}}>{siteName}</Heading>
-                        }
-                    </Logo>
+                        </LogoMobile>
+                    }
+                    {isSmallerThan480 && isSmallerThan375 &&
+                        <LogoMobile>
+                            <Heading color="brand.500" fontFamily="Amalta" style={{fontSize: "20px"}}>{siteName}</Heading>
+                        </LogoMobile>
+                    }
                 </Link>
                 }
             </Flex>

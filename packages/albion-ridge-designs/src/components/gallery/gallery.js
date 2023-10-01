@@ -42,7 +42,7 @@ function Gallery({ state, rootProps, images }) {
 
   if (!loading) {
     return (
-      <Stack spacing="4" {...rootProps} p={10} bg="brand.100" minHeight="85vh">
+      <Stack spacing="4" {...rootProps} p={10} bg="brand.100" minHeight="fit-content">
         <AspectRatio ratio={4 / 3}>
           <Image
             src={images[index].src}
