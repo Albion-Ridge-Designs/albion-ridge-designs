@@ -48,12 +48,10 @@ const Offerings = ({ state, libraries }) => {
                     maxWidth={{ base: "inherit", md: "80%", lg: "inherit"}}
                     >
                         {!isSmallerThan420 &&
-                        <Heading size="2xl" color="brand.200" fontFamily="GraphikSemibold" fontWeight="600" width="100%" textAlign="center">Choose Your Transformation</Heading>
+                            <Heading size="2xl" color="brand.200" fontFamily="GraphikSemibold" fontWeight="600" width="100%" textAlign="center">Choose Your Transformation</Heading>
                         }
                         {isSmallerThan420 &&
-                        <Box>
                             <Text fontSize="3xl" color="brand.200" fontFamily="GraphikSemibold" fontWeight="600" width="100%" textAlign="center">Choose Your Transformation</Text>
-                        </Box>
                         }
                         <SimpleGrid
                             columns={{
