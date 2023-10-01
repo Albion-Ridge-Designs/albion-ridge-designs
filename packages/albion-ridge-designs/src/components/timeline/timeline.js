@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { connect, styled } from "frontity"
+import { connect } from "frontity"
 import {
     Box,
     Heading,
@@ -9,7 +9,7 @@ import {
 import { Chrono } from "react-chrono";
 import ardgradient19 from "../../assets/ardgradient19.jpeg";
 
-function Timeline({ state, libraries }) {
+function Timeline({ state }) {
   const timelineItems = state.source.get("/timeline/main");
   const timelineData = state.source[timelineItems.type][timelineItems.id];
   const displaySection = timelineData.acf.display_section;
@@ -131,11 +131,3 @@ function Timeline({ state, libraries }) {
 }
 
 export default connect(Timeline);
-
-const TimelineContainer = styled.section`
-    background-color: #1f1f1f;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: bottom;
-}
-`

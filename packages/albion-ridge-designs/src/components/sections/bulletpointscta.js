@@ -35,7 +35,7 @@ import {
       return (
         <>
           <Flex id="introduction-section" direction="column" justifyContent="center" alignItems="center" color={textColor} bg={backgroundColor}>
-            <Box m={20} maxWidth="1200px">
+            <Box m={{base: 10, md: 20}} maxWidth="1200px">
               <Flex direction="column" justifyContent="center" alignItems="center">
                 <Heading textAlign="center" fontFamily="Produkt" pb={5}>
                     {headingText}

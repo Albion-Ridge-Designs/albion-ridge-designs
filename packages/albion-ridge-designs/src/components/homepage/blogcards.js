@@ -10,7 +10,8 @@ import {
     Stack,
     Text,
     Flex,
-    Button
+    Button,
+    useMediaQuery
   } from '@chakra-ui/react';
 import dayjs from "dayjs"
 import Loading from "../loading";
@@ -20,7 +21,7 @@ const BlogCards = ({ state, libraries }) => {
   const blogData = state.source[blogItems.type];
   const blogValues = Object.values(blogData);
   const Html2React = libraries.html2react.Component;
-  const blogCardsSection = useRef();
+  const blogCardsSection = useRef();  const [isSmallerThan420] = useMediaQuery('(max-width: 420px)')
 
   const [lastThreePosts, setLastThreePosts] = useState([]);
 
@@ -36,9 +37,16 @@ const BlogCards = ({ state, libraries }) => {
   if (!blogItems.isFetching) {
     return (
     <Flex id="blogcards-section" ref={blogCardsSection} direction="column" alignItems="center" bg="brand.700" pt={20} pb={20}>
-        <BlogHeading>
-            <Heading size="xl" color="brand.800" mb={8} fontFamily="Amalta" with="100%" textAlign="center">The Albion Design Gazette</Heading>
-        </BlogHeading>
+        {!isSmallerThan420 &&
+            <BlogHeading>
+                <Heading size="xl" color="brand.800" mb={8} fontFamily="Amalta" with="100%" textAlign="center">The Albion Design Gazette</Heading>
+            </BlogHeading>
+        }
+        {isSmallerThan420 &&
+            <BlogHeadingMobile>
+                <Heading size="xl" color="brand.800" mb={8} fontFamily="Amalta" with="100%" textAlign="center">The Albion Design Gazette</Heading>
+            </BlogHeadingMobile>
+        }
         <Stack
         spacing={{
             base: '16',
@@ -130,9 +138,15 @@ const BlogCards = ({ state, libraries }) => {
 
 export default connect(BlogCards);
 
-const BlogHeading = styled.span`
+const BlogHeading = styled.div`
     color: #2C685D;
     -webkit-text-stroke-width: .5px;
+    -webkit-text-stroke-color: black;
+    padding: .5em;
+`
+const BlogHeadingMobile = styled.div`
+    color: #2C685D;
+    -webkit-text-stroke-width: .25px;
     -webkit-text-stroke-color: black;
     padding: .5em;
 `

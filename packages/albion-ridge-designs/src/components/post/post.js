@@ -193,7 +193,7 @@ const Post = ({ state, libraries }) => {
         </Flex>
         
         {gallery.length > 0 &&
-        <Flex direction="column" bg="brand.100" minHeight="85vh">
+        <Flex direction="column" bg="brand.100" minHeight="fit-content">
           <Heading color="brand.800" size="2xl" fontFamily="Amalta" fontWeight="500" width="100%" textAlign="center" mt={16}>Post Gallery</Heading>
           <Gallery images={gallery} />
         </Flex>

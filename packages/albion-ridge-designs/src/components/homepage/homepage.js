@@ -1,7 +1,7 @@
 import React from "react";
 import Contact from "../contact/contact";
 import Offerings from "../offerings/offerings";
-import TimelineWrapper from "../timeline/timelinewrapper";
+import Timeline from "../timeline/timeline";
 import BlogCards from "./blogcards";
 import Testimonials from "../testimonials/testimonials";
 import Application from "../application/application";
@@ -11,7 +11,7 @@ import Application from "../application/application";
         <>
           <Offerings />
           <Testimonials />
-          <TimelineWrapper />
+          <Timeline />
           <Application />
           <BlogCards />
           <Contact />
