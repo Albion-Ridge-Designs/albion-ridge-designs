@@ -39,25 +39,28 @@ const BlogCards = ({ state, libraries }) => {
 
   if (!blogItems.isFetching) {
     return (
-    <Flex id="blogcards-section" ref={blogCardsSection} direction="column" alignItems="center" bg="brand.700" pt={20} pb={20}>
-        {/* {!isSmallerThan480 &&
+    <Flex id="blogcards-section" ref={blogCardsSection} direction="column" alignItems="center" bg="brand.700" pt={10} pb={20}>
+        {!isSmallerThan480 &&
             <BlogHeading>
-                <Heading size="2xl" color="brand.800" mb={8} fontFamily="Amalta" with="100%" textAlign="center">The Albion Design Gazette</Heading>
+                <Heading size="2xl" p={10} color="brand.800" fontFamily="Amalta" with="100%" textAlign="center">The Albion Design Gazette</Heading>
             </BlogHeading>
-         } */}
+         }
+        {isSmallerThan480 &&
+           <Image src={designgazette2transparent} p={10}/>
+        }
         <Stack
         spacing={14}
         pl={10}
         pr={10}
         >
-        {!isSmallerThan480 &&
+        {/* {!isSmallerThan480 &&
             <BlogHeading>
                 <Heading size="2xl" color="brand.800" fontFamily="Amalta" with="100%" textAlign="center">The Albion Design Gazette</Heading>
             </BlogHeading>
          }
         {isSmallerThan480 &&
            <Image src={designgazette2transparent} />
-        }
+        } */}
             <SimpleGrid
                 columns={{
                 base: 1,
