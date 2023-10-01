@@ -65,7 +65,7 @@ function Hero({ image, video, headingAnimationList, headingTop, headingBottom, c
           {isFontLoaded && textsArr.length > 0 &&
             <Flex direction="column" height="100vh" justifyContent="center" alignItems="center">
 
-                <Flex direction="column" justifyContent="center" alignItems="center" border="5px solid black" borderRadius="30px" bg="brand.900" opacity="80%" pt={5} pb={5} minWidth={{base: "325px", sm: "475px", md: "500px"}}>
+                <Flex direction="column" justifyContent="center" alignItems="center" border="5px solid black" borderRadius="30px" bg="brand.900" opacity="80%" pt={5} pb={5} minWidth={{base: "275px", sm: "475px", md: "500px"}}>
           
                     <HStack>
                       {!isSmallerThan420 &&

@@ -3,10 +3,12 @@ import {
     Flex,
     Box,
     Heading,
-    Text
+    Text,
+    useMediaQuery
   } from "@chakra-ui/react"
   
   function Quote({ backgroundColor, text, author, showAuthor, textColor, useDropCap, dropCapBackgroundColor, dropCapTextColor}) {
+    const [isSmallerThan420] = useMediaQuery('(max-width:420px)')
       return (
         <>
         <style>
@@ -41,7 +43,7 @@ import {
                         <>
                             <Heading size="2xl" mb={3} color={textColor} fontFamily="Amalta" fontWeight="500" textAlign="center">"{text}"</Heading>
                             <Flex width="100%" justifyContent="flex-end">
-                                {showAuthor &&
+                                {showAuthor && !isSmallerThan420 &&
                                     <Text fontSize="2xl" color={textColor} fontFamily="GraphikSemibold" mr={10}>
                                         - {author}
                                     </Text>
@@ -55,7 +57,7 @@ import {
                                 <Heading id="dropcap" size="2xl" mb={3} color={textColor} fontFamily="Amalta" fontWeight="500">"{text}"</Heading>
                             </Box>
                             <Flex width="100%" justifyContent="flex-end">
-                                {showAuthor &&
+                                {showAuthor && !isSmallerThan420 &&
                                     <Text fontSize="2xl" color={textColor} fontFamily="GraphikSemibold" mr={10}>
                                         - {author}
                                     </Text>
