@@ -8,7 +8,7 @@ import {
     Image,
     useMediaQuery
   } from "@chakra-ui/react";
-  import ardverticallogotransparent from "../../../assets/ardverticallogotransparent.png";
+  import ardverticalorange from "../../../assets/ardverticalorange.jpeg";
 
 function Logo() {
     const [isSmallerThan480] = useMediaQuery('(max-width:480px)')
@@ -23,7 +23,7 @@ function Logo() {
                 </LogoContainer>
             }
             {isSmallerThan480 &&
-                <Image src={ardverticallogotransparent} />
+                <Image src={ardverticalorange} />
             }
             <Box mt="0px">
                 <a href="#application-section">
