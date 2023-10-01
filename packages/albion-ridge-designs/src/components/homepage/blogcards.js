@@ -10,7 +10,8 @@ import {
     Stack,
     Text,
     Flex,
-    Button
+    Button,
+    useMediaQuery
   } from '@chakra-ui/react';
 import dayjs from "dayjs"
 import Loading from "../loading";
@@ -20,6 +21,7 @@ const BlogCards = ({ state, libraries }) => {
   const blogData = state.source[blogItems.type];
   const blogValues = Object.values(blogData);
   const Html2React = libraries.html2react.Component;
+  const [isSmallerThan420] = useMediaQuery('(max-width: 420px)');
   const blogCardsSection = useRef();
 
   const [lastThreePosts, setLastThreePosts] = useState([]);
@@ -41,9 +43,14 @@ const BlogCards = ({ state, libraries }) => {
         pl={10}
         pr={10}
         >
+        {!isSmallerThan420 &&
         <BlogHeading>
             <Heading size="xl" color="brand.800" fontFamily="Amalta" with="100%" textAlign="center">The Albion Design Gazette</Heading>
         </BlogHeading>
+        }
+        {isSmallerThan420 &&
+            <Heading size="xl" color="brand.800" fontWeight="500" fontFamily="Amalta" with="100%" textAlign="center">The Albion Design Gazette</Heading>
+        }
             <SimpleGrid
                 columns={{
                 base: 1,
