@@ -130,15 +130,10 @@ function Hero({ image, video, headingAnimationList, headingTop, headingBottom, c
                                       </Box>
                                     }
                                 </HeroHeading>
-                                {/* <HeroSubheading>
-                                    <Heading color="brand.500" size="4xl" p={4} fontFamily="Amalta"><Box as="span" color="brand.300">by</Box>  <Box as="span" color="brand.900">Humans</Box></Heading>
-                                </HeroSubheading> */}
+
                                 <a href={ctaButtonLink}>
                                   <Button variant="cta" size="lg" fontWeight="600" letterSpacing="1px" mt={5}>{ctaButtonText}</Button>
                                 </a>
-                                {/* <HeroHeading>
-                                  <Heading color="brand.800" size="3xl" fontFamily="Amalta"><Box as="span" color="brand.300">by</Box> Humans</Heading> 
-                                </HeroHeading> */}
                         </Flex>
                     }
                 </div>
@@ -165,18 +160,6 @@ const Welcome = styled.section`
 }
 `
 const HeroHeading = styled.div`
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-    padding: .5em;
-`
-
-const HeroHeadingMobile = styled.div`
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-    padding: .25em;
-`
-
-const HeroSubheading = styled.span`
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     padding: .5em;
