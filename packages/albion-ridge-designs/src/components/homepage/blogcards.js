@@ -146,9 +146,3 @@ const BlogHeading = styled.div`
     -webkit-text-stroke-color: black;
     padding: .5em;
 `
-const BlogHeadingMobile = styled.div`
-    color: #2C685D;
-    -webkit-text-stroke-width: .5px;
-    -webkit-text-stroke-color: black;
-    padding: .5em;
-`
