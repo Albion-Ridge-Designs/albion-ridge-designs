@@ -57,61 +57,6 @@ function Hero({ image, video, headingAnimationList, headingTop, headingBottom, c
             `
         }
       </style>
-    {/* {!isSmallerThan768 && 
-       <Welcome>
-       <video autoPlay loop muted id="video">
-         <source src={video} type="video/mp4" />
-       </video>
-       
-       <HeroContent>
-       <div ref={element}>
-         {isFontLoaded && textsArr.length > 0 &&
-           <Flex direction="column" height="100vh" justifyContent="center" alignItems="center">
-
-               <Flex direction="column" justifyContent="center" alignItems="center" border="5px solid black" borderRadius="30px" bg="brand.900" opacity="80%" pt={5} pb={5} minWidth={{base: "275px", sm: "475px", md: "500px"}}>
-         
-                   <HStack>
-                     {!isSmallerThan420 &&
-                     <HeroHeading>
-                       <Heading color="brand.800" size="3xl" fontFamily="Amalta">{headingTop} </Heading>
-                       <Heading color="brand.500" size="3xl" fontFamily="Amalta" p={5} textAlign="center">
-                         <TextTransition
-                           text={ textsArr[index % textsArr.length] }
-                           springConfig={presets.wobbly} // default, gentle, wobbly, stiff, slow, molasses
-                           style={{width: "100%", textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center"}}
-                         />
-                       </Heading>
-                       <Heading color="brand.800" size="3xl" fontFamily="Amalta"> {headingBottom} </Heading>
-                     </HeroHeading>
-                     }
-                     {isSmallerThan420 &&
-                     <HeroHeadingMobile>
-                       <Heading color="brand.800" size="2xl" fontFamily="Amalta">{headingTop} </Heading>
-                       <Heading color="brand.500" size="2xl" fontFamily="Amalta" p={2} textAlign="center">
-                         <TextTransition
-                           text={ textsArr[index % textsArr.length] }
-                           springConfig={presets.wobbly} // default, gentle, wobbly, stiff, slow, molasses
-                           style={{width: "100%", textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center"}}
-                         />
-                       </Heading>
-                       <Heading color="brand.800" size="2xl" fontFamily="Amalta"> {headingBottom} </Heading>
-                     </HeroHeadingMobile>
-                     }
-                   </HStack>
-         
-               </Flex>
-
-               <a href={ctaButtonLink}>
-                 <Button variant="cta" size="lg" fontWeight="600" letterSpacing="1px" mt={5}>{ctaButtonText}</Button>
-               </a>
-
-           </Flex>
-         }
-         </div>
-       </HeroContent>
-     </Welcome>
-    }
-    {isSmallerThan768 && */}
           <Flex direction="column" justifyContent="center" alignItems="center" textAlign="center" height="100vh" bgGradient='linear(to-l, brand.500, brand.900)'>
             <HeroContent>
                 <div ref={element}>
@@ -127,9 +72,6 @@ function Hero({ image, video, headingAnimationList, headingTop, headingBottom, c
                                     }
                                     {isSmallerThan420 &&
                                       <Box p={4}>
-                                        {/* <HeroHeadingMobile>
-                                          <Heading color="brand.500" size="3xl" fontFamily="Amalta">Websites <Box as="span" color="brand.400">for</Box> <Box as="span" color="brand.900">Humans</Box>, <Box as="span" color="brand.300">by</Box>  <Box as="span" color="brand.900">Humans</Box></Heading>
-                                        </HeroHeadingMobile> */}
                                         <Heading color="brand.800" fontFamily="Amalta" fontWeight="500" size="3xl">Websites <Box as="span" color="brand.400">for</Box> Humans, <Box as="span" color="brand.400">by</Box> Humans</Heading>
                                       </Box>
                                     }
@@ -147,7 +89,6 @@ function Hero({ image, video, headingAnimationList, headingTop, headingBottom, c
                 </div>
             </HeroContent>
         </Flex>
-     {/* } */}
     </>
   );
 }
