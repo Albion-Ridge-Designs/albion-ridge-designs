@@ -95,6 +95,7 @@ function Hero({ imageBackground, gradientColors, gradientDirection, heroTopText,
             `
         }
       </style>
+        {!imageBackground &&
         <Flex direction="column" justifyContent="center" alignItems="center" textAlign="center" height="100vh" bgGradient={gradient}>
           <HeroContent>
               <div ref={element}>
@@ -126,6 +127,127 @@ function Hero({ imageBackground, gradientColors, gradientDirection, heroTopText,
                                     if ([".", ",", "!", "?"].includes(topLineArr[idx + 1])) {
                                       return (
                                         <Box as="span" color={mainColor}>{word}</Box>
+                                      )
+                                    }
+                                  }
+                                })
+                                }
+                              </Heading>
+
+                              <Heading color={mainColor} size="4xl" fontFamily="Amalta">
+                                {bottomLineArr.map((word, idx) => {
+                                  if (highlightWords.includes(word)) {
+                                    if (![".", ",", "!", "?"].includes(topLineArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={highlightDict[word]}>{word} </Box>
+                                      )
+                                    }
+                                    if ([".", ",", "!", "?"].includes(topLineArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={highlightDict[word]}>{word}</Box>
+                                      )
+                                    }
+                                  }
+                                  if (!highlightWords.includes(word)) {
+                                    if (![".", ",", "!", "?"].includes(topLineArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={mainColor}>{word} </Box>
+                                      )
+                                    }
+                                    if ([".", ",", "!", "?"].includes(topLineArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={mainColor}>{word}</Box>
+                                      )
+                                    }
+                                  }
+                                })
+                                }
+                              </Heading>
+                            </HeroHeading>
+                          </Box>
+                        }
+                        {isSmallerThan420 &&
+                          <Box p={4}>
+                            <Heading color="brand.800" fontFamily="Amalta" fontWeight="500" size="3xl">
+                              {mobileArr.map((word, idx) => {
+                                console.log("highlight words mobile", highlightWordsMobile, "word", word)
+                                console.log("highlight dict mobile", highlightDictMobile)
+                                  if (highlightWordsMobile.includes(word)) {
+                                    if (![".", ",", "!", "?"].includes(mobileArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={highlightDictMobile[word]} key={idx}>{word} </Box>
+                                      )
+                                    }
+                                    if ([".", ",", "!", "?"].includes(mobileArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={highlightDictMobile[word]} key={idx}>{word}</Box>
+                                      )
+                                    }
+                                  }
+                                  if (!highlightWordsMobile.includes(word)) {
+                                    if (![".", ",", "!", "?"].includes(mobileArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={mainColorMobile} key={idx}>{word} </Box>
+                                      )
+                                    }
+                                    if ([".", ",", "!", "?"].includes(mobileArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={mainColorMobile} key={idx}>{word}</Box>
+                                      )
+                                    }
+                                  }
+                                })
+                              }
+                            </Heading>
+                          </Box>
+                        }
+                              
+                        <a href={ctaButtonLink}>
+                          {!isSmallerThan420 &&
+                            <Button variant="cta" size="lg" fontWeight="600" letterSpacing="1px" mt={5}>{ctaButtonText}</Button>
+                          }
+                          {isSmallerThan420 &&
+                            <Button variant="cta" size="md" fontWeight="600" fontFamily="Graphik" letterSpacing="1px" mt={1}>{ctaButtonText}</Button>
+                          }
+                        </a>
+                      </Flex>
+                  }
+              </div>
+          </HeroContent>
+      </Flex>
+      }
+      {imageBackground &&
+          <Flex direction="column" justifyContent="center" alignItems="center" textAlign="center" height="100vh" backgroundImage={`url("${imageBackground}")`} backgroundAttachment="fixed" backgroundSize="cover" backgroundPosition="bottom">
+          <HeroContent>
+              <div ref={element}>
+                  {isFontLoaded &&
+                      <Flex direction="column" height="100vh" justifyContent="center" alignItems="center">
+                        {!isSmallerThan420 &&
+                          <Box p={4}>
+                            <HeroHeading>
+                              <Heading color={mainColor} size="4xl" fontFamily="Amalta">
+                                {topLineArr.map((word, idx) => {
+                                  if (highlightWords.includes(word)) {
+                                    if (![".", ",", "!", "?"].includes(topLineArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={highlightDict[word]} key={idx}>{word} </Box>
+                                      )
+                                    }
+                                    if ([".", ",", "!", "?"].includes(topLineArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={highlightDict[word]} key={idx}>{word}</Box>
+                                      )
+                                    }
+                                  }
+                                  if (!highlightWords.includes(word)) {
+                                    if (![".", ",", "!", "?"].includes(topLineArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={mainColor} key={idx}>{word} </Box>
+                                      )
+                                    }
+                                    if ([".", ",", "!", "?"].includes(topLineArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={mainColor} key={idx}>{word}</Box>
                                       )
                                     }
                                   }
@@ -214,6 +336,7 @@ function Hero({ imageBackground, gradientColors, gradientDirection, heroTopText,
               </div>
           </HeroContent>
       </Flex>
+      }
     </>
   );
 }
