@@ -3,44 +3,82 @@ import { styled } from "frontity";
 import useFontFaceObserver from 'use-font-face-observer';
 import {
     Heading,
-    HStack,
     Flex,
     Box,
     Button,
     useMediaQuery
   } from "@chakra-ui/react";
-import TextTransition, { presets } from 'react-text-transition';
 import useSticky from "../../hooks/useSticky";
 
-function Hero({ image, video, headingAnimationList, headingTop, headingBottom, ctaButtonText, ctaButtonLink, highlight }) {
+function Hero({ imageBackground, gradientColors, gradientDirection, heroTopText, heroBottomText, highlightColors, mainColor, ctaButtonText, heroTextMobile, highlightColorsMobile, mainColorMobile, ctaButtonLink }) {
   const [index, setIndex] = useState(0);
   const { element } = useSticky();
-  const [textsArr, setTextsArr] = useState([]);
   const [isSmallerThan420] = useMediaQuery('(max-width: 420px)');
   const [isSmallerThan768] = useMediaQuery('(max-width: 768px)');
   const [isSmallerThan825] = useMediaQuery('(max-width: 825px)');
+  const [topLineArr, setTopLineArr] = useState(heroTopText.split(" "))
+  const [bottomLineArr, setBottomLineArr] = useState(heroBottomText.split(" "));
+  const [mobileArr, setMobileArr] = useState(heroTextMobile.split(" "));
+  const [highlightWords, setHighlightWords] = useState([]);
+  const [highlightDict, setHighlightDict] = useState({});
+  const [highlightWordsMobile, setHighlightWordsMobile] = useState([]);
+  const [highlightDictMobile, setHighlightDictMobile] = useState({});
+  const [gradient, setGradient] = useState('');
+
+  const gradientDict = {
+    "to top": "to-t",
+    "to top right": "to-tr",
+    "to right": "to-r",
+    "to bottom right": "to-br",
+    "to bottom": "to-b", 
+    "to bottom left": "to-bl",
+    "to left": "to-l",
+    "to top left": "to-tl"
+  }
+
   const isFontLoaded = useFontFaceObserver([
     { family: 'Amalta' }, // Same name you have in your CSS
   ]);
 
   useEffect(() => {
-    const intervalId = setInterval(
-      () => setIndex((index) => index + 1),
-      2000, // every 3 seconds
-    );
-    return () => clearTimeout(intervalId);
-  }, []);
 
-  useEffect(() => {
-    let arr = [];
-    headingAnimationList.map((item) => {
-      arr.push(item.heading_animation_text);
-    })
-    setTextsArr(arr);
   }, [isFontLoaded]);
 
   useEffect(() => {
-  }, [textsArr])
+    console.log("gradientDirection", gradientDirection);
+    const gDirection = `${gradientDict[gradientDirection]}`;
+    console.log("gDirection", gDirection);
+    console.log("gradientColors", gradientColors);
+    const gradientColorsNum = gradientColors.length;
+    let finalGradientString;
+    if (gradientColorsNum === 2) {
+      finalGradientString = `linear(${gradientDict[gradientDirection]}, ${gradientColors[0].gradient_color}, ${gradientColors[1].gradient_color})`;
+      setGradient(finalGradientString);
+    }
+    if (gradientColorsNum === 3) {
+      finalGradientString = `linear(${gradientDict[gradientDirection]}, ${gradientColors[0].gradient_color}, ${gradientColors[1].gradient_color}, ${gradientColors[2].gradient_color})`;
+      setGradient(finalGradientString);
+    }
+
+    let hWords = [];
+    let hObj = {};
+    highlightColors.map((pair) => {
+      hWords.push(pair.word)
+      hObj[pair.word] = pair.color;
+    })
+
+    let hWordsMobile = [];
+    let hObjMobile = {};
+    highlightColorsMobile.map((pair) => {
+      hWordsMobile.push(pair.word);
+      hObjMobile[pair.word] = pair.color;
+    })
+
+    setHighlightWords(hWords);
+    setHighlightDict(hObj);
+    setHighlightWordsMobile(hWordsMobile);
+    setHighlightDictMobile(hObjMobile);
+  }, [])
 
   return (
     <>
@@ -57,97 +95,248 @@ function Hero({ image, video, headingAnimationList, headingTop, headingBottom, c
             `
         }
       </style>
-    {/* {!isSmallerThan768 && 
-       <Welcome>
-       <video autoPlay loop muted id="video">
-         <source src={video} type="video/mp4" />
-       </video>
-       
-       <HeroContent>
-       <div ref={element}>
-         {isFontLoaded && textsArr.length > 0 &&
-           <Flex direction="column" height="100vh" justifyContent="center" alignItems="center">
-
-               <Flex direction="column" justifyContent="center" alignItems="center" border="5px solid black" borderRadius="30px" bg="brand.900" opacity="80%" pt={5} pb={5} minWidth={{base: "275px", sm: "475px", md: "500px"}}>
-         
-                   <HStack>
-                     {!isSmallerThan420 &&
-                     <HeroHeading>
-                       <Heading color="brand.800" size="3xl" fontFamily="Amalta">{headingTop} </Heading>
-                       <Heading color="brand.500" size="3xl" fontFamily="Amalta" p={5} textAlign="center">
-                         <TextTransition
-                           text={ textsArr[index % textsArr.length] }
-                           springConfig={presets.wobbly} // default, gentle, wobbly, stiff, slow, molasses
-                           style={{width: "100%", textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center"}}
-                         />
-                       </Heading>
-                       <Heading color="brand.800" size="3xl" fontFamily="Amalta"> {headingBottom} </Heading>
-                     </HeroHeading>
-                     }
-                     {isSmallerThan420 &&
-                     <HeroHeadingMobile>
-                       <Heading color="brand.800" size="2xl" fontFamily="Amalta">{headingTop} </Heading>
-                       <Heading color="brand.500" size="2xl" fontFamily="Amalta" p={2} textAlign="center">
-                         <TextTransition
-                           text={ textsArr[index % textsArr.length] }
-                           springConfig={presets.wobbly} // default, gentle, wobbly, stiff, slow, molasses
-                           style={{width: "100%", textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center"}}
-                         />
-                       </Heading>
-                       <Heading color="brand.800" size="2xl" fontFamily="Amalta"> {headingBottom} </Heading>
-                     </HeroHeadingMobile>
-                     }
-                   </HStack>
-         
-               </Flex>
-
-               <a href={ctaButtonLink}>
-                 <Button variant="cta" size="lg" fontWeight="600" letterSpacing="1px" mt={5}>{ctaButtonText}</Button>
-               </a>
-
-           </Flex>
-         }
-         </div>
-       </HeroContent>
-     </Welcome>
-    }
-    {isSmallerThan768 && */}
-          <Flex direction="column" justifyContent="center" alignItems="center" textAlign="center" height="100vh" bgGradient='linear(to-l, brand.500, brand.900)'>
-            <HeroContent>
-                <div ref={element}>
-                    {isFontLoaded &&
-                        <Flex direction="column" height="100vh" justifyContent="center" alignItems="center">
-                                    {!isSmallerThan420 &&
-                                      <Box p={4}>
-                                        <HeroHeading>
-                                          <Heading color="brand.500" size="4xl" fontFamily="Amalta">Websites <Box as="span" color="brand.400">for</Box> <Box as="span" color="brand.900">Humans</Box>,</Heading>
-                                          <Heading color="brand.500" size="4xl" fontFamily="Amalta"><Box as="span" color="brand.400">by</Box>  <Box as="span" color="brand.900">Humans</Box></Heading>
-                                        </HeroHeading>
-                                      </Box>
+        {!imageBackground &&
+        <Flex direction="column" justifyContent="center" alignItems="center" textAlign="center" height="100vh" bgGradient={gradient}>
+          <HeroContent>
+              <div ref={element}>
+                  {isFontLoaded &&
+                      <Flex direction="column" height="100vh" justifyContent="center" alignItems="center">
+                        {!isSmallerThan420 &&
+                          <Box p={4}>
+                            <HeroHeading>
+                              <Heading color={mainColor} size="4xl" fontFamily="Amalta">
+                                {topLineArr.map((word, idx) => {
+                                  if (highlightWords.includes(word)) {
+                                    if (![".", ",", "!", "?"].includes(topLineArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={highlightDict[word]}>{word} </Box>
+                                      )
                                     }
-                                    {isSmallerThan420 &&
-                                      <Box p={4}>
-                                        {/* <HeroHeadingMobile>
-                                          <Heading color="brand.500" size="3xl" fontFamily="Amalta">Websites <Box as="span" color="brand.400">for</Box> <Box as="span" color="brand.900">Humans</Box>, <Box as="span" color="brand.300">by</Box>  <Box as="span" color="brand.900">Humans</Box></Heading>
-                                        </HeroHeadingMobile> */}
-                                        <Heading color="brand.800" fontFamily="Amalta" fontWeight="500" size="3xl">Websites <Box as="span" color="brand.400">for</Box> Humans, <Box as="span" color="brand.400">by</Box> Humans</Heading>
-                                      </Box>
+                                    if ([".", ",", "!", "?"].includes(topLineArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={highlightDict[word]}>{word}</Box>
+                                      )
                                     }
-                                
-                                <a href={ctaButtonLink}>
-                                  {!isSmallerThan420 &&
-                                    <Button variant="cta" size="lg" fontWeight="600" letterSpacing="1px" mt={5}>{ctaButtonText}</Button>
                                   }
-                                  {isSmallerThan420 &&
-                                    <Button variant="cta" size="md" fontWeight="600" fontFamily="Graphik" letterSpacing="1px" mt={1}>{ctaButtonText}</Button>
+                                  if (!highlightWords.includes(word)) {
+                                    if (![".", ",", "!", "?"].includes(topLineArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={mainColor}>{word} </Box>
+                                      )
+                                    }
+                                    if ([".", ",", "!", "?"].includes(topLineArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={mainColor}>{word}</Box>
+                                      )
+                                    }
                                   }
-                                </a>
-                        </Flex>
-                    }
-                </div>
-            </HeroContent>
-        </Flex>
-     {/* } */}
+                                })
+                                }
+                              </Heading>
+
+                              <Heading color={mainColor} size="4xl" fontFamily="Amalta">
+                                {bottomLineArr.map((word, idx) => {
+                                  if (highlightWords.includes(word)) {
+                                    if (![".", ",", "!", "?"].includes(topLineArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={highlightDict[word]}>{word} </Box>
+                                      )
+                                    }
+                                    if ([".", ",", "!", "?"].includes(topLineArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={highlightDict[word]}>{word}</Box>
+                                      )
+                                    }
+                                  }
+                                  if (!highlightWords.includes(word)) {
+                                    if (![".", ",", "!", "?"].includes(topLineArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={mainColor}>{word} </Box>
+                                      )
+                                    }
+                                    if ([".", ",", "!", "?"].includes(topLineArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={mainColor}>{word}</Box>
+                                      )
+                                    }
+                                  }
+                                })
+                                }
+                              </Heading>
+                            </HeroHeading>
+                          </Box>
+                        }
+                        {isSmallerThan420 &&
+                          <Box p={4}>
+                            <Heading color="brand.800" fontFamily="Amalta" fontWeight="500" size="3xl">
+                              {mobileArr.map((word, idx) => {
+                                console.log("highlight words mobile", highlightWordsMobile, "word", word)
+                                console.log("highlight dict mobile", highlightDictMobile)
+                                  if (highlightWordsMobile.includes(word)) {
+                                    if (![".", ",", "!", "?"].includes(mobileArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={highlightDictMobile[word]} key={idx}>{word} </Box>
+                                      )
+                                    }
+                                    if ([".", ",", "!", "?"].includes(mobileArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={highlightDictMobile[word]} key={idx}>{word}</Box>
+                                      )
+                                    }
+                                  }
+                                  if (!highlightWordsMobile.includes(word)) {
+                                    if (![".", ",", "!", "?"].includes(mobileArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={mainColorMobile} key={idx}>{word} </Box>
+                                      )
+                                    }
+                                    if ([".", ",", "!", "?"].includes(mobileArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={mainColorMobile} key={idx}>{word}</Box>
+                                      )
+                                    }
+                                  }
+                                })
+                              }
+                            </Heading>
+                          </Box>
+                        }
+                              
+                        <a href={ctaButtonLink}>
+                          {!isSmallerThan420 &&
+                            <Button variant="cta" size="lg" fontWeight="600" letterSpacing="1px" mt={5}>{ctaButtonText}</Button>
+                          }
+                          {isSmallerThan420 &&
+                            <Button variant="cta" size="md" fontWeight="600" fontFamily="Graphik" letterSpacing="1px" mt={1}>{ctaButtonText}</Button>
+                          }
+                        </a>
+                      </Flex>
+                  }
+              </div>
+          </HeroContent>
+      </Flex>
+      }
+      {imageBackground &&
+          <Flex direction="column" justifyContent="center" alignItems="center" textAlign="center" height="100vh" backgroundImage={`url("${imageBackground}")`} backgroundAttachment="fixed" backgroundSize="cover" backgroundPosition="bottom">
+          <HeroContent>
+              <div ref={element}>
+                  {isFontLoaded &&
+                      <Flex direction="column" height="100vh" justifyContent="center" alignItems="center">
+                        {!isSmallerThan420 &&
+                          <Box p={4}>
+                            <HeroHeading>
+                              <Heading color={mainColor} size="4xl" fontFamily="Amalta">
+                                {topLineArr.map((word, idx) => {
+                                  if (highlightWords.includes(word)) {
+                                    if (![".", ",", "!", "?"].includes(topLineArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={highlightDict[word]} key={idx}>{word} </Box>
+                                      )
+                                    }
+                                    if ([".", ",", "!", "?"].includes(topLineArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={highlightDict[word]} key={idx}>{word}</Box>
+                                      )
+                                    }
+                                  }
+                                  if (!highlightWords.includes(word)) {
+                                    if (![".", ",", "!", "?"].includes(topLineArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={mainColor} key={idx}>{word} </Box>
+                                      )
+                                    }
+                                    if ([".", ",", "!", "?"].includes(topLineArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={mainColor} key={idx}>{word}</Box>
+                                      )
+                                    }
+                                  }
+                                })
+                                }
+                              </Heading>
+
+                              <Heading color={mainColor} size="4xl" fontFamily="Amalta">
+                                {bottomLineArr.map((word, idx) => {
+                                  if (highlightWords.includes(word)) {
+                                    if (![".", ",", "!", "?"].includes(topLineArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={highlightDict[word]}>{word} </Box>
+                                      )
+                                    }
+                                    if ([".", ",", "!", "?"].includes(topLineArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={highlightDict[word]}>{word}</Box>
+                                      )
+                                    }
+                                  }
+                                  if (!highlightWords.includes(word)) {
+                                    if (![".", ",", "!", "?"].includes(topLineArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={mainColor}>{word} </Box>
+                                      )
+                                    }
+                                    if ([".", ",", "!", "?"].includes(topLineArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={mainColor}>{word}</Box>
+                                      )
+                                    }
+                                  }
+                                })
+                                }
+                              </Heading>
+                            </HeroHeading>
+                          </Box>
+                        }
+                        {isSmallerThan420 &&
+                          <Box p={4}>
+                            <Heading color="brand.800" fontFamily="Amalta" fontWeight="500" size="3xl">
+                              {mobileArr.map((word, idx) => {
+                                console.log("highlight words mobile", highlightWordsMobile, "word", word)
+                                console.log("highlight dict mobile", highlightDictMobile)
+                                  if (highlightWordsMobile.includes(word)) {
+                                    if (![".", ",", "!", "?"].includes(mobileArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={highlightDictMobile[word]}>{word} </Box>
+                                      )
+                                    }
+                                    if ([".", ",", "!", "?"].includes(mobileArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={highlightDictMobile[word]}>{word}</Box>
+                                      )
+                                    }
+                                  }
+                                  if (!highlightWordsMobile.includes(word)) {
+                                    if (![".", ",", "!", "?"].includes(mobileArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={mainColorMobile}>{word} </Box>
+                                      )
+                                    }
+                                    if ([".", ",", "!", "?"].includes(mobileArr[idx + 1])) {
+                                      return (
+                                        <Box as="span" color={mainColorMobile}>{word}</Box>
+                                      )
+                                    }
+                                  }
+                                })
+                              }
+                            </Heading>
+                          </Box>
+                        }
+                              
+                        <a href={ctaButtonLink}>
+                          {!isSmallerThan420 &&
+                            <Button variant="cta" size="lg" fontWeight="600" letterSpacing="1px" mt={5}>{ctaButtonText}</Button>
+                          }
+                          {isSmallerThan420 &&
+                            <Button variant="cta" size="md" fontWeight="600" fontFamily="Graphik" letterSpacing="1px" mt={1}>{ctaButtonText}</Button>
+                          }
+                        </a>
+                      </Flex>
+                  }
+              </div>
+          </HeroContent>
+      </Flex>
+      }
     </>
   );
 }

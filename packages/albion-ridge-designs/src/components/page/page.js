@@ -26,6 +26,10 @@ const Page = ({ state, libraries }) => {
   const data = state.source.get(state.router.link);
   const post = state.source[data.type][data.id]
   const pageSections = post.acf.page_sections;
+  const heroBackground = post.acf.background;
+  console.log("herobackground", heroBackground);
+  const heroText = post.acf.hero_text;
+  console.log("heroText", heroText);
   const options = state.source.get("acf-options-page");
   const [heroSection, setHeroSection] = useState([]);
   const [headingBanner, setHeadingBanner] = useState([]);
@@ -37,6 +41,7 @@ const Page = ({ state, libraries }) => {
   const [parallax, setParallax] = useState([]);
   const [promo, setPromo] = useState([]);
   const [bullets, setBullets] = useState([]);
+  console.log("post.acf", post.acf);
 
   useEffect(() => {
       pageSections.map((section) => {
@@ -82,14 +87,18 @@ const Page = ({ state, libraries }) => {
       <>
       {data.route === "/" &&
         <Hero 
-          image={ardgradient19}
-          video={post.acf.video}
-          headingAnimationList={post.acf.heading_animation_list}
-          headingTop={post.acf.heading_top_line}
-          headingBottom={post.acf.heading_bottom_line}
+          imageBackground={post.acf.background.image_background}
+          gradientColors={post.acf.background.color_gradient_background.gradient_colors}
+          gradientDirection={post.acf.background.color_gradient_background.gradient_direction}
+          heroTopText={post.acf.hero_text.top_line_text}
+          heroBottomText={post.acf.hero_text.bottom_line_text}
+          highlightColors={post.acf.hero_text.highlight_colors}
+          mainColor={post.acf.hero_text.main_hero_text_color}
+          heroTextMobile={post.acf.hero_text_mobile.mobile_text}
+          highlightColorsMobile={post.acf.hero_text_mobile.highlight_colors}
+          mainColorMobile={post.acf.hero_text_mobile.main_mobile_text_color}
           ctaButtonText={post.acf.cta_button_text}
           ctaButtonLink={post.acf.cta_button_link}
-          highlight="brand.300"
         />
       }
 
@@ -224,7 +233,7 @@ const Page = ({ state, libraries }) => {
         <Homepage />
       }
 
-        <Cta />
+        {/* <Cta /> */}
         <Instagram limit={12} />
       </>
     )
