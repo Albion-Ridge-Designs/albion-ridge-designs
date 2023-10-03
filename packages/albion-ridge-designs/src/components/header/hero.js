@@ -57,7 +57,16 @@ function Hero({ image, video, headingAnimationList, headingTop, headingBottom, c
             `
         }
       </style>
-          <Flex direction="column" justifyContent="center" alignItems="center" textAlign="center" height="100vh" bgGradient='linear(to-l, brand.500, brand.900)'>
+      <Flex direction="column" justifyContent="center" alignItems="center" textAlign="center" height="100vh" bg="#FFFFFF">
+        <Box p={20} border="2px solid" borderColor="brand.500">
+          <HeroHeading>
+            <Heading color="brand.500" size="4xl" fontFamily="Amalta">Albion Ridge Designs</Heading>
+            {/* <Heading color="brand.500" size="4xl" fontFamily="Amalta">Ridge</Heading>
+            <Heading color="brand.500" size="4xl" fontFamily="Amalta">Designs</Heading> */}
+          </HeroHeading>
+        </Box>
+      </Flex>
+          {/* <Flex direction="column" justifyContent="center" alignItems="center" textAlign="center" height="100vh" bgGradient='linear(to-l, brand.500, brand.900)'>
             <HeroContent>
                 <div ref={element}>
                     {isFontLoaded &&
@@ -88,7 +97,7 @@ function Hero({ image, video, headingAnimationList, headingTop, headingBottom, c
                     }
                 </div>
             </HeroContent>
-        </Flex>
+        </Flex> */}
     </>
   );
 }
