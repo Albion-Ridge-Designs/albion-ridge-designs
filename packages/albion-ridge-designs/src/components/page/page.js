@@ -224,7 +224,7 @@ const Page = ({ state, libraries }) => {
         <Homepage />
       }
 
-        <Cta />
+        {/* <Cta /> */}
         <Instagram limit={12} />
       </>
     )

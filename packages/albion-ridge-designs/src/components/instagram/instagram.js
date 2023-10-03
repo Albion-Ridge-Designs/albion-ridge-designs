@@ -44,7 +44,7 @@ const Instagram = ({state, ...props}) => {
     }, [props.limit])
 
     return (
-        <Box bg="brand.700">
+        <Box bg="brand.600">
             <div className="container">
                 <Box width="fit-content">
                     <ChakraLink href="https://instagram.com/albionridgedesigns" style={{ textDecoration: "none" }} _hover={{ color: "brand.400"}} isExternal>
