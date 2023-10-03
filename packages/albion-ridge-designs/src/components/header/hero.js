@@ -57,12 +57,12 @@ function Hero({ image, video, headingAnimationList, headingTop, headingBottom, c
             `
         }
       </style>
-      <Flex direction="column" justifyContent="center" alignItems="center" textAlign="center" height="100vh" bg="#FFFFFF">
+      <Flex direction="column" justifyContent="center" alignItems="center" textAlign="center" height="100vh" bg="brand.800">
         <Box p={20} border="2px solid" borderColor="brand.500">
           <HeroHeading>
-            <Heading color="brand.500" size="4xl" fontFamily="Amalta">Albion Ridge Designs</Heading>
-            {/* <Heading color="brand.500" size="4xl" fontFamily="Amalta">Ridge</Heading>
-            <Heading color="brand.500" size="4xl" fontFamily="Amalta">Designs</Heading> */}
+            <Heading color="brand.500" size="4xl" fontFamily="Amalta">Albion</Heading>
+            <Heading color="brand.500" size="4xl" fontFamily="Amalta">Ridge</Heading>
+            <Heading color="brand.500" size="4xl" fontFamily="Amalta">Designs</Heading>
           </HeroHeading>
         </Box>
       </Flex>
