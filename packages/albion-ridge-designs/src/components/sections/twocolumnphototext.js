@@ -31,6 +31,8 @@ import {
                     backgroundImage={image}
                     backgroundPosition="center"
                     backgroundRepeat="no-repeat" 
+                    backgroundSize="100%"
+                    // backgroundAttachment="fixed"
                 >
                     <Image src={image} display={{base: "block", md: "none", lg: "none"}} />
                 </Box>
@@ -94,6 +96,8 @@ import {
                     backgroundImage={image}
                     backgroundPosition="center"
                     backgroundRepeat="no-repeat" 
+                    backgroundSize="100%"
+                    // backgroundAttachment="fixed"
                 >
                     <Image src={image} display={{base: "block", md: "none", lg: "none"}} />
                 </Box>
