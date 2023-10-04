@@ -19,7 +19,7 @@ import {
     }, [height])
 
       return (
-        <Box height={finalHeight}>
+        <Box height={{base: "fit-content", md: finalHeight}}>
         <ParallaxWindow style={{backgroundImage: `url("${image}")`, backgroundPosition: `${position}` }}>
             <Flex
                 height={finalHeight}
@@ -56,6 +56,13 @@ import {
     background-repeat: no-repeat;
     position: relative;
     z-index: 0;
+
+    @media (max-width: 768px) { 
+      background-size: 100%;
+      height: 100%;
+      background-attachment: scroll;
+      background-repeat: no-repeat;
+    }
 
     &:before {
         background: rgba(0, 0, 0, 0.5);

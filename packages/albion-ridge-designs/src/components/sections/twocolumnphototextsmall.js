@@ -32,16 +32,16 @@ import {
                     <SimpleGrid columns={{base: 1, md: 2}} spacing={2} minHeight="fit-content" maxWidth="1200px">
 
                         {!isSmallerThan768 &&
-                            <Flex direction="column" justifyContent="center" width="100%" alignItems="flex-start" backgroundImage={image} backgroundSize="cover" backgroundPosition="center">
+                            <Flex direction="column" justifyContent="center" width="100%" alignItems="flex-start" backgroundImage={image} backgroundSize="cover" backgroundPosition="center" borderRadius="30px" borderColor="brand.200" border="2px solid">
                             </Flex>
                         }
                         {isSmallerThan768 &&
                             // <Flex direction="column" justifyContent="center" width="100%" height="500px" alignItems="flex-start">
-                                <Image width="100%" src={image} />
+                                <Image width="100%" src={image} borderRadius="30px" borderColor="brand.200" border="2px solid" />
                             // </Flex>
                         }
 
-                        <Flex direction="column" justifyContent="center" mt={{base: 5, md: 0}} p={{base: 0, md: 10}} mt={{base: 5, md: 0}}>
+                        <Flex direction="column" justifyContent="center" mt={{base: 5, md: 0}} p={{base: 0, md: 10}}>
                             {heading &&
                             <Heading size="lg" color={textColor} fontFamily={headingFont} fontWeight="500">{heading}</Heading>
                             }
@@ -75,7 +75,7 @@ import {
 
                         {isSmallerThan768 &&
                             <Flex direction="column" justifyContent="center" width="100%" alignItems="flex-start">
-                                <Image width="100%" src={image} />
+                                <Image width="100%" src={image} borderRadius="30px" borderColor="brand.200" border="2px solid" />
                             </Flex>
                         }
 
@@ -101,7 +101,7 @@ import {
                         </Flex>
 
                         {!isSmallerThan768 &&
-                            <Flex direction="column" justifyContent="center" width="100%" alignItems="flex-start" backgroundImage={image} backgroundSize="cover" backgroundPosition="center">
+                            <Flex direction="column" justifyContent="center" width="100%" alignItems="flex-start" backgroundImage={image} backgroundSize="cover" backgroundPosition="center" borderRadius="30px" borderColor="brand.200" border="2px solid">
                             </Flex>
                         }
 
