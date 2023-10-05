@@ -22,13 +22,13 @@ import {
         <Box height={{base: "fit-content", md: finalHeight}}>
         <ParallaxWindow style={{backgroundImage: `url("${image}")`, backgroundPosition: `${position}` }}>
             <Flex
-                height={finalHeight}
+                height={{base: "fit-content", md: finalHeight}}
                 width="100%"
                 justifyContent="center"
                 alignItems="center"
             >
                 {includeText &&
-                <Flex direction="column" p={20}>
+                <Flex direction="column" p={{base: 16, md: 20}}>
                     {heading && 
                     <Heading size="2xl" mb={3} color={textColor} fontWeight="500" fontFamily={headingFont} textAlign="center">{heading}</Heading>
                     }
