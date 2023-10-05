@@ -20,6 +20,7 @@ const TwoColumnPhotoTextSmallWrapper = ({ columnPairs }) => {
         text={section.text}
         textColor={section.text_color}
         height={section.height}
+        html={section.html}
         key={idx}
       />
       )

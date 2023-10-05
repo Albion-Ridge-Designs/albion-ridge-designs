@@ -11,7 +11,7 @@ import {
     useMediaQuery
   } from "@chakra-ui/react";
   
-  function TwoColumnPhotoTextSmall({ backgroundColor, buttonLink, buttonText, heading, subheading, headingFont, subheadingFont, image, imageSide, text, textColor, height, spacing, libraries }) {
+  function TwoColumnPhotoTextSmall({ backgroundColor, buttonLink, buttonText, heading, subheading, headingFont, subheadingFont, image, imageSide, text, textColor, height, html, spacing, libraries }) {
     const Html2React = libraries.html2react.Component;  
     const [finalHeight, setFinalHeight] = useState();
     const [isSmallerThan480] = useMediaQuery('(max-width:480px)');
@@ -46,11 +46,16 @@ import {
                             <Heading size="lg" color={textColor} fontFamily={headingFont} fontWeight="500">{heading}</Heading>
                             }
                             {subheading &&
-                            <Heading size="md" color={textColor} fontFamily={subheadingFont} fontWeight="500">{subheading}</Heading>
+                            <Heading size="md" color={textColor} fontFamily={subheadingFont} fontWeight="500" mt={{base: 1, md: 2}} mb={4}>{subheading}</Heading>
                             }
-                            {text &&
+                            {text && !html &&
                             <Text color={textColor} textAlign="justify" className="page-text">
                                 <Html2React html={text} />
+                            </Text>
+                            }
+                            {html &&
+                            <Text color={textColor} textAlign="justify" className="page-text">
+                                <Html2React html={html} />
                             </Text>
                             }
                             {buttonText &&
@@ -84,11 +89,16 @@ import {
                             <Heading size="lg" color={textColor} fontFamily={headingFont} fontWeight="500">{heading}</Heading>
                             }
                             {subheading &&
-                            <Heading size="md" color={textColor} fontFamily={subheadingFont} fontWeight="500">{subheading}</Heading>
+                            <Heading size="md" color={textColor} fontFamily={subheadingFont} fontWeight="500" mt={{base: 1, md: 2}} mb={4}>{subheading}</Heading>
                             }
-                            {text &&
+                            {text && !html &&
                             <Text color={textColor} textAlign="justify" className="page-text">
                                 <Html2React html={text} />
+                            </Text>
+                            }
+                            {html &&
+                            <Text color={textColor} textAlign="justify" className="page-text">
+                                <Html2React html={html} />
                             </Text>
                             }
                             {buttonText &&
