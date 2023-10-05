@@ -110,7 +110,7 @@ const Post = ({ state, libraries }) => {
         </style>
         <BlogHero element={element} image={state.source.attachment[post.featured_media].source_url} title={post.title.rendered} date={formattedDate} />
         
-        <Flex direction="column" bg="brand.800">
+        <Flex direction="column" bg="brand.800" p={{base: 4, md: 0}}>
 
           {/* {quote.length !== 0 &&
                 <Quote 
