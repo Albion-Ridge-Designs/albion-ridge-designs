@@ -1,7 +1,7 @@
 import React from "react";
 import TwoColumnPhotoTextSmall from "./twocolumnphototextsmall";
 
-const TwoColumnPhotoTextSmallWrapper = ({ columnPairs }) => {
+const TwoColumnPhotoTextSmallWrapper = ({ columnPairs, includeBorder }) => {
     return (
       <>
       {columnPairs.map((section, idx) => {
@@ -21,6 +21,7 @@ const TwoColumnPhotoTextSmallWrapper = ({ columnPairs }) => {
         textColor={section.text_color}
         height={section.height}
         html={section.html}
+        includeBorder={includeBorder}
         key={idx}
       />
       )
