@@ -35,7 +35,7 @@ const Offerings = ({ state, libraries }) => {
   const [isSmallerThan420] = useMediaQuery('(max-width: 420px)');
 
     return (
-        <Box id="offers-section" bgGradient='linear(to-tr, brand.800, brand.300, brand.900)'>  
+        <Box id={offeringData.acf.section_id} bgGradient='linear(to-tr, brand.800, brand.300, brand.900)'>  
         {/* <Box id="offers-section" backgroundImage={{base: "none", sm: `url("${ardgradient14}")`}} backgroundAttachment="fixed" backgroundSize="cover" backgroundPosition="bottom"> */}
         <Flex direction="column" alignItems="center" pt={20} pb={20}>
             

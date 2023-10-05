@@ -24,9 +24,7 @@ const Page = ({ state, libraries }) => {
   const post = state.source[data.type][data.id]
   const pageSections = post.acf.page_sections;
   const heroBackground = post.acf.background;
-  console.log("herobackground", heroBackground);
   const heroText = post.acf.hero_text;
-  console.log("heroText", heroText);
   const options = state.source.get("acf-options-page");
   const [heroSection, setHeroSection] = useState([]);
   const [headingBanner, setHeadingBanner] = useState([]);
@@ -39,7 +37,6 @@ const Page = ({ state, libraries }) => {
   const [parallax, setParallax] = useState([]);
   const [promo, setPromo] = useState([]);
   const [bullets, setBullets] = useState([]);
-  console.log("post.acf", post.acf);
 
   useEffect(() => {
       pageSections.map((section) => {
