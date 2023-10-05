@@ -13,7 +13,7 @@ function BlogHero({ libraries, element, image, title, date }) {
       <Welcome style={{ backgroundImage: `url("${image}")` }}>
         <Flex direction="column" m={10} ref={element}>
           <HeroHeading>
-            <Heading color="brand.400" size="4xl" fontFamily="Amalta" textAlign="center"><Html2React html={title} /></Heading>
+            <Heading color="brand.400" size="3xl" fontFamily="Amalta" textAlign="center"><Html2React html={title} /></Heading>
           </HeroHeading>
             <Text color="white" fontSize="xl" fontFamily="GraphikSemibold">{date}</Text>
         </Flex>
@@ -53,5 +53,8 @@ const HeroHeading = styled.div`
     color: #2C685D;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: white;
-    padding: 2em;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
 `
