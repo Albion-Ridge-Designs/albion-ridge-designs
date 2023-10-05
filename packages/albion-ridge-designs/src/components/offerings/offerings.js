@@ -27,7 +27,6 @@ const Offerings = ({ state, libraries }) => {
   const Html2React = libraries.html2react.Component;
   const offeringItems = state.source.get("/offering/main");
   const offeringData = state.source[offeringItems.type][offeringItems.id];
-  console.log("offeringData", offeringData);
   const displaySection = offeringData.acf.display_section;
   const offeringsArr = offeringData.acf.offerings;
   const displayMarquee = offeringData.acf.display_marquee_promo;

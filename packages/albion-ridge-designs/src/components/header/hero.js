@@ -45,10 +45,7 @@ function Hero({ imageBackground, gradientColors, gradientDirection, heroTopText,
   }, [isFontLoaded]);
 
   useEffect(() => {
-    console.log("gradientDirection", gradientDirection);
     const gDirection = `${gradientDict[gradientDirection]}`;
-    console.log("gDirection", gDirection);
-    console.log("gradientColors", gradientColors);
     const gradientColorsNum = gradientColors.length;
     let finalGradientString;
     if (gradientColorsNum === 2) {
@@ -170,8 +167,6 @@ function Hero({ imageBackground, gradientColors, gradientDirection, heroTopText,
                           <Box p={4}>
                             <Heading color="brand.800" fontFamily="Amalta" fontWeight="500" size="3xl">
                               {mobileArr.map((word, idx) => {
-                                console.log("highlight words mobile", highlightWordsMobile, "word", word)
-                                console.log("highlight dict mobile", highlightDictMobile)
                                   if (highlightWordsMobile.includes(word)) {
                                     if (![".", ",", "!", "?"].includes(mobileArr[idx + 1])) {
                                       return (
@@ -291,8 +286,6 @@ function Hero({ imageBackground, gradientColors, gradientDirection, heroTopText,
                           <Box p={4}>
                             <Heading color="brand.800" fontFamily="Amalta" fontWeight="500" size="3xl">
                               {mobileArr.map((word, idx) => {
-                                console.log("highlight words mobile", highlightWordsMobile, "word", word)
-                                console.log("highlight dict mobile", highlightDictMobile)
                                   if (highlightWordsMobile.includes(word)) {
                                     if (![".", ",", "!", "?"].includes(mobileArr[idx + 1])) {
                                       return (

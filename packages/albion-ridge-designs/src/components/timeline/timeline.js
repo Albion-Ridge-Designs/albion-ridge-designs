@@ -12,6 +12,7 @@ import ardgradient19 from "../../assets/ardgradient19.jpeg";
 function Timeline({ state }) {
   const timelineItems = state.source.get("/timeline/main");
   const timelineData = state.source[timelineItems.type][timelineItems.id];
+  console.log("section id", timelineData.acf.section_id)
   const displaySection = timelineData.acf.display_section;
   const timelineArr = timelineData.acf.timeline;
   const [timelineEvents, setTimelineEvents] = useState([]);
