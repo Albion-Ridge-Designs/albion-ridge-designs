@@ -18,9 +18,6 @@ import Cta from "../sections/cta";
 import Instagram from "../instagram/instagram";
 import Contact from "../contact/contact"
 import Loading from "../loading";
-import ardgradient14 from "../../assets/ardgradient14.jpeg";
-import ardgradient19 from "../../assets/ardgradient19.jpeg";
-import ardgradient20 from "../../assets/ardgradient20.jpeg";
 
 const Page = ({ state, libraries }) => {
   const data = state.source.get(state.router.link);
