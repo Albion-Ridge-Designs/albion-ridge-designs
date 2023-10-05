@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { connect } from "frontity";
 import {
   Flex,
@@ -11,7 +11,6 @@ import { useStep } from './useStep';
 import TestimonialCard from "./testimonialcard";
 
 function Testimonials({ state }) {
-  const testimonialsSection = useRef();
   const testimonialItems = state.source.get("/review/main");
   const testimonialData = state.source[testimonialItems.type][testimonialItems.id];
   const displaySection = testimonialData.acf.display_section;
@@ -24,7 +23,7 @@ function Testimonials({ state }) {
 
   if (displaySection === true) {
     return (
-        <Flex id= "testimonials-section" ref={testimonialsSection} direction="column" align="center" bg="brand.800" borderTop="2px solid black" borderBottom="2px solid black">
+        <Flex id={testimonialData.acf.section_id} direction="column" align="center" bg="brand.800" borderTop="2px solid black" borderBottom="2px solid black">
           <Flex direction="column" justify="center" minWidth="50%" ml="15%" mr="15%" mt={20} mb={3}>
             
           <>
