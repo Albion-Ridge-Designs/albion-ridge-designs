@@ -27,6 +27,7 @@ const Post = ({ state, libraries }) => {
   const [quote, setQuote] = useState([]);
   const [gallery, setGallery] = useState([]);
   const [twoColumnPhotoTextSmall, setTwoColumnPhotoTextSmall] = useState([]);
+  const [twoColumnBorder, setTwoColumnBorder] = useState(true);
   const [squares, setSquares] = useState([]);
   const [partOne, setPartOne] = useState("");
   const [partTwo, setPartTwo] = useState("");
@@ -75,6 +76,7 @@ const Post = ({ state, libraries }) => {
         }
         if (section.acf_fc_layout === "two_column_photo_text_small_photo") {
           setTwoColumnPhotoTextSmall(section.column_pairs);
+          setTwoColumnBorder(section.include_image_border)
         }
         if (section.acf_fc_layout === "photo_squares") {
           setSquares(section.photo_square);
@@ -210,6 +212,7 @@ const Post = ({ state, libraries }) => {
               // text={twoColumnPhotoText.text}
               // textColor={twoColumnPhotoText.text_color}
               columnPairs={twoColumnPhotoTextSmall}
+              includeBorder={twoColumnBorder}
             />
         }
         

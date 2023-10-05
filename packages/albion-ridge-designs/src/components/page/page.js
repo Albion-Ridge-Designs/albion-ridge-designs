@@ -36,6 +36,7 @@ const Page = ({ state, libraries }) => {
   const [fullWidthTextSection, setFullWidthTextSection] = useState([]);
   const [twoColumnPhotoText, setTwoColumnPhotoText] = useState([]);
   const [twoColumnPhotoTextSmall, setTwoColumnPhotoTextSmall] = useState([]);
+  const [twoColumnBorder, setTwoColumnBorder] = useState(true);
   const [quote, setQuote] = useState([]);
   const [squares, setSquares] = useState([]);
   const [parallax, setParallax] = useState([]);
@@ -59,6 +60,7 @@ const Page = ({ state, libraries }) => {
         }
         if (section.acf_fc_layout === "two_column_photo_text_small_photo") {
           setTwoColumnPhotoTextSmall(section.column_pairs);
+          setTwoColumnBorder(section.include_image_border)
         }
         if (section.acf_fc_layout === "quote") {
           setQuote(section);
@@ -170,6 +172,7 @@ const Page = ({ state, libraries }) => {
               // text={twoColumnPhotoText.text}
               // textColor={twoColumnPhotoText.text_color}
               columnPairs={twoColumnPhotoTextSmall}
+              includeBorder={twoColumnBorder}
             />
             }
             {section.acf_fc_layout === "quote" &&

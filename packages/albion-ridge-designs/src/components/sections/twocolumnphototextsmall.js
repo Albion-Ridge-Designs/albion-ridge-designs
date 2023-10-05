@@ -11,11 +11,20 @@ import {
     useMediaQuery
   } from "@chakra-ui/react";
   
-  function TwoColumnPhotoTextSmall({ backgroundColor, buttonLink, buttonText, heading, subheading, headingFont, subheadingFont, image, imageSide, text, textColor, height, html, spacing, libraries }) {
+  function TwoColumnPhotoTextSmall({ backgroundColor, buttonLink, buttonText, heading, subheading, headingFont, subheadingFont, image, imageSide, text, textColor, height, html, includeBorder, spacing, libraries }) {
     const Html2React = libraries.html2react.Component;  
     const [finalHeight, setFinalHeight] = useState();
     const [isSmallerThan480] = useMediaQuery('(max-width:480px)');
     const [isSmallerThan768] = useMediaQuery('(max-width: 768px)')
+    const [borderVal, setBorderVal] = useState("2px solid");
+    useEffect(() => {
+        if (includeBorder) {
+            setBorderVal("2px solid")
+        }
+        if (!includeBorder) {
+            setBorderVal("0px solid")
+        }
+    }, [])
     useEffect(() => {
         if (height) {
             setFinalHeight(`${height}px`);
@@ -32,12 +41,12 @@ import {
                     <SimpleGrid columns={{base: 1, md: 2}} spacing={2} minHeight="fit-content" maxWidth="1200px">
 
                         {!isSmallerThan768 &&
-                            <Flex direction="column" justifyContent="center" width="100%" alignItems="flex-start" backgroundImage={image} backgroundSize="cover" backgroundPosition="center" borderRadius="30px" borderColor="brand.200" border="2px solid">
+                            <Flex direction="column" justifyContent="center" width="100%" alignItems="flex-start" backgroundImage={image} backgroundSize="cover" backgroundPosition="center" borderRadius="30px" borderColor="brand.200" border={borderVal}>
                             </Flex>
                         }
                         {isSmallerThan768 &&
                             // <Flex direction="column" justifyContent="center" width="100%" height="500px" alignItems="flex-start">
-                                <Image width="100%" src={image} borderRadius="30px" borderColor="brand.200" border="2px solid" />
+                                <Image width="100%" src={image} borderRadius="30px" borderColor="brand.200" border={borderVal} />
                             // </Flex>
                         }
 
@@ -80,7 +89,7 @@ import {
 
                         {isSmallerThan768 &&
                             <Flex direction="column" justifyContent="center" width="100%" alignItems="flex-start">
-                                <Image width="100%" src={image} borderRadius="30px" borderColor="brand.200" border="2px solid" />
+                                <Image width="100%" src={image} borderRadius="30px" borderColor="brand.200" border={borderVal} />
                             </Flex>
                         }
 
@@ -111,7 +120,7 @@ import {
                         </Flex>
 
                         {!isSmallerThan768 &&
-                            <Flex direction="column" justifyContent="center" width="100%" alignItems="flex-start" backgroundImage={image} backgroundSize="cover" backgroundPosition="center" borderRadius="30px" borderColor="brand.200" border="2px solid">
+                            <Flex direction="column" justifyContent="center" width="100%" alignItems="flex-start" backgroundImage={image} backgroundSize="cover" backgroundPosition="center" borderRadius="30px" borderColor="brand.200" border={borderVal}>
                             </Flex>
                         }
 
