@@ -46,7 +46,7 @@ import {
                             <Heading size="lg" color={textColor} fontFamily={headingFont} fontWeight="500">{heading}</Heading>
                             }
                             {subheading &&
-                            <Heading size="md" color={textColor} fontFamily={subheadingFont} fontWeight="500" mt={{base: 1, md: 2}} mb={{base: 1, md: 2}}>{subheading}</Heading>
+                            <Heading size="md" color={textColor} fontFamily={subheadingFont} fontWeight="500" mt={{base: 1, md: 2}} mb={4}>{subheading}</Heading>
                             }
                             {text &&
                             <Text color={textColor} textAlign="justify" className="page-text">
@@ -84,7 +84,7 @@ import {
                             <Heading size="lg" color={textColor} fontFamily={headingFont} fontWeight="500">{heading}</Heading>
                             }
                             {subheading &&
-                            <Heading size="md" color={textColor} fontFamily={subheadingFont} fontWeight="500" mt={{base: 1, md: 2}} mb={{base: 1, md: 2}}>{subheading}</Heading>
+                            <Heading size="md" color={textColor} fontFamily={subheadingFont} fontWeight="500" mt={{base: 1, md: 2}} mb={4}>{subheading}</Heading>
                             }
                             {text &&
                             <Text color={textColor} textAlign="justify" className="page-text">
