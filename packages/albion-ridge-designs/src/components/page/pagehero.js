@@ -66,19 +66,39 @@ const Welcome = styled.section`
     background-color: #1f1f1f;
     background-attachment: fixed;
     background-size: cover;
-    background-position: center;
     line-height: 1.8;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    position: relative;
+    z-index: 0;
+
+      @media (max-width: 768px) { 
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+      }
+
+    &:before {
+        background: rgba(0, 0, 0, 0.25);
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: -1;
+    }
 }
 `
 const HeroHeading = styled.div`
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
-    padding: .5em;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
 `
 
 const HeroSubheading = styled.div`

@@ -91,7 +91,7 @@ const Post = ({ state, libraries }) => {
 
   if (!data.isFetching) {
     return (
-      <Box minHeight="85vh">
+      <Box minHeight="85vh" background="brand.800">
         <style>
           {
             `#storybook {
