@@ -12,6 +12,7 @@ import BlogHero from "./bloghero";
 import Quote from "../sections/quote";
 import Instagram from "../instagram/instagram";
 import Cta from "../sections/cta";
+import TwoColumnPhotoTextSmallWrapper from "../sections/twocolumnphototextsmallwrapper";
 import Gallery from "../gallery/gallery";
 import Loading from "../loading";
 
@@ -25,6 +26,7 @@ const Post = ({ state, libraries }) => {
 
   const [quote, setQuote] = useState([]);
   const [gallery, setGallery] = useState([]);
+  const [twoColumnPhotoTextSmall, setTwoColumnPhotoTextSmall] = useState([]);
   const [squares, setSquares] = useState([]);
   const [partOne, setPartOne] = useState("");
   const [partTwo, setPartTwo] = useState("");
@@ -71,6 +73,9 @@ const Post = ({ state, libraries }) => {
           })
           setGallery(galleryArr);
         }
+        if (section.acf_fc_layout === "two_column_photo_text_small_photo") {
+          setTwoColumnPhotoTextSmall(section.column_pairs);
+        }
         if (section.acf_fc_layout === "photo_squares") {
           setSquares(section.photo_square);
         }
@@ -84,7 +89,7 @@ const Post = ({ state, libraries }) => {
 
   if (!data.isFetching) {
     return (
-      <>
+      <Box minHeight="85vh">
         <style>
           {
             `#storybook {
@@ -105,7 +110,7 @@ const Post = ({ state, libraries }) => {
         </style>
         <BlogHero element={element} image={state.source.attachment[post.featured_media].source_url} title={post.title.rendered} date={formattedDate} />
         
-        <Flex direction="column" bg="brand.800" minHeight="85vh">
+        <Flex direction="column" bg="brand.800">
 
           {/* {quote.length !== 0 &&
                 <Quote 
@@ -191,6 +196,22 @@ const Post = ({ state, libraries }) => {
             }
 
         </Flex>
+
+        {twoColumnPhotoTextSmall.length > 0 &&
+              <TwoColumnPhotoTextSmallWrapper 
+              // backgroundColor={twoColumnPhotoText.background_color}
+              // buttonLink={twoColumnPhotoText.button_link}
+              // buttonText={twoColumnPhotoText.button_text}
+              // fullFramePhoto={twoColumnPhotoText.full_frame_photo}
+              // heading={twoColumnPhotoText.heading}
+              // subheading={twoColumnPhotoText.subheading}
+              // image={twoColumnPhotoText.image}
+              // imageSide={twoColumnPhotoText.image_side}
+              // text={twoColumnPhotoText.text}
+              // textColor={twoColumnPhotoText.text_color}
+              columnPairs={twoColumnPhotoTextSmall}
+            />
+        }
         
         {gallery.length > 0 &&
         <Flex direction="column" bg="brand.100" minHeight="fit-content">
@@ -201,7 +222,7 @@ const Post = ({ state, libraries }) => {
 
         <Cta />
         <Instagram limit={12} />
-      </>
+      </Box>
     )
   }
 }
