@@ -35,8 +35,15 @@ const Welcome = styled.section`
     align-items: center;
     text-align: center;
     position: relative;
-z-index: 0;
     z-index: 0;
+
+      @media (max-width: 768px) { 
+        background-size: 100%;
+        height: 100%;
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+      }
+
     &:before {
         background: rgba(0, 0, 0, 0.25);
         content: "";
