@@ -53,5 +53,5 @@ const HeroHeading = styled.div`
     color: #2C685D;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: white;
-    padding: .5em;
+    padding: 2em;
 `
