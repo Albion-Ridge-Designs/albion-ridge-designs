@@ -38,8 +38,6 @@ const Welcome = styled.section`
     z-index: 0;
 
       @media (max-width: 768px) { 
-        background-size: 100%;
-        height: 100%;
         background-attachment: scroll;
         background-repeat: no-repeat;
       }
