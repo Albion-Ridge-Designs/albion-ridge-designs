@@ -4,12 +4,11 @@ import Link from "@frontity/components/link"
 import {
   Heading,
   Flex,
-  Box,
-  Text
+  Box
 } from '@chakra-ui/react';
 import useSticky from "../hooks/useSticky";
 import BlogHero from "./post/bloghero";
-import Loading from "./loading";
+import LoadingSmall from "./loadingsmall";
 import Instagram from "./instagram/instagram";
 import Cta from "./sections/cta";
 import windowflowers from "../assets/windowflowers.jpg"
@@ -20,7 +19,7 @@ const List = ({ state, libraries, actions }) => {
   const { element } = useSticky();
 
   if (data.isFetching) {
-    return <Loading />
+    return <LoadingSmall background="brand.800" />
   }
 
   if (!data.isFetching) {

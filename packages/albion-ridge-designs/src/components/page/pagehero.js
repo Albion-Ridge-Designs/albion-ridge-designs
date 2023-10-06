@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { styled, connect } from "frontity";
-import useFontFaceObserver from 'use-font-face-observer';
+// import useFontFaceObserver from 'use-font-face-observer';
 import {
     Heading,
     Text,
@@ -12,13 +12,13 @@ import Loading from "../loading";
 function PageHero({ state, image, heading, subheading, headingTextColor, subheadingTextColor }) {
   const data = state.source.get(state.router.link)
   const { element } = useSticky();
-  const isFontLoaded = useFontFaceObserver([
-    { family: 'Amalta' }, // Same name you have in your CSS
-  ]);
+//   const isFontLoaded = useFontFaceObserver([
+//     { family: 'Amalta' }, // Same name you have in your CSS
+//   ]);
 
 
-  useEffect(() => {
-  }, [isFontLoaded]);
+//   useEffect(() => {
+//   }, [isFontLoaded]);
 
   if (data.route === "/") {
     return (
@@ -27,18 +27,18 @@ function PageHero({ state, image, heading, subheading, headingTextColor, subhead
     )
   }
 
-  if (data.isFetching || !isFontLoaded) {
-    return (
-        <Loading />
-    )
-  }
-
-    if (!data.isFetching && isFontLoaded && data.route !== "/") {
+//   if (data.isFetching || !isFontLoaded) {
+//     return (
+//         <Loading />
+//     )
+//   }
+//   !data.isFetching && isFontLoaded && 
+    if (data.route !== "/") {
         return (
             <Welcome style={{ backgroundImage: `url("${image}")` }}>
                 <HeroContent>
                     <div ref={element}>
-                        {isFontLoaded &&
+                        {/* {isFontLoaded && */}
                             <Flex direction="column" height="100vh" justifyContent="center" alignItems="center">
                                 {heading &&
                                     <HeroHeading>
@@ -52,7 +52,7 @@ function PageHero({ state, image, heading, subheading, headingTextColor, subhead
                                     </HeroSubheading>
                                 }
                             </Flex>
-                        }
+                        {/* } */}
                     </div>
                 </HeroContent>
             </Welcome>

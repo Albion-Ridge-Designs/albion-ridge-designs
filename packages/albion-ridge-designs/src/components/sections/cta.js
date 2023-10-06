@@ -9,8 +9,7 @@ import {
     Button,
     useMediaQuery
  } from "@chakra-ui/react";
- import Loading from "../loading";
- import jupirisograph4 from "../../assets/jupirisograph4.png";
+ import LoadingSmall from "../loadingsmall";
 
 const Cta = ({ state, backgroundColor, textColor, headingText, image, buttonText, buttonLink }) => {
     const options = state.source.get("acf-options-page");
@@ -48,7 +47,7 @@ const Cta = ({ state, backgroundColor, textColor, headingText, image, buttonText
 
     if (loading) {
         return (
-            <Loading />
+            <LoadingSmall background={bgColor} />
         )
     }
 

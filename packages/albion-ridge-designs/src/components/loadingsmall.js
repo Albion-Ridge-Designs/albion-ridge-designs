@@ -1,15 +1,14 @@
 import { Spinner, Flex } from "@chakra-ui/react";
 import React from "react"
 
-const Loading = () => {
+const LoadingSmall = ({ background }) => {
     return (
       <Flex 
         direction="column"
         width="100%" 
-        height="100%"
-        minHeight="100vh"
-        padding={{base: 5, lg: 20}}
-        bg="brand.700"
+        height="30px"
+        padding={{base: 5, lg: 10}}
+        bg={background}
         justifyContent="center"
         alignItems="center"
       >
@@ -24,4 +23,4 @@ const Loading = () => {
     )
 }
 
-export default Loading;
+export default LoadingSmall;

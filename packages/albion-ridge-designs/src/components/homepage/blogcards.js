@@ -14,6 +14,7 @@ import {
     useMediaQuery
   } from '@chakra-ui/react';
 import dayjs from "dayjs"
+import LoadingSmall from "../loadingsmall";
 import Loading from "../loading";
 
 const BlogCards = ({ state, libraries }) => {
@@ -32,7 +33,9 @@ const BlogCards = ({ state, libraries }) => {
 
 
   if (blogItems.isFetching) {
-    return <Loading />
+    return (
+        <LoadingSmall background="brand.700" />
+    )
   }
 
   if (!blogItems.isFetching) {

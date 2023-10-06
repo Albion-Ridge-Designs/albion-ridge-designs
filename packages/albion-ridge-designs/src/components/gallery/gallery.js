@@ -3,7 +3,7 @@ import { connect } from "frontity";
 import { AspectRatio, HStack, Image, Skeleton, Stack, useBreakpointValue } from '@chakra-ui/react'
 import { IoChevronBackOutline, IoChevronForwardOutline } from 'react-icons/io5'
 import { Carousel, CarouselIconButton, CarouselSlide, useCarousel } from './carousel'
-import Loading from "../loading";
+import LoadingSmall from "../loadingsmall";
 
 function Gallery({ state, rootProps, images }) {
   const [index, setIndex] = useState(0);
@@ -37,7 +37,9 @@ function Gallery({ state, rootProps, images }) {
 //   }, []);
 
   if (loading) {
-    return <Loading />
+    return (
+      <LoadingSmall background="brand.100" />
+    )
   }
 
   if (!loading) {

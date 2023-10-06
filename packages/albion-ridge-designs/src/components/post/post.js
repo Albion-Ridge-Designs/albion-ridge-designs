@@ -14,7 +14,7 @@ import Instagram from "../instagram/instagram";
 import Cta from "../sections/cta";
 import TwoColumnPhotoTextSmallWrapper from "../sections/twocolumnphototextsmallwrapper";
 import Gallery from "../gallery/gallery";
-import Loading from "../loading";
+import LoadingSmall from "../loadingsmall";
 
 const Post = ({ state, libraries }) => {
   const data = state.source.get(state.router.link)
@@ -86,7 +86,7 @@ const Post = ({ state, libraries }) => {
   }, [])
 
   if (data.isFetching) {
-    return <Loading />
+    return <LoadingSmall background="brand.800" />
   }
 
   if (!data.isFetching) {
