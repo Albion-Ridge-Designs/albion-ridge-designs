@@ -9,7 +9,7 @@ import SecLinks from "./navparts/seclinks";
 import NavLinks from "./navparts/navlinks";
 import SocLinks from "./navparts/soclinks";
 
-function NavBody({ menuData, sectionLinks, navigationLinks, socialLinks }) {
+function NavBody({ menuData, sectionLinks, navigationLinks, socialLinks, isHomepage, siteDomain }) {
     const [isSmallerThan480] = useMediaQuery('(max-width:480px)')
 
     return (
@@ -22,7 +22,7 @@ function NavBody({ menuData, sectionLinks, navigationLinks, socialLinks }) {
                 </Flex>
        
                 <Flex direction="column" pl={5} pr={5} height="100%" justifyContent="center">
-                    <SecLinks sectionLinks={sectionLinks} />
+                    <SecLinks sectionLinks={sectionLinks} isHomepage={isHomepage} siteDomain={siteDomain} />
                     <NavLinks navigationLinks={navigationLinks} />
                 </Flex>
      

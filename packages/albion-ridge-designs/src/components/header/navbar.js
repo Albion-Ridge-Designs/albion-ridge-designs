@@ -21,12 +21,14 @@ import useFontFaceObserver from 'use-font-face-observer';
 import NavBody from "./navbody";
 import ardhorizontallogotransparent from "../../assets/ardhorizontallogotransparent.png";
 
-function Navbar({ sticky, menuItems, menuData, siteDomain, siteName }) {
+function Navbar({ state, sticky, menuItems, menuData, siteDomain, siteName }) {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const btnRef = React.useRef();
+    const data = state.source.get(state.router.link);
     const [navigationLinks, setNavigationLinks] = useState([]);
     const [sectionLinks, setSectionLinks] = useState([]);
     const [socialLinks, setSocialLinks] = useState([]);
+    const [isHomepage, setIsHomepage] = useState(true);
     const [isSmallerThan480] = useMediaQuery('(max-width:480px)')
     const [isSmallerThan375] = useMediaQuery('(max-width:375px)')
 
@@ -40,7 +42,16 @@ function Navbar({ sticky, menuItems, menuData, siteDomain, siteName }) {
         setNavigationLinks(navLinks);
         setSectionLinks(secLinks);
         setSocialLinks(socLinks);
-    }, [menuData])
+    }, [menuData, data])
+
+    useEffect(() => {
+        if (data.route === "/") {
+            setIsHomepage(true);
+        }
+        if (data.route !== "/") {
+            setIsHomepage(false);
+        }
+    }, [data])
 
     const isFontLoaded = useFontFaceObserver([
         { family: 'Amalta' }, // Same name you have in your CSS
@@ -87,7 +98,7 @@ function Navbar({ sticky, menuItems, menuData, siteDomain, siteName }) {
                     </DrawerHeader>
 
                     <DrawerBody style={{overflowY: "scroll"}}>
-                        <NavBody menuData={menuData} sectionLinks={sectionLinks} navigationLinks={navigationLinks} socialLinks={socialLinks} />
+                        <NavBody menuData={menuData} sectionLinks={sectionLinks} navigationLinks={navigationLinks} socialLinks={socialLinks} isHomepage={isHomepage} siteDomain={siteDomain} />
                     </DrawerBody>
                 </DrawerContent>
                 </Drawer>
