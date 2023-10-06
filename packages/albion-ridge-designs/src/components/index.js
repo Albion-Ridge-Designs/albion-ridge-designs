@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { 
   connect, 
   Global, 
@@ -10,11 +10,14 @@ import {
 } from '@chakra-ui/react';
 import { ChakraProvider } from '@chakra-ui/react';
 import Switch from "@frontity/components/switch";
+import useFontFaceObserver from 'use-font-face-observer';
 import Navbar from "./header/navbar";
 import Footer from "./footer";
 import List from "./list";
 import Post from "./post/post";
 import Page from "./page/page";
+import Loading from "./loading";
+import Error from "./error";
 import Amalta from '../assets/fonts/Amalta-Amalta-Web.ttf';
 import Graphik from '../assets/fonts/Graphik-Regular-Web.ttf';
 import GraphikSemibold from '../assets/fonts/Graphik-Semibold-Web.ttf';
@@ -37,6 +40,13 @@ const Root = ({ state }) => {
     const footerItems = state.source.get("/menu/main");
     const footerData = state.source[menuItems.type][menuItems.id];
     const [isSticky, setSticky] = useState(false);
+
+    const isFontLoaded = useFontFaceObserver([
+      { family: 'Amalta' }, // Same name you have in your CSS
+    ]);
+
+    useEffect(() => {
+    }, [isFontLoaded]);
 
     const theme = extendTheme({
         colors: {
@@ -391,9 +401,11 @@ const Root = ({ state }) => {
       <Navbar sticky={isSticky} menuItems={menuItems} menuData={menuData} siteDomain={siteDomain} siteName={siteName} />
 
       <Switch>
+        <Loading when={data.isFetching || !isFontLoaded} />
         <List when={data.isArchive} />
         <Post when={data.isPost} />
         <Page when={data.isPage} />
+        <Error when={data.isError} />
       </Switch>
       
       <Footer footerItems={footerItems} footerData={footerData}/>

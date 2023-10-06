@@ -16,12 +16,13 @@ import PhotoSquares from "../sections/photosquares/photosquares";
 import BulletPointsCta from "../sections/bulletpointscta";
 import Cta from "../sections/cta";
 import Instagram from "../instagram/instagram";
+import LoadingSmall from "../loadingsmall";
 import Contact from "../contact/contact"
-import Loading from "../loading";
 
 const Page = ({ state, libraries }) => {
   const data = state.source.get(state.router.link);
   const post = state.source[data.type][data.id]
+  console.log("post", post);
   const pageSections = post.acf.page_sections;
   const heroBackground = post.acf.background;
   const heroText = post.acf.hero_text;
@@ -75,7 +76,7 @@ const Page = ({ state, libraries }) => {
   }, [])
 
   if (data.isFetching) {
-    return <Loading />
+    return <LoadingSmall background="brand.800" />
   }
 
   if (!data.isFetching) {

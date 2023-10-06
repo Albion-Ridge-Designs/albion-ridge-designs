@@ -11,7 +11,7 @@ import {
     ListIcon
   } from "@chakra-ui/react";
   import { FaRegSadTear, FaRegSmile, FaCheck } from "react-icons/fa";
-  import Loading from "../loading";
+  import LoadingSmall from "../loadingsmall";
   
   function BulletPointsCta({ state, backgroundColor, textColor, iconColor, headingText, icon, includeCta, bulletPoints }) {
     const options = state.source.get("acf-options-page");
@@ -27,7 +27,7 @@ import {
 
     if (loading) {
         return (
-            <Loading />
+            <LoadingSmall background={backgroundColor} />
         )
     }
 
