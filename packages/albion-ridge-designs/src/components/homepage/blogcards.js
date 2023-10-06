@@ -54,7 +54,6 @@ const BlogCards = ({ state, libraries }) => {
             <SimpleGrid
                 columns={{
                 base: 1,
-                md: 2,
                 lg: 3,
                 }}
                 rowGap={{
