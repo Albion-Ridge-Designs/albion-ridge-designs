@@ -7,7 +7,7 @@ import {
     Flex
   } from "@chakra-ui/react";
 import useSticky from "../../hooks/useSticky";
-import Loading from "../loading";
+// import Loading from "../loading";
 
 function PageHero({ state, image, heading, subheading, headingTextColor, subheadingTextColor }) {
   const data = state.source.get(state.router.link)
@@ -47,9 +47,7 @@ function PageHero({ state, image, heading, subheading, headingTextColor, subhead
                                 }
 
                                 {subheading &&
-                                    <HeroSubheading>
-                                        <Text color={subheadingTextColor} fontSize="2xl" fontFamily="GraphikBlack" letterSpacing="-.5px">{subheading}</Text> 
-                                    </HeroSubheading>
+                                    <Text color={subheadingTextColor} fontSize="2xl" fontFamily="GraphikSemibold" letterSpacing="-.5px">{subheading}</Text> 
                                 }
                             </Flex>
                         {/* } */}
@@ -99,12 +97,6 @@ const HeroHeading = styled.div`
     padding-right: 2em;
     padding-top: 1em;
     padding-bottom: 1em;
-`
-
-const HeroSubheading = styled.div`
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-    padding: .5em;
 `
 const HeroContent = styled.div`
     /* z-index: 1; */
