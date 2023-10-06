@@ -1,14 +1,8 @@
 import React from "react";
 import { connect } from "frontity";
-import {
-    Flex,
-    Box,
-    Heading,
-    Text,
-    Image
-  } from '@chakra-ui/react';
 import PageHero from "./page/pagehero";
 import Cta from "./sections/cta";
+import Instagram from "./instagram/instagram";
 import derphorse from "../assets/derphorse.png";
 
 const Error = ({ state }) => {
@@ -22,6 +16,7 @@ const Error = ({ state }) => {
           subheadingTextColor="brand.800"
         />
         <Cta />
+        <Instagram limit={12} />
     </>
   )
 }
