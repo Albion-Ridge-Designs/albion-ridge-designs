@@ -27,7 +27,8 @@ function TestimonialCard(props) {
         px="10"
       >
 
-        <Box as="blockquote" maxW="340px" mx="auto" my="4">
+        {/* maxW="340" */}
+        <Box as="blockquote" maxW="450px" mx="auto" my="4">
           <Box
             position="absolute"
             top="6"
