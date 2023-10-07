@@ -138,7 +138,7 @@ function HeavensGateName() {
     }
 
     return (
-        <Flex id="heavens-gate-generator" direction="column" align="center" bg="brand.300" pt={20} pb={20}>
+        <Flex id="heavens-gate-generator" direction="column" align="center" bg="brand.400" pt={20} pb={20}>
             {!isSubmitSuccessful &&
                 <Stack
                     spacing={10}
@@ -147,7 +147,7 @@ function HeavensGateName() {
                     minWidth={{base: "80%", md: "700px"}} 
                     maxWidth="800px"
                 >
-                    <Heading size="2xl" color="brand.200" fontFamily="Amalta" fontWeight="500" width="100%" textAlign="center">Heavens Gate Name Generator</Heading>
+                    <Heading size="2xl" color="brand.500" fontFamily="Amalta" fontWeight="500" width="100%" textAlign="center">Heavens Gate Name Generator</Heading>
                     {/* <Flex width="100%" justifyContent="center" alignItems="center">
                         <Image src={hglogo} width="300px" borderRadius="110px" border="2px solid #333333" m={2} />
                     </Flex> */}
@@ -155,7 +155,7 @@ function HeavensGateName() {
                         <FormControl id="name">
                             <FormLabel htmlFor="name" color="brand.800" fontWeight="600" fontSize="lg">Name:</FormLabel>
                             <Input name="name" backgroundColor="brand.500" color="brand.200" size="lg" fontSize="lg" focusBorderColor='brand.500' style={{ border: "2px solid #FEFAF1"}} {...register("name", { required: "This is required."})} />
-                            <ErrorMessage errors={errors} name="name" render={({ message }) => <div style={{color: "#FEFAF1", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle mr={2} />  Input name must have at least 3 consonants or 2 consonants if the first letter is a vowel. </div>}/>
+                            <ErrorMessage errors={errors} name="name" render={({ message }) => <div style={{color: "#FEFAF1", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle /> <Text ml={3}>Input name must have at least 3 consonants or 2 consonants if the first letter is a vowel.</Text></div>}/>
                         </FormControl>
                         <FormControl id="email" mt={5}>
                             <FormLabel htmlFor="email" color="brand.800" fontWeight="600" fontSize="lg">Email:</FormLabel>
@@ -187,3 +187,4 @@ function HeavensGateName() {
   }
 
   export default HeavensGateName;
+  
