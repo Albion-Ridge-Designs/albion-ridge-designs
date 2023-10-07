@@ -20,7 +20,7 @@ import emailjs from "emailjs-com";
 import { ErrorMessage } from "@hookform/error-message";
 import { BiErrorCircle } from "react-icons/bi";
 import heavensgategif from "../../assets/heavensgategif.gif";
-import hglogo from "../../assets/hglogo.jpeg";
+import hgmembers from "../../assets/hgmembers.jpeg";
 
 function HeavensGateName() {
     const { register, watch, setValue, setError, clearErrors, reset, handleSubmit, control } = useForm();
@@ -147,20 +147,20 @@ function HeavensGateName() {
                     minWidth={{base: "80%", md: "700px"}} 
                     maxWidth="800px"
                 >
-                    <Heading size="2xl" color="brand.500" fontFamily="Amalta" fontWeight="500" width="100%" textAlign="center">Heavens Gate Name Generator</Heading>
-                    {/* <Flex width="100%" justifyContent="center" alignItems="center">
-                        <Image src={hglogo} width="300px" borderRadius="110px" border="2px solid #333333" m={2} />
-                    </Flex> */}
+                    <Heading size="2xl" color="brand.500" fontFamily="Amalta" fontWeight="500" width="100%" textAlign="center">Heaven's Gate Name Generator</Heading>
+                    <Flex width="100%" justifyContent="center" alignItems="center">
+                        <Image src={hgmembers} maxWidth="500px" borderRadius="110px" border="2px solid #333333" m={2} />
+                    </Flex>
                     <form onSubmit={handleSubmit(onFormSubmit)}> 
                         <FormControl id="name">
                             <FormLabel htmlFor="name" color="brand.800" fontWeight="600" fontSize="lg">Name:</FormLabel>
                             <Input name="name" backgroundColor="brand.500" color="brand.200" size="lg" fontSize="lg" focusBorderColor='brand.500' style={{ border: "2px solid #FEFAF1"}} {...register("name", { required: "This is required."})} />
-                            <ErrorMessage errors={errors} name="name" render={({ message }) => <div style={{color: "#FEFAF1", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle /> <Text ml={3}>Input name must have at least 3 consonants or 2 consonants if the first letter is a vowel.</Text></div>}/>
+                            <ErrorMessage errors={errors} name="name" render={({ message }) => <div style={{color: "#BBDB9B", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle /> <Text ml={2}>Input name must have at least 3 consonants or 2 consonants if the first letter is a vowel.</Text></div>}/>
                         </FormControl>
                         <FormControl id="email" mt={5}>
                             <FormLabel htmlFor="email" color="brand.800" fontWeight="600" fontSize="lg">Email:</FormLabel>
                             <Input name="email" backgroundColor="brand.500" color="brand.200" size="lg" fontSize="lg" focusBorderColor='brand.500' style={{ border: "2px solid #FEFAF1"}} {...register("email", { required: "This is required."})} />
-                            <ErrorMessage errors={errors} name="email" render={({ message }) => <div style={{color: "#D76A03", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle /> {message} </div>}/>
+                            {/* <ErrorMessage errors={errors} name="email" render={({ message }) => <div style={{color: "#D76A03", display: "flex", flexDirection: "row", alignItems: "center", marginTop: "10px" }}><BiErrorCircle /> {message} </div>}/> */}
                         </FormControl>
                         <Button 
                             type="submit"
