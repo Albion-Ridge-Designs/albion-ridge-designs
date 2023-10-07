@@ -3,6 +3,7 @@ import { connect } from "frontity";
 import PageHero from "./page/pagehero";
 import Cta from "./sections/cta";
 import Instagram from "./instagram/instagram";
+import HeavensGateName from "./generators/heavensgatename";
 import derphorse from "../assets/derphorse.png";
 
 const Error = ({ state }) => {
@@ -15,6 +16,7 @@ const Error = ({ state }) => {
           headingTextColor="brand.800"
           subheadingTextColor="brand.800"
         />
+        <HeavensGateName />
         <Cta />
         <Instagram limit={12} />
     </>
