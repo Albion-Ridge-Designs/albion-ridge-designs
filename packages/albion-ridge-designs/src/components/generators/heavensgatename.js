@@ -147,7 +147,7 @@ function HeavensGateName() {
                     minWidth={{base: "80%", md: "700px"}} 
                     maxWidth="800px"
                 >
-                    <Heading size="2xl" color="brand.500" fontFamily="Amalta" fontWeight="500" width="100%" textAlign="center">Heaven's Gate Name Generator</Heading>
+                    {/* <Heading size="2xl" color="brand.500" fontFamily="Amalta" fontWeight="500" width="100%" textAlign="center">Heaven's Gate Name Generator</Heading> */}
                     <Flex width="100%" justifyContent="center" alignItems="center">
                         <Image src={hgmembers} maxWidth="500px" borderRadius="110px" border="2px solid #333333" m={2} />
                     </Flex>
