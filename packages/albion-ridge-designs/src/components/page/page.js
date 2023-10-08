@@ -235,7 +235,9 @@ const Page = ({ state, libraries }) => {
         <Homepage />
       }
 
-        {/* <Cta /> */}
+      {data.route !== "/" &&
+        <Cta />
+      }
         <Instagram limit={12} />
       </>
     )

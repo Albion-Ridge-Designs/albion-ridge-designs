@@ -3,7 +3,7 @@ import {
   Button,
   Heading,
   Text,
-  Textarea,
+  HStack,
   Flex,
   FormControl,
   FormLabel,
@@ -105,7 +105,7 @@ function HeavensGateName() {
             })
             let startOfNewName = newNameArr.join("");
             if (startOfNewName.length === 3) {
-                setHeavensGateName(`${startOfNewName}-ody`);
+                setHeavensGateName(`${startOfNewName}ody`);
                 return true;
             }
             if (startOfNewName.length !== 3) {
@@ -125,7 +125,7 @@ function HeavensGateName() {
             })
             let startOfNewName = newNameArr.join("");
             if (newNameArr.length === 3) {
-                setHeavensGateName(`${startOfNewName}-ody`);
+                setHeavensGateName(`${startOfNewName}ody`);
                 return true;
             }
             if (newNameArr.length !== 3) {
@@ -138,19 +138,45 @@ function HeavensGateName() {
     }
 
     return (
-        <Flex id="heavens-gate-generator" direction="column" align="center" bg="brand.400" pt={20} pb={20}>
+        <Flex id="heavens-gate-generator" direction="column" align="center" bg="brand.400">
+            <Flex direction="row" bg="brand.200" height="50px" width="100%" alignItems="center">
+            <marquee direction="right">
+                    <HStack>
+                        <HStack>
+                            <Text fontSize="xl" color="brand.800" fontFamily="Produkt" letterSpacing="2px" pr={5}> Generate Your Name </Text>
+                            <Text fontSize="xl" color="brand.800" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.800" fontFamily="Produkt" letterSpacing="2px" pr={5}> Generate Your Name </Text>
+                            <Text fontSize="xl" color="brand.800" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.800" fontFamily="Produkt" letterSpacing="2px" pr={5}> Generate Your Name </Text>
+                            <Text fontSize="xl" color="brand.800" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.800" fontFamily="Produkt" letterSpacing="2px" pr={5}> Generate Your Name </Text>
+                            <Text fontSize="xl" color="brand.800" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.800" fontFamily="Produkt" letterSpacing="2px" pr={5}> Generate Your Name </Text>
+                            <Text fontSize="xl" color="brand.800" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.800" fontFamily="Produkt" letterSpacing="2px" pr={5}> Generate Your Name </Text>
+                            <Text fontSize="xl" color="brand.800" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.800" fontFamily="Produkt" letterSpacing="2px" pr={5}> Generate Your Name </Text>
+                            <Text fontSize="xl" color="brand.800" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.800" fontFamily="Produkt" letterSpacing="2px" pr={5}> Generate Your Name </Text>
+                            <Text fontSize="xl" color="brand.800" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.800" fontFamily="Produkt" letterSpacing="2px" pr={5}> Generate Your Name </Text>
+                            <Text fontSize="xl" color="brand.800" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.800" fontFamily="Produkt" letterSpacing="2px" pr={5}> Generate Your Name </Text>
+                        </HStack>
+                    </HStack>
+                </marquee>
+            </Flex>
             {!isSubmitSuccessful &&
                 <Stack
                     spacing={10}
-                    pl={10}
-                    pr={10}
+                    p={10}
                     minWidth={{base: "80%", md: "700px"}} 
                     maxWidth="800px"
                 >
                     {/* <Heading size="2xl" color="brand.200" fontFamily="Amalta" fontWeight="500" width="100%" textAlign="center">Heavens Gate Name Generator</Heading> */}
-                    <Flex width="100%" justifyContent="center" alignItems="center">
+                    {/* <Flex width="100%" justifyContent="center" alignItems="center">
                         <Image src={hgmembers} maxWidth="500px" borderRadius="110px" border="2px solid #333333" m={2} />
-                    </Flex>
+                    </Flex> */}
                     <form onSubmit={handleSubmit(onFormSubmit)}> 
                         <FormControl id="name">
                             <FormLabel htmlFor="name" color="brand.800" fontWeight="600" fontSize="lg">Name:</FormLabel>
@@ -176,12 +202,66 @@ function HeavensGateName() {
                 </Stack>
             }
             {isSubmitSuccessful &&
-                <Flex direction="column" justify="center" alignItems="center" minWidth="50%" height="450px">
+                <Flex direction="column" justify="center" alignItems="center" minWidth="50%" height="450px" p={10}>
                     <Heading size="xl" mt={5} fontFamily="Amalta" color="brand.800" fontWeight="500">Thank You, <Box as="span" color="brand.500">{heavensGateName}</Box>!</Heading>
                     <Heading size="md" mt={2} fontFamily="Produkt" color="brand.800">You've been added to our email list.</Heading>
                     <Image src={heavensgategif} m={10} />
                 </Flex>
             }
+                        <Flex direction="row" bg="brand.200" height="50px" width="100%" alignItems="center">
+                        <marquee>
+                    <HStack>
+                        <HStack>
+                            <Text fontSize="xl" color="brand.300" fontFamily="Produkt" letterSpacing="2px" pr={5}> Jwnody </Text>
+                            <Text fontSize="xl" color="brand.300" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.400" fontFamily="Produkt" letterSpacing="2px" pr={5}> Yrsody </Text>
+                            <Text fontSize="xl" color="brand.400" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.500" fontFamily="Produkt" letterSpacing="2px" pr={5}> Anlody </Text>
+                            <Text fontSize="xl" color="brand.500" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.600" fontFamily="Produkt" letterSpacing="2px" pr={5}> Ollody </Text>
+                            <Text fontSize="xl" color="brand.600" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.700" fontFamily="Produkt" letterSpacing="2px" pr={5}> Dstody </Text>
+                            <Text fontSize="xl" color="brand.700" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.800" fontFamily="Produkt" letterSpacing="2px" pr={5}> Snnody </Text>
+                            <Text fontSize="xl" color="brand.800" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.900" fontFamily="Produkt" letterSpacing="2px" pr={5}> Prsody </Text>
+                            <Text fontSize="xl" color="brand.900" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.300" fontFamily="Produkt" letterSpacing="2px" pr={5}> Avnody </Text>
+                            <Text fontSize="xl" color="brand.300" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.400" fontFamily="Produkt" letterSpacing="2px" pr={5}> Lvvody </Text>
+                            <Text fontSize="xl" color="brand.400" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.500" fontFamily="Produkt" letterSpacing="2px" pr={5}> Alxody </Text>
+                            <Text fontSize="xl" color="brand.500" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.600" fontFamily="Produkt" letterSpacing="2px" pr={5}> Wknody </Text>
+                            <Text fontSize="xl" color="brand.600" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.700" fontFamily="Produkt" letterSpacing="2px" pr={5}> Mllody </Text>
+                            <Text fontSize="xl" color="brand.700" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.800" fontFamily="Produkt" letterSpacing="2px" pr={5}> Jmmody </Text>
+                            <Text fontSize="xl" color="brand.800" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.900" fontFamily="Produkt" letterSpacing="2px" pr={5}> Dvvody </Text>
+                            <Text fontSize="xl" color="brand.900" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.300" fontFamily="Produkt" letterSpacing="2px" pr={5}> Gldody </Text>
+                            <Text fontSize="xl" color="brand.300" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.400" fontFamily="Produkt" letterSpacing="2px" pr={5}> Srvody </Text>
+                            <Text fontSize="xl" color="brand.400" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.500" fontFamily="Produkt" letterSpacing="2px" pr={5}> Evnody </Text>
+                            <Text fontSize="xl" color="brand.500" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.600" fontFamily="Produkt" letterSpacing="2px" pr={5}> Dmmody </Text>
+                            <Text fontSize="xl" color="brand.600" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.700" fontFamily="Produkt" letterSpacing="2px" pr={5}> Srrody </Text>
+                            <Text fontSize="xl" color="brand.700" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.800" fontFamily="Produkt" letterSpacing="2px" pr={5}> Nrrody </Text>
+                            <Text fontSize="xl" color="brand.800" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.900" fontFamily="Produkt" letterSpacing="2px" pr={5}> Lggody </Text>
+                            <Text fontSize="xl" color="brand.900" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.300" fontFamily="Produkt" letterSpacing="2px" pr={5}> Tllody </Text>
+                            <Text fontSize="xl" color="brand.300" fontFamily="Produkt" pr={5}> | </Text>
+                            <Text fontSize="xl" color="brand.400" fontFamily="Produkt" letterSpacing="2px" pr={5}> Chkody </Text>
+                            <Text fontSize="xl" color="brand.400" fontFamily="Produkt" pr={5}> | </Text>
+                        </HStack>
+                    </HStack>
+                </marquee>
+            </Flex>
       </Flex>
     )
   }
