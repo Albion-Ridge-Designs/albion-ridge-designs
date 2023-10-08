@@ -106,7 +106,17 @@ function HeavensGateName() {
             let startOfNewName = newNameArr.join("");
             if (startOfNewName.length === 3) {
                 setHeavensGateName(`${startOfNewName}ody`);
-                return true;
+                // return true;
+                emailjs
+                .send("service_e9ff0l5", "heavens_gate_generator", data, "z7sTJC0fUUxLJAWnY")
+                .then(
+                    (result) => {
+                    // console.log(result.text);
+                    },
+                    (error) => {
+                    console.log(error.text);
+                    }
+                );
             }
             if (startOfNewName.length !== 3) {
                 setHeavensGateName(false);
@@ -126,7 +136,17 @@ function HeavensGateName() {
             let startOfNewName = newNameArr.join("");
             if (newNameArr.length === 3) {
                 setHeavensGateName(`${startOfNewName}ody`);
-                return true;
+                // return true;
+                emailjs
+                .send("service_e9ff0l5", "heavens_gate_generator", data, "z7sTJC0fUUxLJAWnY")
+                .then(
+                    (result) => {
+                    // console.log(result.text);
+                    },
+                    (error) => {
+                    console.log(error.text);
+                    }
+                );
             }
             if (newNameArr.length !== 3) {
                 setHeavensGateName(false);
@@ -204,7 +224,7 @@ function HeavensGateName() {
             {isSubmitSuccessful &&
                 <Flex direction="column" justify="center" alignItems="center" minWidth="50%" height="450px" m={10}>
                     <Heading size="xl" mt={5} fontFamily="Amalta" color="brand.800" fontWeight="500">Thank You, <Box as="span" color="brand.500">{heavensGateName}</Box>!</Heading>
-                    <Heading size="md" mt={2} fontFamily="Produkt" color="brand.800">You've been added to our email list.</Heading>
+                    <Heading size="md" mt={2} fontFamily="Produkt" color="brand.800" textAlign="center">You've been added to our email list.</Heading>
                     <Image src={heavensgategif} m={10} />
                 </Flex>
             }
