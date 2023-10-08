@@ -16,6 +16,7 @@ import PhotoSquares from "../sections/photosquares/photosquares";
 import BulletPointsCta from "../sections/bulletpointscta";
 import Cta from "../sections/cta";
 import Instagram from "../instagram/instagram";
+import HeavensGateName from "../generators/heavensgatename";
 import LoadingSmall from "../loadingsmall";
 import Contact from "../contact/contact"
 
@@ -226,12 +227,17 @@ const Page = ({ state, libraries }) => {
         )
       })
       }
+      {post.acf.display_generator &&
+        <HeavensGateName />
+      }
 
       {data.route === "/" &&
         <Homepage />
       }
 
-        {/* <Cta /> */}
+      {data.route !== "/" &&
+        <Cta />
+      }
         <Instagram limit={12} />
       </>
     )

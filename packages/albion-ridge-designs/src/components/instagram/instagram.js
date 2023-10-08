@@ -10,15 +10,20 @@ import {
 } from '@chakra-ui/react';
 
 const Instagram = ({state, ...props}) => {
+    const data = state.source.get(state.router.link);
     const options = state.source.get("acf-options-page");
     const token = options.acf.instagram_access_token;
     const [feeds, setFeedsData] = useState([])
+    const [igBgColor, setIgBgColor] = useState("brand.700")
     //use useRef to store the latest value of the prop without firing the effect
     const tokenProp = useRef(token);
     tokenProp.current = token;
 
     useEffect(() => {
         // this is to avoid memory leaks
+        if (data.route === "/") {
+            setIgBgColor("brand.600")
+        }
         const abortController = new AbortController();
 
         async function fetchInstagramPost () {
@@ -44,7 +49,7 @@ const Instagram = ({state, ...props}) => {
     }, [props.limit])
 
     return (
-        <Box bg="brand.600">
+        <Box bg={igBgColor}>
             <div className="container">
                 <Box width="fit-content">
                     <ChakraLink href="https://instagram.com/albionridgedesigns" style={{ textDecoration: "none" }} _hover={{ color: "brand.400"}} isExternal>
