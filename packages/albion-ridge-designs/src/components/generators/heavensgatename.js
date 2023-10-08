@@ -106,7 +106,17 @@ function HeavensGateName() {
             let startOfNewName = newNameArr.join("");
             if (startOfNewName.length === 3) {
                 setHeavensGateName(`${startOfNewName}ody`);
-                return true;
+                // return true;
+                emailjs
+                .send("service_e9ff0l5", "heavens_gate_generator", data, "z7sTJC0fUUxLJAWnY")
+                .then(
+                    (result) => {
+                    // console.log(result.text);
+                    },
+                    (error) => {
+                    console.log(error.text);
+                    }
+                );
             }
             if (startOfNewName.length !== 3) {
                 setHeavensGateName(false);
@@ -126,7 +136,17 @@ function HeavensGateName() {
             let startOfNewName = newNameArr.join("");
             if (newNameArr.length === 3) {
                 setHeavensGateName(`${startOfNewName}ody`);
-                return true;
+                // return true;
+                emailjs
+                .send("service_e9ff0l5", "heavens_gate_generator", data, "z7sTJC0fUUxLJAWnY")
+                .then(
+                    (result) => {
+                    // console.log(result.text);
+                    },
+                    (error) => {
+                    console.log(error.text);
+                    }
+                );
             }
             if (newNameArr.length !== 3) {
                 setHeavensGateName(false);
