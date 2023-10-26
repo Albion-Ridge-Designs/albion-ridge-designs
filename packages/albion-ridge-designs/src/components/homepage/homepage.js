@@ -13,7 +13,7 @@ import Application from "../application/application";
           <Testimonials />
           <Timeline />
           <Application />
-          <BlogCards />
+          {/* <BlogCards /> */}
           <Contact />
         </>
       )
