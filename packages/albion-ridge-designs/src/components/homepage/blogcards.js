@@ -20,6 +20,7 @@ import Loading from "../loading";
 const BlogCards = ({ state, libraries }) => {
   const blogItems = state.source.get("/blog");
   const blogData = state.source[blogItems.type];
+  console.log("blogData", blogData);
   const blogValues = Object.values(blogData);
   const Html2React = libraries.html2react.Component;
   const [isSmallerThan420] = useMediaQuery('(max-width: 420px)');
