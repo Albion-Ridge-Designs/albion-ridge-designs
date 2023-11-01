@@ -16,7 +16,7 @@ const acfOptionsHandler = {
 };
 
 export default {
-  name: "sticky-header",
+  name: "albion-ridge-designs",
   roots: {
     theme: Root
   },
@@ -33,7 +33,22 @@ export default {
         await actions.source.fetch('/offering/main',{ force: true });
         await actions.source.fetch('/timeline/main',{ force: true });
         await actions.source.fetch('/blog',{ force: true });
+        await actions.source.fetch('posts',{ force: true });
         await actions.source.fetch("acf-options-page");
+      },
+      fetchPosts:
+      ({ state, libraries }) =>
+      async (callback = (entities) => {}) => {
+        // Get other images
+        const response = await libraries.source.api.get({
+          endpoint: "posts",
+        });
+
+        const entitiesAdded = await libraries.source.populate({
+          response,
+          state,
+        });
+        callback(entitiesAdded);
       },
     },
   },

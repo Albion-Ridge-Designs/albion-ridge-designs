@@ -29,7 +29,7 @@ const settings = {
           },
           "url": "https://wptemplates.albionridgedesigns.com/",
           "postsPage": "/blog",
-          "homepage": "/homepage", // seems like this fixed it
+          "homepage": "/homepage",
           "postTypes": [
             {
               type: "menu",
