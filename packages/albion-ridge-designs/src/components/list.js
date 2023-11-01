@@ -6,9 +6,10 @@ import {
   Flex,
   Box
 } from '@chakra-ui/react';
+import axios from "axios";
 import useSticky from "../hooks/useSticky";
 import BlogHero from "./post/bloghero";
-import LoadingSmall from "./loadingsmall";
+import Loading from "./loading";
 import Instagram from "./instagram/instagram";
 import Cta from "./sections/cta";
 import windowflowers from "../assets/windowflowers.jpg"
@@ -17,19 +18,32 @@ const List = ({ state, libraries, actions }) => {
   const data = state.source.get(state.router.link);
   const Html2React = libraries.html2react.Component;
   const { element } = useSticky();
-  const [relatedPosts, setRelatedPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const posts = libraries.source.api.get("posts");
-    console.log("posts", posts)
-      actions.theme.fetchPosts().then((res) => console.log("res", res))
-  }, []);
+  useEffect(async () => {
+    async function fetchPosts () {
+      let allPosts;
+      try{
+        axios
+            .get("https://wptemplates.albionridgedesigns.com/wp-json/wp/v2/posts")
+            .then((resp) => {
+                setPosts(resp.data);
+            })
+      } catch (err) {
+          console.log('error', err)
+      }
+    }
+    
+    await fetchPosts();
+    setLoading(false);
+}, [])
 
-  if (data.isFetching) {
-    return <LoadingSmall background="brand.800" />
+  if (loading) {
+    return <Loading background="brand.800" />
   }
 
-  if (!data.isFetching) {
+  if (!loading) {
     return (
       <>
       <style>
@@ -60,21 +74,21 @@ const List = ({ state, libraries, actions }) => {
         bg="brand.800"
         pb={14}
       >
-          {data.items.map((item) => {
-            const post = state.source[item.type][item.id];
+          {posts.map((item) => {
+            // const post = state.source[item.type][item.id];
             return (
               <>
               <Flex direction="column" key={item.id} mt={14}>
-                <Link link={post.link}>
+                <Link link={item.link}>
                   <Heading size="lg" mb={2} color="brand.100">
-                    <Html2React html={post.title.rendered} />
+                    <Html2React html={item.title.rendered} />
                   </Heading>
                 </Link>
                 <Flex direction="column">
                   <Box id="listdropcap" fontWeight={500} mb={4} fontSize="lg" color="blackAlpha.800" className="page-text">
-                    <Html2React html={post.excerpt.rendered} />
+                    <Html2React html={item.excerpt.rendered} />
                   </Box>
-                  <Link key={item.id} link={post.link}>
+                  <Link key={item.id} link={item.link}>
                     Read More
                   </Link>
               </Flex>
