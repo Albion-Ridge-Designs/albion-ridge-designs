@@ -34,7 +34,6 @@ const BlogCards = ({ state, libraries }) => {
         axios
             .get("https://wptemplates.albionridgedesigns.com/wp-json/wp/v2/posts")
             .then((resp) => {
-                console.log("resp", resp);
                 allPosts = resp.data;
                 setLastThreePosts(allPosts.slice(-3).reverse());
             })
@@ -54,9 +53,7 @@ useEffect(() => {
           axios
               .get(url)
               .then((resp) => {
-                  console.log("resp", resp);
                   imageStorage[id] = resp.data.source_url;
-                  console.log("imageStorage", imageStorage);
                   if (Object.keys(imageStorage).length === 3) {
                     setFeaturedImages(imageStorage);
                     setLoading(false);
@@ -70,12 +67,9 @@ useEffect(() => {
     lastThreePosts.map(async (post) => {
         await fetchImage(post.id, `https://wptemplates.albionridgedesigns.com/wp-json/wp/v2/media/${post.featured_media}`);
     })
-    console.log("lastThreePosts", lastThreePosts);
+
 }, [lastThreePosts])
 
-useEffect(() => {
-    console.log("featuredImages", featuredImages)
-}, [featuredImages])
 
   if (loading) {
     return (
@@ -112,7 +106,6 @@ useEffect(() => {
                 bg="brand.700"
             >
                 {lastThreePosts.map((post) => {
-                    console.log("featured", featuredImages)
                     let formattedDate = dayjs(post.date).format("MMMM DD, YYYY")
                     return (
                         <ChakraLink
