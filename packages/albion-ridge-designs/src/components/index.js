@@ -402,7 +402,7 @@ const Root = ({ state }) => {
 
       <Switch>
         <Loading when={data.isFetching || !isFontLoaded} />
-        <List when={data.isArchive} />
+        <List when={isBlog} />
         <Post when={data.isPost} />
         <Page when={data.isPage} />
         <Error when={data.isError} />
