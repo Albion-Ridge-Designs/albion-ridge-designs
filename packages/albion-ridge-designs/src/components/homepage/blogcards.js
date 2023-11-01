@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState, useEffect } from "react"
 import { connect, styled } from "frontity"
 import Link from "@frontity/components/link"
 import {
@@ -14,34 +14,78 @@ import {
     useMediaQuery
   } from '@chakra-ui/react';
 import dayjs from "dayjs"
+import axios from "axios";
 import LoadingSmall from "../loadingsmall";
-import Loading from "../loading";
 
 const BlogCards = ({ state, libraries }) => {
-  const blogItems = state.source.get("/blog");
-  const blogData = state.source[blogItems.type];
-  console.log("blogData", blogData);
-  const blogValues = Object.values(blogData);
+//   const blogItems = state.source.get("/blog");
+//   const blogData = state.source[blogItems.type];
+//   const blogValues = Object.values(blogData);
   const Html2React = libraries.html2react.Component;
+  const [loading, setLoading] = useState(true);
   const [isSmallerThan420] = useMediaQuery('(max-width: 420px)');
-  const blogCardsSection = useRef();
-
   const [lastThreePosts, setLastThreePosts] = useState([]);
+  const [featuredImages, setFeaturedImages] = useState({});
 
-  useEffect(() => {
-    setLastThreePosts(blogValues.slice(-3).reverse());
-  }, [])
+  useEffect(async () => {
+    async function fetchPosts () {
+      let allPosts;
+      try{
+        axios
+            .get("https://wptemplates.albionridgedesigns.com/wp-json/wp/v2/posts")
+            .then((resp) => {
+                console.log("resp", resp);
+                allPosts = resp.data;
+                setLastThreePosts(allPosts.slice(-3).reverse());
+            })
+      } catch (err) {
+          console.log('error', err)
+      }
+    }
+    
+    // manually call the fecth function 
+    await fetchPosts();
+}, [])
 
+useEffect(() => {
+    let imageStorage = {};
+    async function fetchImage(id, url) {
+        try{
+          axios
+              .get(url)
+              .then((resp) => {
+                  console.log("resp", resp);
+                  imageStorage[id] = resp.data.source_url;
+                  console.log("imageStorage", imageStorage);
+                  if (Object.keys(imageStorage).length === 3) {
+                    setFeaturedImages(imageStorage);
+                    setLoading(false);
+                  }
+              })
+        } catch (err) {
+            console.log('error', err)
+        }
+      }
 
-  if (blogItems.isFetching) {
+    lastThreePosts.map(async (post) => {
+        await fetchImage(post.id, `https://wptemplates.albionridgedesigns.com/wp-json/wp/v2/media/${post.featured_media}`);
+    })
+    console.log("lastThreePosts", lastThreePosts);
+}, [lastThreePosts])
+
+useEffect(() => {
+    console.log("featuredImages", featuredImages)
+}, [featuredImages])
+
+  if (loading) {
     return (
         <LoadingSmall background="brand.700" />
     )
   }
 
-  if (!blogItems.isFetching) {
+  if (!loading) {
     return (
-    <Flex id="blogcards-section" ref={blogCardsSection} direction="column" alignItems="center" bg="brand.700" pt={20} pb={20}>
+    <Flex id="blogcards-section" direction="column" alignItems="center" bg="brand.700" pt={20} pb={20}>
         <Stack
         spacing={10}
         pl={10}
@@ -68,6 +112,7 @@ const BlogCards = ({ state, libraries }) => {
                 bg="brand.700"
             >
                 {lastThreePosts.map((post) => {
+                    console.log("featured", featuredImages)
                     let formattedDate = dayjs(post.date).format("MMMM DD, YYYY")
                     return (
                         <ChakraLink
@@ -102,7 +147,7 @@ const BlogCards = ({ state, libraries }) => {
                                     <Stack spacing="8">
                                         <Box overflow="hidden">
                                             <Image
-                                            src={state.source.attachment[post.featured_media].source_url}
+                                            src={featuredImages[post.id]}
                                             alt={post.title.rendered}
                                             width="full"
                                             height="15rem"

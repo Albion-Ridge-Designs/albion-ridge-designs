@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { connect } from "frontity"
 import Link from "@frontity/components/link"
 import {
@@ -17,6 +17,13 @@ const List = ({ state, libraries, actions }) => {
   const data = state.source.get(state.router.link);
   const Html2React = libraries.html2react.Component;
   const { element } = useSticky();
+  const [relatedPosts, setRelatedPosts] = useState([]);
+
+  useEffect(() => {
+    const posts = libraries.source.api.get("posts");
+    console.log("posts", posts)
+      actions.theme.fetchPosts().then((res) => console.log("res", res))
+  }, []);
 
   if (data.isFetching) {
     return <LoadingSmall background="brand.800" />
