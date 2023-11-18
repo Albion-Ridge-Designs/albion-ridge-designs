@@ -45,7 +45,7 @@ const Feed = (props) => {
             break;
         case "CAROUSEL_ALBUM":
             post = (
-                <AspectRatio ratio={4/5}>
+                <AspectRatio ratio={1/1}>
                 <Image
                 src={media_url}
                 alt={caption}
