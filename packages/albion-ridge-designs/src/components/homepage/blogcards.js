@@ -189,7 +189,6 @@ useEffect(() => {
 export default connect(BlogCards);
 
 const BlogHeading = styled.span`
-    color: #2C685D;
     -webkit-text-stroke-width: .5px;
     -webkit-text-stroke-color: black;
     padding: .5em;
