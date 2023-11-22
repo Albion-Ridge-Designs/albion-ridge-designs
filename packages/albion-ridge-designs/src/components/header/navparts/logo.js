@@ -27,7 +27,7 @@ function Logo() {
             }
             <Box mt="0px">
                 <a href="#application-section">
-                    <Button variant="ctagreen" size="sm" fontWeight="600" letterSpacing="1px" mt={5}>Let's Work Together</Button>
+                    <Button variant="ctalogocolor" size="sm" fontWeight="600" letterSpacing="1px" mt={5}>Let's Work Together</Button>
                 </a>
             </Box>
         </Flex>

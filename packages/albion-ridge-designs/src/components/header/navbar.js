@@ -22,6 +22,7 @@ import NavBody from "./navbody";
 import ardhorizontallogotransparent from "../../assets/ardhorizontallogotransparent.png";
 
 function Navbar({ state, sticky, menuItems, menuData, siteDomain, siteName }) {
+    const options = state.source.get("acf-options-page");
     const { isOpen, onOpen, onClose } = useDisclosure();
     const btnRef = React.useRef();
     const data = state.source.get(state.router.link);
@@ -62,6 +63,7 @@ function Navbar({ state, sticky, menuItems, menuData, siteDomain, siteName }) {
 
     if (!sticky) {
     return (
+        <>
         <Navigation>
             <Flex>
                 {isFontLoaded &&
@@ -72,9 +74,6 @@ function Navbar({ state, sticky, menuItems, menuData, siteDomain, siteName }) {
                         </Logo>
                     }
                     {isSmallerThan480 &&
-                        // <LogoMobile>
-                        //     <Heading color="brand.500" fontFamily="Amalta" style={{fontSize: "24px"}}>{siteName}</Heading>
-                        // </LogoMobile>
                         <Image src={ardhorizontallogotransparent} />
                     }
                 </Link>
@@ -104,12 +103,22 @@ function Navbar({ state, sticky, menuItems, menuData, siteDomain, siteName }) {
                 </Drawer>
             </Flex>
         </Navigation>
+    </>
     )
   }
 
   if (sticky) {
     return (
-        <NavigationSticky>
+    <>
+        <style>
+        {
+          `#navigation-sticky {
+            background: ${options.acf.brand_900}
+          }
+        `
+        }
+      </style>
+        <NavigationSticky id="navigation-sticky">
             <Flex direction="column">
                 <Link link="/">
                         {!isSmallerThan480 &&
@@ -118,21 +127,10 @@ function Navbar({ state, sticky, menuItems, menuData, siteDomain, siteName }) {
                             </Logo>
                         }
                         {isSmallerThan480 &&
-                            // <LogoMobile>
-                            //     <Heading color="brand.500" fontFamily="Amalta" style={{fontSize: "24px"}}>{siteName}</Heading>
-                            // </LogoMobile>
+    
                             <Image src={ardhorizontallogotransparent} />
                         }
                 </Link>
-                {/* <Flex direction="row" width="100%" justifyContent="center">
-                    <Flex direction="row" width="65%" justifyContent="space-around">
-                        <Text fontSize="lg" fontWeight="600" letterSpacing="1px" textAlign="center" color="brand.200">Websites</Text>
-                        <Text fontSize="lg" fontWeight="600" letterSpacing="1px" textAlign="center" color="brand.200">for</Text>
-                        <Text fontSize="lg" fontWeight="600" letterSpacing="1px" textAlign="center" color="brand.200">Humans,</Text>
-                        <Text fontSize="lg" fontWeight="600" letterSpacing="1px" textAlign="center" color="brand.200">by</Text>
-                        <Text fontSize="lg" fontWeight="600" letterSpacing="1px" textAlign="center" color="brand.200">Humans</Text>
-                    </Flex>
-                </Flex> */}
             </Flex>
             <Flex direction="row">
             <Button ref={btnRef} ml={3} mr={3} bg="transparent" _hover={{border: "0px", borderColor: "brand.500", backgroundColor: "brand.500"}} onClick={onOpen}>
@@ -158,6 +156,7 @@ function Navbar({ state, sticky, menuItems, menuData, siteDomain, siteName }) {
                 </Drawer>
             </Flex>
         </NavigationSticky>
+    </>
     )
   }
 }
@@ -183,7 +182,7 @@ const NavigationSticky = styled.div`
     position: absolute;
     z-index: 1;
     width: 100%;
-    background: #91B7C7;
+    /* background: #91B7C7; */
     position: fixed;
     top: 0;
     left: 0;

@@ -15,6 +15,7 @@ import Cta from "./sections/cta";
 import windowflowers from "../assets/windowflowers.jpg"
 
 const List = ({ state, libraries, actions }) => {
+  const options = state.source.get("acf-options-page");
   const data = state.source.get(state.router.link);
   const Html2React = libraries.html2react.Component;
   const { element } = useSticky();
@@ -54,8 +55,8 @@ const List = ({ state, libraries, actions }) => {
               -webkit-initial-letter: 2 3;
               initial-letter:  2 3;
               border: 5px solid #000;
-              background: #FEFAF1;
-              color: #EC9F05; 
+              background: ${options.acf.brand_800};
+              color: ${options.acf.brand_300};
               font-weight: 500;
               margin-right: .75em;
               padding: .75em;
