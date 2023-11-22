@@ -10,6 +10,7 @@ import { Chrono } from "react-chrono";
 import ardgradient19 from "../../assets/ardgradient19.jpeg";
 
 function Timeline({ state }) {
+  const options = state.source.get("acf-options-page");
   const timelineItems = state.source.get("/timeline/main");
   const timelineData = state.source[timelineItems.type][timelineItems.id];
   console.log("section id", timelineData.acf.section_id)
@@ -55,12 +56,12 @@ function Timeline({ state }) {
       <style>
         {
           `.timeline-card-content {
-                border: 2px solid #333333;
+                border: 2px solid ${options.acf.brand_200};
             }
             .timeline-card-content span:first-of-type {
               left: -13px;
-              border-top: 2px solid #333333;
-              border-right: 2px solid #333333;
+              border-top: 2px solid ${options.acf.brand_200};
+              border-right: 2px solid ${options.acf.brand_200};
             }
             .timeline-vertical-circle {
               z-index: 0;
@@ -80,10 +81,10 @@ function Timeline({ state }) {
           useReadMore={false}
           hideControls
           theme={{
-            primary: "#EC9F05",
-            secondary: "#ABC4A1",
-            cardBgColor: "#FEFAF1",
-            titleColor: "#FEFAF1",
+            primary: options.acf.brand_300, //"#EC9F05",
+            secondary: options.acf.brand_600, //"#ABC4A1",
+            cardBgColor: options.acf.brand_800, // "#FEFAF1",
+            titleColor: options.acf.brand_800 //"#FEFAF1",
           }}
           classNames={{
             card: 'my-card',
