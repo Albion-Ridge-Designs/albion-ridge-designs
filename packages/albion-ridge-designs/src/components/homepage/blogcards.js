@@ -23,6 +23,7 @@ const BlogCards = ({ state, libraries }) => {
 //   const blogValues = Object.values(blogData);
   const Html2React = libraries.html2react.Component;
   const [loading, setLoading] = useState(true);
+  const [display, setDisplay] = useState(false);
   const [isSmallerThan420] = useMediaQuery('(max-width: 420px)');
   const [lastThreePosts, setLastThreePosts] = useState([]);
   const [featuredImages, setFeaturedImages] = useState({});
@@ -35,7 +36,12 @@ const BlogCards = ({ state, libraries }) => {
             .get("https://wptemplates.albionridgedesigns.com/wp-json/wp/v2/posts")
             .then((resp) => {
                 allPosts = resp.data;
-                setLastThreePosts(allPosts.slice(-3).reverse());
+                if (allPosts.length > 2) {
+                    setLastThreePosts(allPosts.slice(-3).reverse());
+                }
+                if (allPosts.length < 2) {
+                    setLoading(false);
+                }
             })
       } catch (err) {
           console.log('error', err)
@@ -50,34 +56,41 @@ useEffect(() => {
     let imageStorage = {};
     async function fetchImage(id, url) {
         try{
-          axios
-              .get(url)
-              .then((resp) => {
-                  imageStorage[id] = resp.data.source_url;
-                  if (Object.keys(imageStorage).length === 3) {
+        axios
+            .get(url)
+            .then((resp) => {
+                imageStorage[id] = resp.data.source_url;
+                if (Object.keys(imageStorage).length === 3) {
                     setFeaturedImages(imageStorage);
+                    setDisplay(true);
                     setLoading(false);
-                  }
-              })
+                }
+            })
         } catch (err) {
             console.log('error', err)
         }
-      }
+    }
 
     lastThreePosts.map(async (post) => {
         await fetchImage(post.id, `https://wptemplates.albionridgedesigns.com/wp-json/wp/v2/media/${post.featured_media}`);
     })
-
 }, [lastThreePosts])
 
 
-  if (loading) {
+  if (loading && !display) {
     return (
         <LoadingSmall background="brand.700" />
     )
   }
 
-  if (!loading) {
+  if (!loading && !display) {
+    return (
+        <>
+        </>
+    )
+  }
+
+  if (!loading && display) {
     return (
     <Flex id="blogcards-section" direction="column" alignItems="center" bg="brand.700" pt={20} pb={20}>
         <Stack
@@ -159,8 +172,8 @@ useEffect(() => {
                             </Box>
                         </ChakraLink>
                 )
+                })
                 }
-                )}
             </SimpleGrid>
         </Stack>
         <Link link="/blog" mt={12}>

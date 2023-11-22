@@ -100,7 +100,7 @@ const Root = ({ state }) => {
                 fontFamily: "Graphik"
             },
             secondary: {
-                fontFamily: "GraphikSemibold"
+                fontFamily: "Amalta"
             },
         },
         components: {
