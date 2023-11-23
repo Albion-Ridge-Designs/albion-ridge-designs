@@ -280,6 +280,16 @@ const Root = ({ state }) => {
                   color: `${options.acf.brand_800}`,
                 },
               },
+              "ctamobile": {
+                bg: `${options.acf.brand_400}`,
+                size: "lg",
+                // color: "#FEFAF1",
+                border: `3px solid ${options.acf.brand_100}`,
+                _hover: {
+                  bg: `${options.acf.brand_600}`,
+                  color: `${options.acf.brand_800}`,
+                },
+              },
               "ctainverted": {
                 bg: `${options.acf.brand_600}`,
                 size: "lg",
