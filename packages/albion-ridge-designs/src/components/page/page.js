@@ -86,6 +86,7 @@ const Page = ({ state, libraries }) => {
       {data.route === "/" &&
         <Hero 
           imageBackground={post.acf.background.image_background}
+          imageBackgroundMobile={post.acf.background.image_background_mobile}
           gradientColors={post.acf.background.color_gradient_background.gradient_colors}
           gradientDirection={post.acf.background.color_gradient_background.gradient_direction}
           heroTopText={post.acf.hero_text.top_line_text}

@@ -10,7 +10,7 @@ import {
   } from "@chakra-ui/react";
 import useSticky from "../../hooks/useSticky";
 
-function Hero({ imageBackground, gradientColors, gradientDirection, heroTopText, heroBottomText, highlightColors, mainColor, ctaButtonText, heroTextMobile, highlightColorsMobile, mainColorMobile, ctaButtonLink }) {
+function Hero({ imageBackground, imageBackgroundMobile, gradientColors, gradientDirection, heroTopText, heroBottomText, highlightColors, mainColor, ctaButtonText, heroTextMobile, highlightColorsMobile, mainColorMobile, ctaButtonLink }) {
   const [index, setIndex] = useState(0);
   const { element } = useSticky();
   const [isSmallerThan420] = useMediaQuery('(max-width: 420px)');
@@ -80,7 +80,7 @@ function Hero({ imageBackground, gradientColors, gradientDirection, heroTopText,
   return (
     <>
     <style>
-        {
+          {
           `#video {
             // position: fixed;
             z-index: 0;
@@ -88,6 +88,10 @@ function Hero({ imageBackground, gradientColors, gradientDirection, heroTopText,
             height: 100vh;
             object-fit: cover;
             // filter:opacity(60%);
+          }
+            
+          #text-box {
+              z-index: 10;
           }
             `
         }
@@ -202,7 +206,7 @@ function Hero({ imageBackground, gradientColors, gradientDirection, heroTopText,
                             <Button variant="cta" size="lg" fontWeight="600" letterSpacing="1px" mt={5}>{ctaButtonText}</Button>
                           }
                           {isSmallerThan420 &&
-                            <Button variant="cta" size="md" fontWeight="600" fontFamily="Graphik" letterSpacing="1px" mt={1}>{ctaButtonText}</Button>
+                            <Button variant="ctamobile" size="md" fontWeight="600" fontFamily="Graphik" letterSpacing="1px" mt={1}>{ctaButtonText}</Button>
                           }
                         </a>
                       </Flex>
@@ -212,13 +216,14 @@ function Hero({ imageBackground, gradientColors, gradientDirection, heroTopText,
       </Flex>
       }
       {imageBackground &&
-          <Flex direction="column" justifyContent="center" alignItems="center" textAlign="center" height="100vh" backgroundImage={`url("${imageBackground}")`} backgroundAttachment="fixed" backgroundSize="cover" backgroundPosition="bottom">
+          <Flex direction="column" justifyContent="center" alignItems="center" textAlign="center" height="100vh" backgroundImage={{base: `url("${imageBackground}")`, md: `url("${imageBackground}")`}} backgroundAttachment={{ base: "scroll", md: "fixed"}} backgroundRepeat="no-repeat" backgroundSize="cover" backgroundPosition={{base: "bottom", md: "center"}}>
           <HeroContent>
               <div ref={element}>
                   {isFontLoaded &&
-                      <Flex direction="column" height="100vh" justifyContent="center" alignItems="center">
+                      <Flex direction="column" height="60vh" justifyContent="center">
+                        
                         {!isSmallerThan420 &&
-                          <Box p={4}>
+                          <Box p={4} id="text-box">
                             <HeroHeading>
                               <Heading color={mainColor} size="4xl" fontFamily="Amalta">
                                 {topLineArr.map((word, idx) => {
@@ -283,7 +288,7 @@ function Hero({ imageBackground, gradientColors, gradientDirection, heroTopText,
                           </Box>
                         }
                         {isSmallerThan420 &&
-                          <Box p={4}>
+                          <Box p={4} id="text-box">
                             <Heading color="brand.800" fontFamily="Amalta" fontWeight="500" size="3xl">
                               {mobileArr.map((word, idx) => {
                                   if (highlightWordsMobile.includes(word)) {
@@ -318,10 +323,10 @@ function Hero({ imageBackground, gradientColors, gradientDirection, heroTopText,
                               
                         <a href={ctaButtonLink}>
                           {!isSmallerThan420 &&
-                            <Button variant="cta" size="lg" fontWeight="600" letterSpacing="1px" mt={5}>{ctaButtonText}</Button>
+                            <Button variant="cta" size="lg" fontWeight="600" letterSpacing="1px">{ctaButtonText}</Button>
                           }
                           {isSmallerThan420 &&
-                            <Button variant="cta" size="md" fontWeight="600" fontFamily="Graphik" letterSpacing="1px" mt={1}>{ctaButtonText}</Button>
+                            <Button variant="ctamobile" size="md" fontWeight="600" fontFamily="Graphik" letterSpacing="1px" mt={1}>{ctaButtonText}</Button>
                           }
                         </a>
                       </Flex>
@@ -367,4 +372,14 @@ const HeroContent = styled.div`
     width: 100vw;
     height: 100vh;
     top: 0;
+    &:before {
+        background: rgba(0, 0, 0, 0.15);
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 0;
+    }
 `
