@@ -372,22 +372,6 @@ const HeroContent = styled.div`
     width: 100vw;
     height: 100vh;
     top: 0;
-
-    @media (max-width: 768px) { 
-        background-attachment: scroll;
-        background-repeat: no-repeat;
-        &:before {
-        background: rgba(0, 0, 0, 0.55);
-        content: "";
-        height: 100%;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 100%;
-        z-index: -1;
-    }
-      }
-
     &:before {
         background: rgba(0, 0, 0, 0.15);
         content: "";
