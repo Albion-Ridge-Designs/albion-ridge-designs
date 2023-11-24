@@ -66,6 +66,13 @@ function Timeline({ state }) {
             .timeline-vertical-circle {
               z-index: 0;
             }
+            .timeline-item-title {
+              min-width: fit-content
+            }
+            .card-media-wrapper {
+              min-height: fit-content !important;
+              height: fit-content !important;
+            }
             `
         }
       </style>
