@@ -24,23 +24,23 @@ function Testimonials({ state }) {
   if (displaySection === true) {
     return (
         <Flex id={testimonialData.acf.section_id} direction="column" align="center" bg="brand.800" borderTop="2px solid black" borderBottom="2px solid black">
-          <Flex direction="column" justify="center" minWidth="50%" ml="15%" mr="15%" mt={20} mb={20}>
+          <Flex direction="column" justify="center" minWidth="50%" ml={10} mr={10} mt={20} mb={20}>
             
           <>
             <Flex direction="column">
               {testimonialArr.map((testimonial, id) => (
                 <Box key={id}>
                   {currentStep === id &&
-                              <TestimonialCard
-                                // logo={<Plumtic h="6" color="gray.400" />}
-                                author={testimonial.name}
-                                role={testimonial.role}
-                                colorScheme={testimonial.accent_color}
-                                image={testimonial.headshot}
-                                key={id}
-                              >
-                              {testimonial.testimonial_content}
-                            </TestimonialCard>
+                    <TestimonialCard
+                      // logo={<Plumtic h="6" color="gray.400" />}
+                      author={testimonial.name}
+                      role={testimonial.role}
+                      colorScheme={testimonial.accent_color}
+                      image={testimonial.headshot}
+                      key={id}
+                    >
+                    {testimonial.testimonial_content}
+                  </TestimonialCard>
                   }
                 </Box>
                   ))}

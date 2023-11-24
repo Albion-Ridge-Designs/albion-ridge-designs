@@ -24,7 +24,7 @@ function TestimonialCard(props) {
         align="center"
         pt="10"
         pb="6"
-        px="10"
+        px="8"
       >
 
         {/* maxW="340" */}
