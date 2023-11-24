@@ -70,8 +70,10 @@ function Timeline({ state }) {
               min-width: fit-content
             }
             .card-media-wrapper {
-              min-height: fit-content !important;
-              height: fit-content !important;
+              @media (max-width: 600px) {
+                min-height: fit-content !important;
+                height: fit-content !important;
+              }
             }
             `
         }
