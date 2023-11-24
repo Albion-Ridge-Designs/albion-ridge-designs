@@ -165,7 +165,7 @@ const Offerings = ({ state, libraries }) => {
                                                                     </List>
                                                                 </Stack>
                                                         
-                                                                <Button onClick={(e) => setOfferChoice(offer.title)} variant={offer.offering_color} border="2px solid" borderColor="brand.200" size="lg" fontWeight={{base: "500", md: "600"}} fontFamily={{base: "GraphikSemibold", md: "Produkt"}} letterSpacing="1px" mt={5}>{offer.button_text}</Button>  
+                                                                <Button onClick={(e) => setOfferChoice(offer.title)} variant={offer.offering_color} border="2px solid" borderColor="brand.200" size="lg" fontWeight={{base: "500", md: "600"}} fontFamily={{base: "GraphikSemibold", md: "Produkt"}} letterSpacing="1px" mt={5}><Text isTruncated>{offer.button_text}</Text></Button>  
                                                             </Flex>
                                                         </Stack>
                                     
@@ -245,7 +245,7 @@ const Offerings = ({ state, libraries }) => {
                                                                         </List>
                                                                     </Stack>
                                                             
-                                                                    <Button onClick={(e) => setOfferChoice(offer.title)} variant={offer.offering_color} border="2px solid" borderColor="brand.200" size="lg" fontWeight={{base: "500", md: "600"}} fontFamily={{base: "GraphikSemibold", md: "Produkt"}} letterSpacing="1px" mt={5}>{offer.button_text}</Button>  
+                                                                    <Button onClick={(e) => setOfferChoice(offer.title)} variant={offer.offering_color} border="2px solid" borderColor="brand.200" size="lg" fontWeight={{base: "500", md: "600"}} fontFamily={{base: "GraphikSemibold", md: "Produkt"}} letterSpacing="1px" mt={5}><Text isTruncated>{offer.button_text}</Text></Button>  
                                                                 </Flex>
                                                             </Stack>
                                         
