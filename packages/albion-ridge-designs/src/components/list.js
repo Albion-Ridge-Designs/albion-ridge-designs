@@ -27,7 +27,7 @@ const List = ({ state, libraries, actions }) => {
       let allPosts;
       try{
         axios
-            .get("https://wptemplates.albionridgedesigns.com/wp-json/wp/v2/posts")
+            .get("https://wp.albionridgedesigns.com/wp-json/wp/v2/posts")
             .then((resp) => {
                 setPosts(resp.data);
             })

@@ -38,7 +38,7 @@ const Offerings = ({ state, libraries }) => {
   const [overflowColumns, setOverflowColumns] = useState(1);
 
   useEffect(() => {
-    console.log("mod 3 true?", offeringsArr.length % 3)
+    // console.log("mod 3 true?", offeringsArr.length % 3)
 
     if (offeringsArr.length === 1) {
         setColumnNumber(1);
