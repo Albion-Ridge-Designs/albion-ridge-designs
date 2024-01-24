@@ -2,7 +2,7 @@ const settings = {
   "name": "albion-ridge-designs",
   "state": {
     "frontity": {
-      "url": "https://wp.albionridgedesigns.com/",
+      "url": "https://wordpress.albionridgedesigns.com/",
       "title": "Albion Ridge Designs -- Basic Template",
       "description": "Starter theme for projects"
     }
@@ -23,11 +23,11 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "api": "https://wp.albionridgedesigns.com/wp-json",
+          "api": "https://wordpress.albionridgedesigns.com/wp-json",
           "params": {
             acf_format: "standard",
           },
-          "url": "https://wp.albionridgedesigns.com/",
+          "url": "https://wordpress.albionridgedesigns.com/",
           "postsPage": "/blog",
           "homepage": "/homepage",
           "postTypes": [
