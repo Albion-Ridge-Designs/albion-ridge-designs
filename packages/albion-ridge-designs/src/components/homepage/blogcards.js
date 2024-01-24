@@ -33,7 +33,7 @@ const BlogCards = ({ state, libraries }) => {
       let allPosts;
       try{
         axios
-            .get("https://wp.albionridgedesigns.com/wp-json/wp/v2/posts")
+            .get("https://wordpress.albionridgedesigns.com/wp-json/wp/v2/posts")
             .then((resp) => {
                 allPosts = resp.data;
                 if (allPosts.length > 2) {
@@ -72,7 +72,7 @@ useEffect(() => {
     }
 
     lastThreePosts.map(async (post) => {
-        await fetchImage(post.id, `https://wp.albionridgedesigns.com/wp-json/wp/v2/media/${post.featured_media}`);
+        await fetchImage(post.id, `https://wordpress.albionridgedesigns.com/wp-json/wp/v2/media/${post.featured_media}`);
     })
 }, [lastThreePosts])
 

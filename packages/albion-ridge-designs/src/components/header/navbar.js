@@ -38,7 +38,7 @@ function Navbar({ state, sticky, menuItems, menuData, siteDomain, siteName }) {
         const secLinks = menuData.acf.section_links;
         const socLinks = menuData.acf.social_links;    
         navLinks.map((link) => {
-            link.navigation_link.url = link.navigation_link.url.replace("http://wp.albionridgedesigns.com", `${siteDomain}` )
+            link.navigation_link.url = link.navigation_link.url.replace("http://wordpress.albionridgedesigns.com", `${siteDomain}` )
         })
         setNavigationLinks(navLinks);
         setSectionLinks(secLinks);
