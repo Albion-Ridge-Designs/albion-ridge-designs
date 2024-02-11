@@ -16,7 +16,7 @@ function SocLinks({ menuData, socialLinks }) {
 
             <Flex width="100%" justifyContent="flex-end" mb={1}>
                 <Text fontWeight="600" size="sm" color="brand.800">
-                    @albionridgedesigns
+                    @albionridgedesign
                 </Text>
             </Flex>
 
