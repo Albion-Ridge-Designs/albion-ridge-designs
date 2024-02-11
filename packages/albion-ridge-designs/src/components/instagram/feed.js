@@ -18,6 +18,10 @@ const Feed = (props) => {
     let post;
     const [showCaption, setShowCaption] = useState(false);
     function getWordStr(str) {
+        console.log("str", str)
+        if(typeof str === "undefined"){
+            return "...";
+        }
         return str.split(/\s+/).slice(0, 5).join(" ");
     }
     const cutCaption = getWordStr(caption);

@@ -22,7 +22,7 @@ function SocLinks({ menuData, socialLinks }) {
 
             <InstagramNav limit={6} />
             
-            <Flex width="100%" flexDirection="row" justifyContent="flex-end" mt={1}>
+            <Flex width="100%" flexDirection="row" justifyContent="flex-end" mt={2}>
                 {socialLinks.map((link, idx) => {
                     return (
                         <Link link={link.social_media_account_link} key={idx}>
