@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import {
-  Flex,
-  Text
+  Flex
 } from '@chakra-ui/react';
 import ApplicationSectionForm from "./applicationsectionform";
 
